@@ -34,15 +34,6 @@ class User < ApplicationRecord
         self.session_token
     end
 
-    belongs_to :portfolio,
-        foreign_key: :portfolio_id,
-        class_name: :Portfolio
-
-    belongs_to :holder,
-        primary_key: :user_id,
-        foreign_key: :id,
-        class_name: :Holder
-    
     private
     def ensure_session_token
         self.session_token ||= SecureRandom.base64(64)
