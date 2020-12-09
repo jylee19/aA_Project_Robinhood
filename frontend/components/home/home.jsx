@@ -1,24 +1,47 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { logout } from '../../actions/session_actions';
+import { logout, login } from '../../actions/session_actions';
 
 class Home extends Component {
 
     constructor(props){
         super(props);
+        this.state= {
+            username: "",
+            password: ""
+        }
         this.handleClick = this.handleClick.bind(this);
+        this.demo = this.demo.bind(this);
     }
 
     handleClick(e) {
         this.props.logout();
     }
 
+    demo(e){
+        e.preventDefault();
+        this.setState({ username: 'demoUser' });
+        this.setState({ password: 'demoUser1' });
+        this.props.startDemo(this.state);
+
+    }
+
     render() {
         let display;
-        if (this.props.currentUser) {
+        if (this.state.username === 'demoUser') {
+            display = (
+                <div>
+                    <p>Welcome to the Robingoods demo!</p>
+                    <p>We hope that you'll learn a thing or two</p>
+                    <Link className="btn" to="/demo">Click here to begin!</Link>                  
+                </div>
+            )
+         } else if (this.props.currentUser) {
             display = (
                 <div>
                     <p>Hello, {this.props.currentUser.username}</p>
+                    <Link className="btn" to={ `/users/${this.props.currentUser.id}/edit` }>Change user information</Link>
+                    <br/>
                     <button onClick={this.handleClick}>Logout</button>
                 </div>
             )
@@ -28,6 +51,10 @@ class Home extends Component {
                     <Link className="btn" to="/signup">Signup</Link>
                     <br/>
                     <Link className="btn" to="/login">Login</Link>
+                    <br/>
+                    {/* <button onClick={this.demo}>Want a test run?</button> */}
+                    <Link className="btn" to="/demo"><button onClick={this.demo}>Want a test run?</button></Link>
+                    {/* <Link className="btn" to="/demo">Want a test run?</Link> */}
                 </div>
             )
         }

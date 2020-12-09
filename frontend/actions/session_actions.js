@@ -1,33 +1,37 @@
-import {
-    postUser,
-    postSession,
-    deleteSession
-} from '../util/session_api_util';
+import * as UserAPIUtil from '../util/session_api_util';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 
-const receiveCurrentUser = (currentUser) => {
+const receiveCurrentUser = (user) => {
     return {
-        action: RECEIVE_CURRENT_USER,
-        currentUser
+        type: RECEIVE_CURRENT_USER,
+        user
     }
 }
 
 const logoutCurrentUser = () => {
     return {
-        action: LOGOUT_CURRENT_USER
+        type: LOGOUT_CURRENT_USER
     }
 }
 
 export const signup = (user) => dispatch => {
-    return postUser(user).then(u => dispatch(receiveCurrentUser(u)))
+    return UserAPIUtil.postUser(user).then(u => dispatch(receiveCurrentUser(u)))
 }
 
 export const login = (user) => dispatch => {
-    return postSession(user).then(u => dispatch(receiveCurrentUser(u)))
+    return UserAPIUtil.postSession(user).then(u => dispatch(receiveCurrentUser(u)))
 }
 
 export const logout = () => dispatch => {
-    return deleteSession().then(() => dispatch(logoutCurrentUser()))
+    return UserAPIUtil.deleteSession().then(() => dispatch(logoutCurrentUser()))
+}
+
+export const updateUserInfo = (user) => dispatch => {
+    return UserAPIUtil.updateUser(user).then(u => dispatch(receiveCurrentUser(u)))
+}
+
+export const requestUser = (userId) => dispatch => {
+    return UserAPIUtil.requestUser(userId).then(u => dispatch(receiveCurrentUser(u)))
 }

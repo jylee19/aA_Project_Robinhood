@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
 import Home from './home';
-import { logout } from '../../actions/session_actions'
+import { logout, login } from '../../actions/session_actions'
 
 
 const mapStateToProps = (state) => {
     return {
-        currentUser: state.users[state.session.id]
+        currentUser: state.user[state.session.id]
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        startDemo: (user) => dispatch(login(user))
     }
 }
 

@@ -5,13 +5,13 @@ import { signup } from '../../actions/session_actions'
 
 const mapStateToProps = (state) => {
     return {
-        formType: 'signup'
+        formType: 'Sign up'
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        processForm: (user) => dispatch(signup(user))
+        action: (user) => dispatch(signup(user))
     }
 }
 

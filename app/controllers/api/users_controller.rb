@@ -1,12 +1,13 @@
+require 'byebug'
 class Api::UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
         @user.available_liquidity = 0
-        @user.portfolio_id = -1
+        #place holder for portfolio_id until it is made
+        @user.portfolio_id = -4
         @user.trades_made_today = 0
         @user.total_trades_made = 0
-
         if @user.save!
             login!(@user)
             render :show
@@ -16,7 +17,7 @@ class Api::UsersController < ApplicationController
     end
 
     def update
-        @user = User.find(params[:id])
+        #@user = User.find(params[:id])
         if @user.update(user_params)
             render :show
         else
