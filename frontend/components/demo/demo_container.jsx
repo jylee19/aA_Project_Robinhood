@@ -3,7 +3,7 @@ import Demo from './demo';
 import { logout, login } from '../../actions/session_actions';
 
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
     return {
         demoUser: state.user[state.session.id]
     }

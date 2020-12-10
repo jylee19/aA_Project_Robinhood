@@ -1,26 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+
 
 
 class SignupForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: "",
-            username: "",
-            password: ""
-        };
-        this.handleChange = this.handleChange.bind(this);
+            id: this.props.user.id,
+            email: this.props.user.email,
+            username: this.props.user.username,
+            password: "",
+            redirect: null
+        }
+        this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(e) {
-        if (e.target.id === 'un') {
-            this.setState({ username: e.target.value })
-        } else if (e.target.id === 'pass') {
-            this.setState({ password: e.target.value })           
-        } else {
-            this.setState({ email: e.target.value })
+    update(field){
+        return e => {
+            this.setState({ [field]: e.currentTarget.value })
         }
     }
 
@@ -28,12 +29,20 @@ class SignupForm extends React.Component {
         // debugger;
         e.preventDefault();
         // const user = Object.assign({}, this.state);
-        this.props.action(this.state);
+        this.props.action(this.state).then(() => { this.setState({ redirect: '/'})});
+        //setTime for slight amount of time to change
+        // this.setState({ redirect: '/' });
+        // this.props.history.push('/');
+        // use history
     }
+
 
     render() {
         let errors;
         if (this.props.errors) errors = this.props.errors.map(err => (<h2>{err}</h2>));
+        if (this.state.redirect) {
+            return <Redirect to={this.state.redirect}/>
+        }
         let display;
         if (this.props.formType === 'Sign up') {
             display = (
@@ -44,13 +53,13 @@ class SignupForm extends React.Component {
                     <p></p>
                     <form onSubmit={ this.handleSubmit }>
                     <label>Email:
-                        <input id='email' type='text' value={ this.state.email } onChange={ this.handleChange }></input>
+                        <input id='email' type='text' value={ this.state.email } onChange={ this.update('email') }></input>
                     </label>                
                     <label>Username:
-                        <input id='un' type='text' value={ this.state.username } onChange={ this.handleChange }></input>
+                        <input id='un' type='text' value={ this.state.username } onChange={ this.update('username') }></input>
                     </label>
                     <label>Password:
-                        <input id='pass' type='password' value={ this.state.password } onChange={ this.handleChange }></input>
+                        <input id='pass' type='password' value={ this.state.password } onChange={ this.update('password') }></input>
                     </label>
                     <ul>
                         {errors}
@@ -67,13 +76,13 @@ class SignupForm extends React.Component {
                     <h1>Change user information</h1>
                     <form onSubmit={ this.handleSubmit }>
                     <label>Email:
-                        <input id='email' type='text' value={ this.props.user.email } onChange={ this.handleChange }></input>
+                        <input id='email' type='text' value={ this.state.email } onChange={ this.update('email') }></input>
                     </label>                
                     <label>Username:
-                        <input id='un' type='text' value={ this.props.user.username } onChange={ this.handleChange }></input>
+                        <input id='un' type='text' value={ this.state.username } onChange={ this.update('username') }></input>
                     </label>
                     <label>Password:
-                        <input id='pass' type='password' value={ this.props.user.password } onChange={ this.handleChange }></input>
+                        <input id='pass' type='password' value={ this.state.password } onChange={ this.update('password') }></input>
                     </label>
                     <ul>
                         {errors}

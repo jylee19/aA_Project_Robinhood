@@ -1,0 +1,1 @@
+json.extract! @portfolio, :id, :useruser_id, :value, :num_stocks

@@ -34,6 +34,11 @@ class User < ApplicationRecord
         self.session_token
     end
 
+    belongs_to :portfolio,
+        foreign_key: :portfolio_id,
+        class_name: :Portfolio
+
+
     private
     def ensure_session_token
         self.session_token ||= SecureRandom.base64(64)
