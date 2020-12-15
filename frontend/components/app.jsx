@@ -6,6 +6,7 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import demoContainer from './demo/demo_container';
 import editUserContainer from './session/edit_form_container';
+import dashboardContainer from './dashboard/dashboard_container';
 
 const App = () => (
   <div>
@@ -13,7 +14,8 @@ const App = () => (
     <AuthRoute path="/login" component={LoginFormContainer} />
     <AuthRoute path="/signup" component={SignupFormContainer} />
     <Route exact path ="/demo" component={demoContainer} />
-    <Route path="/users/:userId/edit" component={editUserContainer} />
+    <Route exact path="/users/:userId/edit" component={editUserContainer} />
+    <Route path="/users/:userId" component={dashboardContainer} />
   </div>
 );
 

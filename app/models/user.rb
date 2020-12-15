@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
     validates :username, :session_token, presence: true, uniqueness: true
-    validates :password_digest, :available_liquidity, :portfolio_id, presence: true
+    validates :password_digest, :available_liquidity, presence: true
     validates :trades_made_today, :total_trades_made, presence: true
     validates :email, presence: true, uniqueness: true
 
@@ -34,10 +34,7 @@ class User < ApplicationRecord
         self.session_token
     end
 
-    belongs_to :portfolio,
-        foreign_key: :portfolio_id,
-        class_name: :Portfolio
-
+    has_one :portfolio
 
     private
     def ensure_session_token

@@ -27,7 +27,7 @@ class Api::PortfoliosController < ApplicationController
     private
 
     def portfolio_params
-        params.require(:portfolios).permit(:user_id)
+        params.require(:portfolio).permit(:user_id)
     end
 
 end

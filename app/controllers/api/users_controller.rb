@@ -4,8 +4,6 @@ class Api::UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         @user.available_liquidity = 0
-        #place holder for portfolio_id until it is made
-        @user.portfolio_id = -4
         @user.trades_made_today = 0
         @user.total_trades_made = 0
         if @user.save!

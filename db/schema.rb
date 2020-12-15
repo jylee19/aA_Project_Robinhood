@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_08_015854) do
+ActiveRecord::Schema.define(version: 2020_12_15_163326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,13 +51,12 @@ ActiveRecord::Schema.define(version: 2020_12_08_015854) do
     t.string "password_digest", null: false
     t.string "session_token", null: false
     t.float "available_liquidity", null: false
-    t.integer "portfolio_id", null: false
     t.integer "trades_made_today", null: false
     t.integer "total_trades_made", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "portfolio_id"
     t.index ["email"], name: "index_users_on_email"
-    t.index ["portfolio_id"], name: "index_users_on_portfolio_id", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
     t.index ["username", "email"], name: "index_users_on_username_and_email", unique: true
   end

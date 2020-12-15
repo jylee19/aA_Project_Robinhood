@@ -4,7 +4,8 @@ import { login } from '../../actions/session_actions';
 
 const mSTP = (state) => {
     return {
-        formType: 'login'
+        formType: 'login',
+        
     }
 }
 

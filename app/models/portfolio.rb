@@ -1,5 +1,5 @@
 class Portfolio < ApplicationRecord
-    validates :user_id, :value, :num_stocks, presence: true, uniqueness: true
+    #validates :user_id, :value, :num_stocks, presence: true, uniqueness: true
 
     belongs_to :user,
         foreign_key: :user_id,

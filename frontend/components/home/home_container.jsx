@@ -5,7 +5,7 @@ import { logout, login } from '../../actions/session_actions'
 
 const mapStateToProps = (state) => {
     return {
-        currentUser: state.user[state.session.id]
+        currentUser: state.entities.user[state.session.id]
     }
 }
 

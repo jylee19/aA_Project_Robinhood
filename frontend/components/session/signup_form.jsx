@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 
 
-
 class SignupForm extends React.Component {
     constructor(props) {
         super(props);
@@ -26,21 +25,22 @@ class SignupForm extends React.Component {
     }
 
     handleSubmit(e) {
-        // debugger;
-        e.preventDefault();
-        // const user = Object.assign({}, this.state);
-        this.props.action(this.state).then(() => { this.setState({ redirect: '/'})});
-        //setTime for slight amount of time to change
-        // this.setState({ redirect: '/' });
-        // this.props.history.push('/');
-        // use history
+        // e.preventDefault(); //Chain on creating a portfolio after
+        if (this.props.formType === 'Update User'){
+            this.props.action(this.state).then(() => this.setState({ redirect: `/users/${this.state.id}` }));
+        } else{
+            this.props.action(this.state);
+        }
+
     }
+
 
 
     render() {
         let errors;
         if (this.props.errors) errors = this.props.errors.map(err => (<h2>{err}</h2>));
         if (this.state.redirect) {
+            console.log(this.state.redirect)
             return <Redirect to={this.state.redirect}/>
         }
         let display;

@@ -53,6 +53,7 @@ class Home extends Component {
             display = (
                 <div>
                     <p>Hello, {this.props.currentUser.username}</p>
+                    <p>User id is {this.state.id}</p>
                     <Link className="btn" to={ `/users/${this.props.currentUser.id}/edit` }>Change user information</Link>
                     <br/>
                     <button onClick={this.handleClick}>Logout</button>
