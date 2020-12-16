@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         logout: () => dispatch(logout()),
-        startDemo: (user) => dispatch(login(user))
+        startDemo: (user) => dispatch(login(user)),
+        showPortfolio: portfolioId => dispatch(showPortfolio(portfolioId))
     }
 }
 

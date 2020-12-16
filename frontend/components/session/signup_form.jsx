@@ -40,7 +40,6 @@ class SignupForm extends React.Component {
         let errors;
         if (this.props.errors) errors = this.props.errors.map(err => (<h2>{err}</h2>));
         if (this.state.redirect) {
-            console.log(this.state.redirect)
             return <Redirect to={this.state.redirect}/>
         }
         let display;

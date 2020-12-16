@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { logout, login } from '../../actions/session_actions';
 import { Redirect } from 'react-router-dom';
+import { showPortfolio } from '../../actions/portfolio_actions';
+// import '../stylesheet.css';
 
 class Home extends Component {
 
@@ -13,13 +15,17 @@ class Home extends Component {
         this.handleClick = this.handleClick.bind(this);
         this.demo = this.demo.bind(this);
         this.begin = this.begin.bind(this);
+        // this.setPortfolio = this.setPortfolio.bind(this);
     }
 
     handleClick(e) {
         this.props.logout();
     }
 
-    
+    // setPortfolio(){
+    //     console.log("Do I get here")
+    //     this.props.showPortfolio(this.props.currentUser.id).then(() => this.setState({redirect: `/users/${this.props.currentUser.id}`});
+    // }
 
     demo(e){
         e.preventDefault();
@@ -49,34 +55,27 @@ class Home extends Component {
         }
         let display;
         if (this.state.username === 'demoUser') {
-            display = (
+            return(
                 <div>
                     <p>Welcome to the Robingoods demo!</p>
                     <p>We hope that you'll learn a thing or two</p>
                     <Link className="btn" to="/demo"><button>Click here to begin!</button></Link>
-                </div>
+                </div>               
             )
-        //  } else if (this.props.currentUser) {
+         }
+        // else if (this.props.currentUser) {
+        // //     return this.setPortfolio();
+        // } else {
         //     display = (
         //         <div>
-        //             <p>Hello, {this.props.currentUser.username}</p>
-        //             <p>User id is {this.state.id}</p>
-        //             <Link className="btn" to={ `/users/${this.props.currentUser.id}/edit` }>Change user information</Link>
+        //             <Link className="btn" to="/signup">Signup</Link>
         //             <br/>
-        //             <button onClick={this.handleClick}>Logout</button>
+        //             <Link className="btn" to="/login">Login</Link>
+        //             <br/>
+        //             <button onClick={this.demo}>Want a test run?</button>
         //         </div>
         //     )
-        } else {
-            display = (
-                <div>
-                    <Link className="btn" to="/signup">Signup</Link>
-                    <br/>
-                    <Link className="btn" to="/login">Login</Link>
-                    <br/>
-                    <button onClick={this.demo}>Want a test run?</button>
-                </div>
-            )
-        }
+        // }
 
         return(
             <div>
@@ -85,10 +84,13 @@ class Home extends Component {
                     <Link className="btn" to="/signup">Sign Up</Link>
 
                 </div>
-                <h1>Investing for Everyone</h1>
-                <p>Commission-free investing, plus the tools you need to put your money in motion. Sign up and get your first stock for free. Certain limitations apply</p>
-                <button onClick={this.demo}>Want a test run?</button>
-                <button onClick={this.handleClick}>Logout</button>
+                <div style={{backgroundColor: "#b9f646"}}>
+                    <h1>Investing for Everyone</h1>
+                    <p>Commission-free investing, plus the tools you need to put your money in motion. Sign up and get your first stock for free. Certain limitations apply</p>
+                    <button onClick={this.demo}>Want a test run?</button>
+                    <button onClick={this.handleClick}>Logout</button>
+                </div>
+
             </div>
         );
     }
