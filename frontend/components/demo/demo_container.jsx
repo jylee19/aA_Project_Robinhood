@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Demo from './demo';
-import { logout, login } from '../../actions/session_actions';
+import { logout, login, updateUserInfo } from '../../actions/session_actions';
+import { showPortfolio } from '../../actions/portfolio_actions';
 
 
 const mSTP = (state, ownProps) => {
@@ -11,7 +12,9 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
     return {
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        fetchPortfolio: portfolioId => dispatch(showPortfolio(portfolioId)),
+        updatePortfolioId: user => dispatch(updateUserInfo(user))
     }
 }
 

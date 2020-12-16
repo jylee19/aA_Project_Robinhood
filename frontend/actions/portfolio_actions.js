@@ -9,6 +9,7 @@ const receivePortfolio = (portfolio) => {
     }
 }
 
+
 export const makePortfolio = (portfolio) => dispatch => {
     return PortfolioAPIUtil.postPortfolio(portfolio).then(p => dispatch(receivePortfolio(p)))
 }
@@ -16,4 +17,6 @@ export const makePortfolio = (portfolio) => dispatch => {
 export const showPortfolio = (portfolioId) => dispatch => {
     return PortfolioAPIUtil.fetchPortfolio(portfolioId).then(p => dispatch(receivePortfolio(p)))
 }
+
+
 

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { logout, login } from '../../actions/session_actions';
+import { Redirect } from 'react-router-dom';
 
 class Home extends Component {
 
     constructor(props){
         super(props);
         this.state= {
-            username: "",
-            password: ""
+            redirect: null
         }
         this.handleClick = this.handleClick.bind(this);
         this.demo = this.demo.bind(this);
@@ -23,8 +23,11 @@ class Home extends Component {
 
     demo(e){
         e.preventDefault();
-        this.setState({ username: 'demoUser' });
-        this.setState({ password: 'demoUser1' });
+        let demo = {
+            username: 'demoUser',
+            password: 'demoUser1'
+        }
+        this.props.startDemo(demo).then(() => this.setState({ redirect: `/demo` }));
     }
 
     begin(e){
@@ -40,6 +43,10 @@ class Home extends Component {
 
 
     render() {
+        if (this.state.redirect) {
+            console.log(this.state.redirect)
+            return <Redirect to={this.state.redirect}/>
+        }
         let display;
         if (this.state.username === 'demoUser') {
             display = (
@@ -49,16 +56,16 @@ class Home extends Component {
                     <Link className="btn" to="/demo"><button>Click here to begin!</button></Link>
                 </div>
             )
-         } else if (this.props.currentUser) {
-            display = (
-                <div>
-                    <p>Hello, {this.props.currentUser.username}</p>
-                    <p>User id is {this.state.id}</p>
-                    <Link className="btn" to={ `/users/${this.props.currentUser.id}/edit` }>Change user information</Link>
-                    <br/>
-                    <button onClick={this.handleClick}>Logout</button>
-                </div>
-            )
+        //  } else if (this.props.currentUser) {
+        //     display = (
+        //         <div>
+        //             <p>Hello, {this.props.currentUser.username}</p>
+        //             <p>User id is {this.state.id}</p>
+        //             <Link className="btn" to={ `/users/${this.props.currentUser.id}/edit` }>Change user information</Link>
+        //             <br/>
+        //             <button onClick={this.handleClick}>Logout</button>
+        //         </div>
+        //     )
         } else {
             display = (
                 <div>
@@ -73,8 +80,15 @@ class Home extends Component {
 
         return(
             <div>
-                <h1>Welcome to Robingoods</h1>
-                {display}
+                <div className="topnav">
+                    <Link className="btn" to="/login">Login</Link>
+                    <Link className="btn" to="/signup">Sign Up</Link>
+
+                </div>
+                <h1>Investing for Everyone</h1>
+                <p>Commission-free investing, plus the tools you need to put your money in motion. Sign up and get your first stock for free. Certain limitations apply</p>
+                <button onClick={this.demo}>Want a test run?</button>
+                <button onClick={this.handleClick}>Logout</button>
             </div>
         );
     }

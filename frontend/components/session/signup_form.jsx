@@ -67,7 +67,6 @@ class SignupForm extends React.Component {
                     <button>{this.props.formType}</button>
                     </form>
                     <br/>
-                    <Link className="btn" to="/demo">Want a test run?</Link>
                 </React.Fragment>
             )
         } else {
