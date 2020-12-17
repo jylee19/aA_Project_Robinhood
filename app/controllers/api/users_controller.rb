@@ -8,6 +8,11 @@ class Api::UsersController < ApplicationController
         @user.total_trades_made = 0
         if @user.save!
             login!(@user)
+            @portfolio = Portfolio.new()
+            @portfolio.user_id = @user.id
+            @portfolio.value = 0
+            @portfolio.num_stocks = 0
+            @portfolio.save!
             render :show
         else
             render json: @user.errors.full_messages, status: 422

@@ -21,6 +21,10 @@ module.exports = {
         },
       }
     ]
+    // loaders: [
+    //   { test: /\.js$/, exclude: /node_modules/, loaders: 'babel', query: { presets: ['react', 'es2015', 'stage-1'] } },
+    //   { test: /\.css$/, loader: "style-loader!css-loader" }
+    // ]
   },
   devtool: 'source-map', 
   resolve: { 

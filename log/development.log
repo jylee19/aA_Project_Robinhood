@@ -16579,3 +16579,2428 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 584ms (Views: 576.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2020-12-15 23:56:18 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 87ms (Views: 82.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 09:18:13 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (47.7ms)
+Completed 200 OK in 1659ms (Views: 1594.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 09:18:53 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 356ms (Views: 339.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 09:18:57 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 872ms (Views: 863.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 09:20:16 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 241ms (Views: 229.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 11:44:02 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 857ms (Views: 815.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2020-12-16 11:44:15 -0800
+Processing by Api::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"email400", "username"=>"user400", "password"=>"[FILTERED]", "redirect"=>""}, "default"=>{"format"=>:json}}
+Unpermitted parameter: :redirect
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (4.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user400"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Tcv3cv+Ii8oqAgdQsr1S0F0/wmTaXRE82g/i6k3PDJFF2p7NQRXWcDUzRAGAuLReMtXQrW5Zy8D2608BGMMjKg=="], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email400"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Create (9.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "available_liquidity", "trades_made_today", "total_trades_made", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["username", "user400"], ["email", "email400"], ["password_digest", "$2a$12$NXm3S18i8K9JilQYwvemh.kkDzW/S0T9V3fJuoIVEdrm4y1o9J2qa"], ["session_token", "Tcv3cv+Ii8oqAgdQsr1S0F0/wmTaXRE82g/i6k3PDJFF2p7NQRXWcDUzRAGAuLReMtXQrW5Zy8D2608BGMMjKg=="], ["available_liquidity", 0.0], ["trades_made_today", 0], ["total_trades_made", 0], ["created_at", "2020-12-16 19:44:15.904645"], ["updated_at", "2020-12-16 19:44:15.904645"]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "user400"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "TbUSmmfiKH/pOyKjSns87usjFFggD4rNO1ZYenp2X1oz3UimWpBae/DS0pakT0TJy+Pieubgi3tcJYVx33XBJA=="], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "email400"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "TbUSmmfiKH/pOyKjSns87usjFFggD4rNO1ZYenp2X1oz3UimWpBae/DS0pakT0TJy+Pieubgi3tcJYVx33XBJA=="], ["updated_at", "2020-12-16 19:44:15.930884"], ["id", 4]]
+  ↳ app/models/user.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:11
+Completed 500 Internal Server Error in 458ms (ActiveRecord: 80.1ms)
+
+
+
+ArgumentError - When assigning attributes, you must pass a hash as an argument.:
+  app/controllers/api/users_controller.rb:11:in `create'
+
+Started GET "/" for ::1 at 2020-12-16 11:45:27 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 87ms (Views: 83.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2020-12-16 11:45:35 -0800
+Processing by Api::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"email400", "username"=>"user400", "password"=>"[FILTERED]", "redirect"=>""}, "default"=>{"format"=>:json}}
+Unpermitted parameter: :redirect
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user400"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Pu6i1BtsCKU6nZ6idX18+5Fli571c7TR/oM4ihuWCYpwyEhGfNTkHz0YfXWKZiT3WmYyI2jEnt8qwacHGzp5yA=="], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email400"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:9
+Completed 422 Unprocessable Entity in 267ms (ActiveRecord: 8.0ms)
+
+
+
+ActiveRecord::RecordInvalid - Validation failed: Username has already been taken, Email has already been taken:
+  app/controllers/api/users_controller.rb:9:in `create'
+
+Started POST "/api/users" for ::1 at 2020-12-16 11:46:29 -0800
+Processing by Api::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"email401", "username"=>"user401", "password"=>"[FILTERED]", "redirect"=>""}, "default"=>{"format"=>:json}}
+Unpermitted parameter: :redirect
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user401"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zXKW7x1iTONGuOf+xJ3fhotQPz+C2yoy2BVKrrejxBdZJfEFzA/ODBKMN55h8J/QdP4o2TS/TypzSHbDd4c7Ug=="], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email401"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "available_liquidity", "trades_made_today", "total_trades_made", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["username", "user401"], ["email", "email401"], ["password_digest", "$2a$12$5hGdBoG6.RLTB0vc0fIqzOWmJqARzAMU/cTlMmNcOCPTxTFXeHyNK"], ["session_token", "zXKW7x1iTONGuOf+xJ3fhotQPz+C2yoy2BVKrrejxBdZJfEFzA/ODBKMN55h8J/QdP4o2TS/TypzSHbDd4c7Ug=="], ["available_liquidity", 0.0], ["trades_made_today", 0], ["total_trades_made", 0], ["created_at", "2020-12-16 19:46:29.860624"], ["updated_at", "2020-12-16 19:46:29.860624"]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "user401"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "uWkQudjGQ9o4P5n0fM7OyMnih64fSkSfUAODHkzbrTjGEOa9n+5DQvooCg62Dq6EwFXinBa4QNZAPmbsQnJbpA=="], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "email401"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "uWkQudjGQ9o4P5n0fM7OyMnih64fSkSfUAODHkzbrTjGEOa9n+5DQvooCg62Dq6EwFXinBa4QNZAPmbsQnJbpA=="], ["updated_at", "2020-12-16 19:46:29.873508"], ["id", 5]]
+  ↳ app/models/user.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:33
+Unpermitted parameters: :email, :username, :password, :redirect
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:14
+Completed 422 Unprocessable Entity in 339ms (ActiveRecord: 17.0ms)
+
+
+
+ActiveRecord::RecordInvalid - Validation failed: User must exist:
+  app/controllers/api/users_controller.rb:14:in `create'
+
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (5034.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Robingoods_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (61.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Robingoods_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (40.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Robingoods_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (150.6ms)[0m  [1m[35mCREATE DATABASE "Robingoods_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (52.2ms)[0m  [1m[35mCREATE DATABASE "Robingoods_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (4.0ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "holders" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (37.9ms)[0m  [1m[35mCREATE TABLE "holders" ("id" bigserial primary key, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_holders_on_user_id" ON "holders"  ("user_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "portfolios" CASCADE[0m
+  ↳ db/schema.rb:25
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "portfolios" ("id" bigserial primary key, "user_id" integer NOT NULL, "value" float NOT NULL, "num_stocks" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:25
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_portfolios_on_user_id" ON "portfolios"  ("user_id")[0m
+  ↳ db/schema.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "stocks" CASCADE[0m
+  ↳ db/schema.rb:34
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "stocks" ("id" bigserial primary key, "NYSE_abv" character varying NOT NULL, "portfolio_id" integer NOT NULL, "holder_id" integer NOT NULL, "value" float NOT NULL, "comp_description" character varying NOT NULL, "num_trades" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:34
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_stocks_on_NYSE_abv" ON "stocks"  ("NYSE_abv")[0m
+  ↳ db/schema.rb:34
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_stocks_on_holder_id" ON "stocks"  ("holder_id")[0m
+  ↳ db/schema.rb:34
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_stocks_on_portfolio_id" ON "stocks"  ("portfolio_id")[0m
+  ↳ db/schema.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:48
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "available_liquidity" float NOT NULL, "trades_made_today" integer NOT NULL, "total_trades_made" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "portfolio_id" integer)[0m
+  ↳ db/schema.rb:48
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:48
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:48
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username_and_email" ON "users"  ("username", "email")[0m
+  ↳ db/schema.rb:48
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201215163326)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20201208014117),
+(20201215083659),
+(20201207232047),
+(20201208014734),
+(20201208015854);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-16 19:47:36.852010"], ["updated_at", "2020-12-16 19:47:36.852010"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "holders" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (21.6ms)[0m  [1m[35mCREATE TABLE "holders" ("id" bigserial primary key, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_holders_on_user_id" ON "holders"  ("user_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "portfolios" CASCADE[0m
+  ↳ db/schema.rb:25
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "portfolios" ("id" bigserial primary key, "user_id" integer NOT NULL, "value" float NOT NULL, "num_stocks" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:25
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_portfolios_on_user_id" ON "portfolios"  ("user_id")[0m
+  ↳ db/schema.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "stocks" CASCADE[0m
+  ↳ db/schema.rb:34
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "stocks" ("id" bigserial primary key, "NYSE_abv" character varying NOT NULL, "portfolio_id" integer NOT NULL, "holder_id" integer NOT NULL, "value" float NOT NULL, "comp_description" character varying NOT NULL, "num_trades" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:34
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_stocks_on_NYSE_abv" ON "stocks"  ("NYSE_abv")[0m
+  ↳ db/schema.rb:34
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_stocks_on_holder_id" ON "stocks"  ("holder_id")[0m
+  ↳ db/schema.rb:34
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_stocks_on_portfolio_id" ON "stocks"  ("portfolio_id")[0m
+  ↳ db/schema.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:48
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "available_liquidity" float NOT NULL, "trades_made_today" integer NOT NULL, "total_trades_made" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "portfolio_id" integer)[0m
+  ↳ db/schema.rb:48
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:48
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:48
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username_and_email" ON "users"  ("username", "email")[0m
+  ↳ db/schema.rb:48
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201215163326)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20201208014117),
+(20201215083659),
+(20201207232047),
+(20201208014734),
+(20201208015854);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (2.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-16 19:47:36.990771"], ["updated_at", "2020-12-16 19:47:36.990771"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-12-16 19:47:36.997283"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2020-12-16 11:47:45 -0800
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jylee/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 1124ms (Views: 1116.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2020-12-16 11:47:51 -0800
+Processing by Api::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"email1", "username"=>"user1", "password"=>"[FILTERED]", "redirect"=>""}, "default"=>{"format"=>:json}}
+Unpermitted parameter: :redirect
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gT2QaWPuugjYcoXSF2zuY2BfDTSaRBMnPyqKnfhdQKf+093pf0KofcKXGdo92UwIs0MAZyM37OrENJzh4YRp8g=="], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email1"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "available_liquidity", "trades_made_today", "total_trades_made", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["username", "user1"], ["email", "email1"], ["password_digest", "$2a$12$rBm2QVXTOp2k9r/XEQwE9.nDXmG7kp1vxXRBz/gaqvPwg3coFrRA."], ["session_token", "gT2QaWPuugjYcoXSF2zuY2BfDTSaRBMnPyqKnfhdQKf+093pf0KofcKXGdo92UwIs0MAZyM37OrENJzh4YRp8g=="], ["available_liquidity", 0.0], ["trades_made_today", 0], ["total_trades_made", 0], ["created_at", "2020-12-16 19:47:52.200626"], ["updated_at", "2020-12-16 19:47:52.200626"]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "user1"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "DQ5t5AAbr1+W9i2Yrbs4jqYEPVH+YUMPivnUlGqbHsWRjX6iSxHQ57r3Xg6dnjepcNLP1NeWal6B2MI4QjycxA=="], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "email1"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "DQ5t5AAbr1+W9i2Yrbs4jqYEPVH+YUMPivnUlGqbHsWRjX6iSxHQ57r3Xg6dnjepcNLP1NeWal6B2MI4QjycxA=="], ["updated_at", "2020-12-16 19:47:52.209263"], ["id", 1]]
+  ↳ app/models/user.rb:33
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:33
+Unpermitted parameters: :email, :username, :password, :redirect
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:14
+Completed 422 Unprocessable Entity in 288ms (ActiveRecord: 19.6ms)
+
+
+
+ActiveRecord::RecordInvalid - Validation failed: User must exist:
+  app/controllers/api/users_controller.rb:14:in `create'
+
+Started GET "/" for ::1 at 2020-12-16 11:51:11 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 379ms (Views: 374.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2020-12-16 11:51:17 -0800
+Processing by Api::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"email1", "username"=>"user1", "password"=>"[FILTERED]", "redirect"=>""}, "default"=>{"format"=>:json}}
+Unpermitted parameter: :redirect
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2Rd3EH1rU8BFwyp/TAnGcUqDtxQ/jqGFFkbSwixQFCkLNigSoCI1PHMkbUKYQRJE81UxsxSR5cYlohkk9aSYTQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email1"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:9
+Completed 422 Unprocessable Entity in 242ms (ActiveRecord: 10.6ms)
+
+
+
+ActiveRecord::RecordInvalid - Validation failed: Username has already been taken, Email has already been taken:
+  app/controllers/api/users_controller.rb:9:in `create'
+
+Started POST "/api/users" for ::1 at 2020-12-16 11:51:32 -0800
+Processing by Api::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"email2", "username"=>"user2", "password"=>"[FILTERED]", "redirect"=>""}, "default"=>{"format"=>:json}}
+Unpermitted parameter: :redirect
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user2"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "4tjdkE+p6ixPI1htr+2vhnrd90wrdSPtdmRCB9zCDIpYQK3bNZ7Ds/obY2xRM+RRvROXIbhIA76o94hMbsV3eg=="], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email2"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "available_liquidity", "trades_made_today", "total_trades_made", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["username", "user2"], ["email", "email2"], ["password_digest", "$2a$12$aSFD/2ek18Cs6ARa6LLyxOil776sKrh6gKdpFZkjeE5MlA5Q0wJoG"], ["session_token", "4tjdkE+p6ixPI1htr+2vhnrd90wrdSPtdmRCB9zCDIpYQK3bNZ7Ds/obY2xRM+RRvROXIbhIA76o94hMbsV3eg=="], ["available_liquidity", 0.0], ["trades_made_today", 0], ["total_trades_made", 0], ["created_at", "2020-12-16 19:51:32.875290"], ["updated_at", "2020-12-16 19:51:32.875290"]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "user2"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "hq2JaL84zD0yO45GhXBDjTvMwEaCtT6Fxvrd3X3GBwWJ0Ppy6lDD1/vEOldMpa4Hhv1tZHrjaT7snDWBWqB0qw=="], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "email2"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "hq2JaL84zD0yO45GhXBDjTvMwEaCtT6Fxvrd3X3GBwWJ0Ppy6lDD1/vEOldMpa4Hhv1tZHrjaT7snDWBWqB0qw=="], ["updated_at", "2020-12-16 19:51:32.884235"], ["id", 2]]
+  ↳ app/models/user.rb:33
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:33
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (8.8ms)
+Completed 200 OK in 282ms (Views: 51.1ms | ActiveRecord: 5.3ms)
+
+
+Started DELETE "/api/session" for ::1 at 2020-12-16 11:53:14 -0800
+Processing by Api::SessionsController#destroy as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hq2JaL84zD0yO45GhXBDjTvMwEaCtT6Fxvrd3X3GBwWJ0Ppy6lDD1/vEOldMpa4Hhv1tZHrjaT7snDWBWqB0qw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "user2"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "g4cK6whpvf6yBuERLy5sYHkUidW6waWBreUapBgpmwebSwpnx4c9McfqwpCXksITguaaefTXR+XtH1Oo5eT/8Q=="], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "email2"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "g4cK6whpvf6yBuERLy5sYHkUidW6waWBreUapBgpmwebSwpnx4c9McfqwpCXksITguaaefTXR+XtH1Oo5eT/8Q=="], ["updated_at", "2020-12-16 19:53:14.727051"], ["id", 2]]
+  ↳ app/models/user.rb:33
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:33
+Completed 200 OK in 27ms (Views: 0.1ms | ActiveRecord: 7.6ms)
+
+
+Started POST "/api/users" for ::1 at 2020-12-16 11:53:25 -0800
+Processing by Api::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"email3", "username"=>"user3", "password"=>"[FILTERED]", "redirect"=>""}, "default"=>{"format"=>:json}}
+Unpermitted parameter: :redirect
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user3"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "NY1MvQiEjo4sJXuoj3WPVf8bvwk4BymCyXI5begYDeUeIj6ccCeRLNlkb8VlRYWWesv3zuW8wxq3isAQGKnQQw=="], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email3"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "available_liquidity", "trades_made_today", "total_trades_made", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["username", "user3"], ["email", "email3"], ["password_digest", "$2a$12$.2POAhREiZhzAir5ouzr..GLVz6XtuyVtgYlfrR2e8qvlhbYbDSzS"], ["session_token", "NY1MvQiEjo4sJXuoj3WPVf8bvwk4BymCyXI5begYDeUeIj6ccCeRLNlkb8VlRYWWesv3zuW8wxq3isAQGKnQQw=="], ["available_liquidity", 0.0], ["trades_made_today", 0], ["total_trades_made", 0], ["created_at", "2020-12-16 19:53:25.352566"], ["updated_at", "2020-12-16 19:53:25.352566"]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "user3"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "7ibf8Z05PeUU+vN/HQE4F2TrBh5A55mJF5tGtHq0DmrH/0cGWPG/Cba5ibthhHos8FTAqKsdglQVOTQJEg2gcg=="], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "email3"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "7ibf8Z05PeUU+vN/HQE4F2TrBh5A55mJF5tGtHq0DmrH/0cGWPG/Cba5ibthhHos8FTAqKsdglQVOTQJEg2gcg=="], ["updated_at", "2020-12-16 19:53:25.360167"], ["id", 3]]
+  ↳ app/models/user.rb:33
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:33
+Unpermitted parameters: :email, :username, :password, :redirect
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:14
+Completed 422 Unprocessable Entity in 234ms (ActiveRecord: 6.8ms)
+
+
+
+ActiveRecord::RecordInvalid - Validation failed: User must exist:
+  app/controllers/api/users_controller.rb:14:in `create'
+
+Started POST "/api/users" for ::1 at 2020-12-16 11:55:16 -0800
+Processing by Api::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"email4", "username"=>"user4", "password"=>"[FILTERED]", "redirect"=>""}, "default"=>{"format"=>:json}}
+Unpermitted parameter: :redirect
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user4"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "A+33b0qAgExFgKLRF52djyUZ5BklH3vbpVfDFF8T6GGdPOxgvmOa/kQPjSPAfaV2DDnOAj6D51yLRrnimMYhGA=="], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email4"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "available_liquidity", "trades_made_today", "total_trades_made", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["username", "user4"], ["email", "email4"], ["password_digest", "$2a$12$8ojXjxXmKcyiaVcDQNLTWe01H/fT/7kGVtIemDvdHFm9jqWAsSRsC"], ["session_token", "A+33b0qAgExFgKLRF52djyUZ5BklH3vbpVfDFF8T6GGdPOxgvmOa/kQPjSPAfaV2DDnOAj6D51yLRrnimMYhGA=="], ["available_liquidity", 0.0], ["trades_made_today", 0], ["total_trades_made", 0], ["created_at", "2020-12-16 19:55:16.967994"], ["updated_at", "2020-12-16 19:55:16.967994"]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "user4"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "aQVCEu1e+GIVDSWH0F56UQA5cXdGGZdW/yWCKQ4hA0302YetNXjEb73SVjViXngUiuOGokiEZqbp042YgAddrg=="], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "email4"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "aQVCEu1e+GIVDSWH0F56UQA5cXdGGZdW/yWCKQ4hA0302YetNXjEb73SVjViXngUiuOGokiEZqbp042YgAddrg=="], ["updated_at", "2020-12-16 19:55:16.974604"], ["id", 4]]
+  ↳ app/models/user.rb:33
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:33
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:15
+  [1m[36mPortfolio Create (2.5ms)[0m  [1m[32mINSERT INTO "portfolios" ("user_id", "value", "num_stocks", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 4], ["value", 0.0], ["num_stocks", 0], ["created_at", "2020-12-16 19:55:16.994800"], ["updated_at", "2020-12-16 19:55:16.994800"]]
+  ↳ app/controllers/api/users_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:15
+  Rendering api/users/show.json.jbuilder
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (6.1ms)
+  Rendered api/users/show.json.jbuilder (13.8ms)
+Completed 200 OK in 311ms (Views: 46.0ms | ActiveRecord: 16.0ms)
+
+
+Started POST "/api/users" for ::1 at 2020-12-16 11:58:30 -0800
+Processing by Api::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"email5", "username"=>"user5", "password"=>"[FILTERED]", "redirect"=>""}, "default"=>{"format"=>:json}}
+Unpermitted parameter: :redirect
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user5"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "j61w8Ks60dR6QW5mlEC5Togk2HYXxg8St3jVItxLWY+Miq5jS0G9OBF11UC53DzRzdxyeccnR8HPnLq0GBt9Cg=="], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email5"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "available_liquidity", "trades_made_today", "total_trades_made", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["username", "user5"], ["email", "email5"], ["password_digest", "$2a$12$kD3uPIFWEMeJNTBCXvdH5ePreh9URyoLWVlMXM.20kkRAmiceV5MC"], ["session_token", "j61w8Ks60dR6QW5mlEC5Togk2HYXxg8St3jVItxLWY+Miq5jS0G9OBF11UC53DzRzdxyeccnR8HPnLq0GBt9Cg=="], ["available_liquidity", 0.0], ["trades_made_today", 0], ["total_trades_made", 0], ["created_at", "2020-12-16 19:58:31.041543"], ["updated_at", "2020-12-16 19:58:31.041543"]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "user5"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "6ymbwGIwpXPiSoHgKDT4b8IDxRT1gCgDMqozjOWZmBN6xrC2Ot9N9mzJndlpXtN+ZuQyCDB+MDdcBErlCN3jdg=="], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "email5"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "6ymbwGIwpXPiSoHgKDT4b8IDxRT1gCgDMqozjOWZmBN6xrC2Ot9N9mzJndlpXtN+ZuQyCDB+MDdcBErlCN3jdg=="], ["updated_at", "2020-12-16 19:58:31.047841"], ["id", 5]]
+  ↳ app/models/user.rb:33
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:33
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:15
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:15
+  [1m[36mPortfolio Create (0.3ms)[0m  [1m[32mINSERT INTO "portfolios" ("user_id", "value", "num_stocks", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 5], ["value", 0.0], ["num_stocks", 0], ["created_at", "2020-12-16 19:58:31.052739"], ["updated_at", "2020-12-16 19:58:31.052739"]]
+  ↳ app/controllers/api/users_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:15
+  Rendering api/users/show.json.jbuilder
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.9ms)
+  Rendered api/users/show.json.jbuilder (10.0ms)
+Completed 200 OK in 271ms (Views: 42.0ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 11:58:50 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6ymbwGIwpXPiSoHgKDT4b8IDxRT1gCgDMqozjOWZmBN6xrC2Ot9N9mzJndlpXtN+ZuQyCDB+MDdcBErlCN3jdg=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 569ms (Views: 565.0ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/users" for ::1 at 2020-12-16 11:59:00 -0800
+Processing by Api::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"email6", "username"=>"user6", "password"=>"[FILTERED]", "redirect"=>""}, "default"=>{"format"=>:json}}
+Unpermitted parameter: :redirect
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user6"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "PrSBmbDMUjyJLnPUyXEjyM+6Shuu7CK6drVSQilylv/eq73KW5mbm40OYcrTtdvYNvXc7OYaD0DevtqMpGddpA=="], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email6"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "available_liquidity", "trades_made_today", "total_trades_made", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["username", "user6"], ["email", "email6"], ["password_digest", "$2a$12$fCw28.TnwVjkYSG6QE3beOx4PomT0WILhPmx5Tj44BgadnT9DdYMm"], ["session_token", "PrSBmbDMUjyJLnPUyXEjyM+6Shuu7CK6drVSQilylv/eq73KW5mbm40OYcrTtdvYNvXc7OYaD0DevtqMpGddpA=="], ["available_liquidity", 0.0], ["trades_made_today", 0], ["total_trades_made", 0], ["created_at", "2020-12-16 19:59:00.629422"], ["updated_at", "2020-12-16 19:59:00.629422"]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "user6"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "NHpkNGOO4nGKe9ArNsGc0cIUuGIiKxNPfs3+MzeBskuPzYfxV8VqTqpgXbTRoVCckztjn5lf/3jBoV5zOiBNvg=="], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "email6"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "NHpkNGOO4nGKe9ArNsGc0cIUuGIiKxNPfs3+MzeBskuPzYfxV8VqTqpgXbTRoVCckztjn5lf/3jBoV5zOiBNvg=="], ["updated_at", "2020-12-16 19:59:00.637180"], ["id", 6]]
+  ↳ app/models/user.rb:33
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:33
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:15
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:15
+  [1m[36mPortfolio Create (0.2ms)[0m  [1m[32mINSERT INTO "portfolios" ("user_id", "value", "num_stocks", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 6], ["value", 0.0], ["num_stocks", 0], ["created_at", "2020-12-16 19:59:00.641935"], ["updated_at", "2020-12-16 19:59:00.641935"]]
+  ↳ app/controllers/api/users_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:15
+  Rendering api/users/show.json.jbuilder
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.8ms)
+  Rendered api/users/show.json.jbuilder (9.7ms)
+Completed 200 OK in 271ms (Views: 42.2ms | ActiveRecord: 5.3ms)
+
+
+Started DELETE "/api/session" for ::1 at 2020-12-16 11:59:47 -0800
+Processing by Api::SessionsController#destroy as */*
+  Parameters: {"default"=>{"format"=>:json}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "NHpkNGOO4nGKe9ArNsGc0cIUuGIiKxNPfs3+MzeBskuPzYfxV8VqTqpgXbTRoVCckztjn5lf/3jBoV5zOiBNvg=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "user6"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "4BaGKRdHGedZqXB7OuQOr9YKrgW1PHOKIMRRZkcYW6AB/tsKqVLV8Jdj3tdVfoZcMwM1B0nOlyAvh0jv1Or1Gw=="], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "email6"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "4BaGKRdHGedZqXB7OuQOr9YKrgW1PHOKIMRRZkcYW6AB/tsKqVLV8Jdj3tdVfoZcMwM1B0nOlyAvh0jv1Or1Gw=="], ["updated_at", "2020-12-16 19:59:47.542526"], ["id", 6]]
+  ↳ app/models/user.rb:33
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:33
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 11:59:49 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 82ms (Views: 77.4ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/api/session" for ::1 at 2020-12-16 12:00:01 -0800
+Processing by Api::SessionsController#destroy as */*
+  Parameters: {"default"=>{"format"=>:json}}
+Completed 404 Not Found in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/api/session" for ::1 at 2020-12-16 12:00:01 -0800
+Processing by Api::SessionsController#destroy as */*
+  Parameters: {"default"=>{"format"=>:json}}
+Completed 404 Not Found in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/api/session" for ::1 at 2020-12-16 12:00:01 -0800
+Processing by Api::SessionsController#destroy as */*
+  Parameters: {"default"=>{"format"=>:json}}
+Completed 404 Not Found in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 12:00:02 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 54ms (Views: 48.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 12:00:24 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 53ms (Views: 50.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 12:00:25 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2020-12-16 12:00:38 -0800
+Processing by Api::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"email7", "username"=>"user7", "password"=>"[FILTERED]", "redirect"=>""}, "default"=>{"format"=>:json}}
+Unpermitted parameter: :redirect
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user7"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ElRMS6YUkzj5XXQY0irW4ZcoAHRHFXG/8FNe368irMB61PJiFIdpwAJ35Xlh/yRWIg9cuU55EL9d6QE+H/he6g=="], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email7"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "available_liquidity", "trades_made_today", "total_trades_made", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["username", "user7"], ["email", "email7"], ["password_digest", "$2a$12$J7Fid2z5.1OXHEsaxAxosupgUySWXUhN3TFq4bx/rs6kpshzGW.AK"], ["session_token", "ElRMS6YUkzj5XXQY0irW4ZcoAHRHFXG/8FNe368irMB61PJiFIdpwAJ35Xlh/yRWIg9cuU55EL9d6QE+H/he6g=="], ["available_liquidity", 0.0], ["trades_made_today", 0], ["total_trades_made", 0], ["created_at", "2020-12-16 20:00:38.605586"], ["updated_at", "2020-12-16 20:00:38.605586"]]
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "user7"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "email7"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["updated_at", "2020-12-16 20:00:38.614504"], ["id", 7]]
+  ↳ app/models/user.rb:33
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:33
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:15
+  [1m[36mPortfolio Create (0.3ms)[0m  [1m[32mINSERT INTO "portfolios" ("user_id", "value", "num_stocks", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 7], ["value", 0.0], ["num_stocks", 0], ["created_at", "2020-12-16 20:00:38.618278"], ["updated_at", "2020-12-16 20:00:38.618278"]]
+  ↳ app/controllers/api/users_controller.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:15
+  Rendering api/users/show.json.jbuilder
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.1ms)
+  Rendered api/users/show.json.jbuilder (10.6ms)
+Completed 200 OK in 269ms (Views: 42.8ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 16:44:32 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (18.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (66.4ms)
+Completed 200 OK in 811ms (Views: 779.3ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 16:44:38 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 44ms (Views: 39.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 16:44:45 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 75ms (Views: 69.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 16:44:51 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 40ms (Views: 36.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 16:44:52 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 39ms (Views: 35.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 16:44:52 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 37ms (Views: 33.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 17:15:57 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.6ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 452ms (Views: 440.1ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 17:17:52 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (30.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (51.2ms)
+Completed 200 OK in 714ms (Views: 705.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 17:28:07 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.9ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (6.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 514ms (Views: 505.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 17:32:50 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (14.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (33.9ms)
+Completed 200 OK in 193ms (Views: 179.4ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 17:38:46 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (1.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (11.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 219ms (Views: 205.7ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 17:39:11 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 146ms (Views: 132.7ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:02:00 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (9.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 600ms (Views: 590.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:02:07 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (6.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 61ms (Views: 55.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:02:17 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 164ms (Views: 160.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:12:27 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (11.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (30.7ms)
+Completed 200 OK in 214ms (Views: 207.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:27:30 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (9.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (26.6ms)
+Completed 200 OK in 218ms (Views: 207.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:27:47 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 150ms (Views: 144.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:28:48 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 115ms (Views: 110.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:28:49 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 41ms (Views: 36.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:29:13 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 477ms (Views: 471.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:44:43 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.6ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (7.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 508ms (Views: 497.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:45:56 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 91ms (Views: 86.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:46:24 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (7.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 193ms (Views: 183.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:46:41 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 184ms (Views: 178.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:46:50 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (13.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 171ms (Views: 165.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:47:10 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 78ms (Views: 72.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:48:23 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 72ms (Views: 68.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:48:30 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 50ms (Views: 46.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:50:16 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (9.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (25.4ms)
+Completed 200 OK in 489ms (Views: 480.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:50:30 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.6ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 89ms (Views: 84.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:55:45 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 82ms (Views: 77.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:55:47 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 58ms (Views: 54.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:55:51 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 43ms (Views: 39.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 18:55:51 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 43ms (Views: 40.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:13:33 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (10.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (21.7ms)
+Completed 500 Internal Server Error in 287ms (ActiveRecord: 1.7ms)
+
+
+
+Sass::SyntaxError - Invalid CSS after ".introtext ": expected selector, was "< h1":
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___3999724560650455689_70344353044420'
+
+Started POST "/__better_errors/43e636144570c166/variables" for ::1 at 2020-12-16 21:13:34 -0800
+Started GET "/" for ::1 at 2020-12-16 21:13:46 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 97ms (Views: 89.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:14:04 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 66ms (Views: 60.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:16:30 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (6.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 132ms (Views: 125.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:16:38 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.6ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 62ms (Views: 55.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:17:19 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 465ms (Views: 457.6ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:22:36 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (1.0ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (15.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (30.4ms)
+Completed 200 OK in 199ms (Views: 187.5ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:22:53 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (1.1ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 120ms (Views: 113.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:22:54 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 60ms (Views: 55.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:23:15 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (1.9ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 62ms (Views: 55.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:23:51 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (2.8ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 107ms (Views: 100.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:24:37 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 110ms (Views: 104.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:25:03 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 70ms (Views: 66.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:25:04 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 41ms (Views: 35.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:27:52 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 161ms (Views: 153.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:28:04 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 85ms (Views: 81.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:28:11 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 88ms (Views: 84.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:31:27 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (10.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (28.5ms)
+Completed 200 OK in 237ms (Views: 222.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:32:30 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 172ms (Views: 167.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:44:05 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.6ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (10.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (28.3ms)
+Completed 200 OK in 244ms (Views: 235.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:44:07 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 57ms (Views: 53.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:44:42 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 99ms (Views: 94.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:45:18 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 102ms (Views: 97.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:45:20 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 43ms (Views: 38.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:45:52 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 96ms (Views: 91.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:46:47 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 77ms (Views: 73.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:48:04 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 91ms (Views: 87.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:48:15 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 90ms (Views: 86.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:48:33 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 90ms (Views: 86.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:50:29 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 95ms (Views: 90.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:03 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 88ms (Views: 84.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:04 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 52ms (Views: 47.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:04 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 42ms (Views: 38.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:05 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 42ms (Views: 38.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:05 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 38ms (Views: 35.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:05 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 36ms (Views: 33.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:05 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 44ms (Views: 41.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:05 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 40ms (Views: 35.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:06 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 39ms (Views: 35.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:06 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 33ms (Views: 31.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:06 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 35ms (Views: 31.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:06 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 34ms (Views: 31.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:06 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 31ms (Views: 28.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:06 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 34ms (Views: 31.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:07 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 32ms (Views: 29.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:07 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 37ms (Views: 33.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:07 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 51ms (Views: 47.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:07 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 35ms (Views: 31.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:51:07 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 32ms (Views: 29.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:52:38 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 71ms (Views: 67.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:52:46 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 68ms (Views: 65.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:52:53 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 43ms (Views: 39.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:55:16 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (8.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (26.6ms)
+Completed 200 OK in 236ms (Views: 226.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:55:41 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 92ms (Views: 88.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:56:31 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 93ms (Views: 89.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:56:56 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (1.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 121ms (Views: 113.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:57:04 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 108ms (Views: 105.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:57:25 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 83ms (Views: 79.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:58:18 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (9.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 190ms (Views: 177.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:58:20 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 43ms (Views: 39.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:59:42 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 105ms (Views: 101.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 21:59:43 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 72ms (Views: 68.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:01:08 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 93ms (Views: 88.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:01:23 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 70ms (Views: 66.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:01:33 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 74ms (Views: 71.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:03:29 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (1.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 154ms (Views: 148.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:03:36 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 79ms (Views: 74.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:03:49 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (1.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 79ms (Views: 74.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:03:58 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 75ms (Views: 71.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:04:16 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 79ms (Views: 74.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:04:33 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 84ms (Views: 80.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:05:02 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 81ms (Views: 77.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:05:20 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 68ms (Views: 65.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:05:33 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 96ms (Views: 92.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:05:41 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 83ms (Views: 80.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:05:50 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 83ms (Views: 79.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:06:43 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 94ms (Views: 89.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:06:54 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 82ms (Views: 77.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:07:05 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 86ms (Views: 82.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:07:16 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 84ms (Views: 79.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:07:51 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 96ms (Views: 91.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:07:58 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 75ms (Views: 68.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:53:42 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.6ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (30.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (73.2ms)
+Completed 200 OK in 797ms (Views: 774.8ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:54:08 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 128ms (Views: 122.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:54:20 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 122ms (Views: 117.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:54:50 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.6ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 476ms (Views: 471.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:55:00 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 83ms (Views: 79.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 22:55:10 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 86ms (Views: 82.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 23:07:28 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (1.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (19.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (49.0ms)
+Completed 200 OK in 741ms (Views: 723.0ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 23:09:34 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 155ms (Views: 148.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 23:09:55 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 394ms (Views: 388.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 23:10:13 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 81ms (Views: 78.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 23:11:00 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 326ms (Views: 322.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 23:33:50 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (11.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (31.6ms)
+Completed 200 OK in 610ms (Views: 591.0ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 23:34:11 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 625ms (Views: 591.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 23:34:14 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 49ms (Views: 44.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 23:34:25 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 357ms (Views: 353.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 23:36:20 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 366ms (Views: 362.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-16 23:37:17 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 540ms (Views: 535.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-17 00:11:42 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (12.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (35.5ms)
+Completed 200 OK in 673ms (Views: 648.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-17 00:11:45 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 103ms (Views: 87.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2020-12-17 00:12:01 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (6.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 477ms (Views: 471.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2020-12-17 00:12:28 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 54ms (Views: 50.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-17 00:12:34 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 348ms (Views: 344.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-17 00:26:50 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8OuEVi1C6aHlDd6A0XRBY7/D80chpC5MHzv9JbXcwMG9b0MqQbwN3M3DpRtL/Rb3NsiJ54InwXbjlB4HEIP1ew=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (21.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (51.0ms)
+Completed 200 OK in 370ms (Views: 356.5ms | ActiveRecord: 2.7ms)
+
+

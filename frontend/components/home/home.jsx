@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { logout, login } from '../../actions/session_actions';
 import { Redirect } from 'react-router-dom';
 import { showPortfolio } from '../../actions/portfolio_actions';
-// import '../stylesheet.css';
+import '../stylesheet.css';
+// import Logo from '../../../app/assets/images/Robingoods.jpg'
 
 class Home extends Component {
 
@@ -79,16 +80,26 @@ class Home extends Component {
 
         return(
             <div>
-                <div className="topnav">
-                    <Link className="btn" to="/login">Login</Link>
-                    <Link className="btn" to="/signup">Sign Up</Link>
-
-                </div>
-                <div style={{backgroundColor: "#b9f646"}}>
-                    <h1>Investing for Everyone</h1>
-                    <p>Commission-free investing, plus the tools you need to put your money in motion. Sign up and get your first stock for free. Certain limitations apply</p>
-                    <button onClick={this.demo}>Want a test run?</button>
-                    <button onClick={this.handleClick}>Logout</button>
+                <header className="header">
+                    <nav className="header-nav group">
+                        <h1 className="header-nav-logo">Robingoods</h1>
+                        {/* <img src={Robingoods}/> */}
+                        <ul className="header-nav-list group">
+                            <li>
+                                <Link id="login" className="btn" to="/login">Login</Link>
+                            </li>
+                            <li>
+                                <Link id="su" className="btn" to="/signup">Sign Up</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                {/* <div style={{backgroundColor: "#b9f646"}}> */}
+                <div className='introtext'>
+                    <h1 id="intro-title">Investing for Everyone</h1>
+                    <p id="intro-body">Commission-free investing, plus the tools you need to put your money in motion. Sign up and get your first stock for free. Certain limitations apply</p>
+                    <button id="demo-button" onClick={this.demo}>Give us a try!</button>
+                    {/* <button onClick={this.handleClick}>Logout</button> */}
                 </div>
 
             </div>

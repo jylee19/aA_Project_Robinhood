@@ -8,12 +8,12 @@ class Dashboard extends React.Component {
             id: this.props.currentUser.id,
             portfolio_id: this.props.currentUser.id
         }
-        if (this.props.currentUser.portfolio_id === null){
-            this.props.makePortfolio(this.state)
-            this.props.updatePortfolioId(this.state);
-        } else {
-            this.props.showPortfolio(this.state.id);
-        }
+        // if (this.props.currentUser.portfolio_id === null){
+        //     this.props.makePortfolio(this.state)
+        //     this.props.updatePortfolioId(this.state);
+        // } else {
+        //     this.props.showPortfolio(this.state.id);
+        // }
         this.signout = this.signout.bind(this);
     }
 

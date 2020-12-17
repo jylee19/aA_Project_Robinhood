@@ -4,10 +4,12 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const SET_PORTFOLIO_ID = 'SET_PORTFOLIO_ID';
 
-const receiveCurrentUser = (user) => {
+const receiveCurrentUser = (payload) => {
+    // console.log(user)
+    // Below is an action
     return {
         type: RECEIVE_CURRENT_USER,
-        user
+        payload
     }
 }
 
@@ -26,7 +28,7 @@ const setPortfolioId = (user) => {
 
 
 export const signup = (user) => dispatch => {
-    return UserAPIUtil.postUser(user).then(u => dispatch(receiveCurrentUser(u)))
+    return UserAPIUtil.postUser(user).then(payload => dispatch(receiveCurrentUser(payload)))
 }
 
 export const login = (user) => dispatch => {
