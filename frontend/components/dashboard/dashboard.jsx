@@ -20,6 +20,7 @@ class Dashboard extends React.Component {
 
     signout(e){
         this.props.logout();
+        
     }
 
     componentDidMount(){
