@@ -3,3 +3,5 @@ bundle.js
 bundle.js.map
 .DS_Store
 /public/assets
+node_modules
+

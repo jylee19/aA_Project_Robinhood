@@ -1,0 +1,64 @@
+#signup-logo{
+    margin-left: 70px;
+    padding-top: 20px;
+    padding-bottom: 70px;
+}
+
+.signup-form{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 97px;
+}
+
+#form-title{
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+#signup-body{
+    font-size: 14px;
+    padding-bottom: 25px;
+}
+
+.su-values{
+    width: 400px;
+    height: 40px;
+    border: none;
+    background-color: #f5f8fa;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    text-indent: 5px;
+}
+
+.su-values:hover{
+    border: solid;
+    border-width: 1px;
+    border-color: #c9c9c9;
+    background-color: white;
+}
+
+.su-values:active,
+.su-values:focus{
+    border: solid;
+    border-width: 1px;
+    outline-color:#04c805
+}
+
+#signup-button{
+    background-color: #04c805;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 45px;
+    padding-right: 45px;
+    margin-top: 40px;
+    font-weight: bold;
+    outline: none;
+}
+
+#signup-button:hover{
+    cursor: pointer;
+}

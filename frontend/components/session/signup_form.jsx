@@ -46,25 +46,24 @@ class SignupForm extends React.Component {
         if (this.props.formType === 'Sign up') {
             display = (
                 <React.Fragment>
-                    <h1>Robingoods</h1>
-                    <h1>Make Your Money Move</h1>
-                    <p>Robingoods lets you invest in companies you love, commission-free.</p>
-                    <p></p>
-                    <form onSubmit={ this.handleSubmit }>
-                    <label>Email:
-                        <input id='email' type='text' value={ this.state.email } onChange={ this.update('email') }></input>
-                    </label>                
-                    <label>Username:
-                        <input id='un' type='text' value={ this.state.username } onChange={ this.update('username') }></input>
-                    </label>
-                    <label>Password:
-                        <input id='pass' type='password' value={ this.state.password } onChange={ this.update('password') }></input>
-                    </label>
-                    <ul>
-                        {errors}
-                    </ul>
-                    <button>{this.props.formType}</button>
-                    </form>
+                    <div id="signup-logo">
+                        <img className="logo" src={window.robinhood} alt="cannot display"/>
+                    </div>
+                    <div className="signup-form">
+                        <h1 id="form-title">Make Your Money Move</h1>
+                        <p id="signup-body">Robingoods lets you invest in companies you love, commission-free.</p>
+                        <form onSubmit={ this.handleSubmit }>
+                            <input className="su-values" id='email' type='text' placeholder="Email" value={ this.state.email } onChange={ this.update('email') }></input>        
+                            <br/>
+                            <input className="su-values" id='un' type='text' placeholder="   Username" value={ this.state.username } onChange={ this.update('username') }></input>
+                            <br/>
+                            <input className="su-values" id='pass' type='password' placeholder="   Password (min. 6 characters)" value={ this.state.password } onChange={ this.update('password') }></input>
+                        <ul>
+                            {errors}
+                        </ul>
+                        <button id="signup-button">{this.props.formType}</button>
+                        </form>
+                    </div>
                     <br/>
                 </React.Fragment>
             )
