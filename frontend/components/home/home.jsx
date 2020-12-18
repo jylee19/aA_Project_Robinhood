@@ -17,6 +17,10 @@ class Home extends Component {
         // this.setPortfolio = this.setPortfolio.bind(this);
     }
 
+    componentDidMount(){
+        
+    }
+
     handleClick(e) {
         this.props.logout();
     }

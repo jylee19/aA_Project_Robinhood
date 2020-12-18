@@ -23,26 +23,31 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount(){
-        
+        this.props.showPortfolio(this.state.portfolio_id)
     }
 
     render(){
-        return(
-            <div>
-                <div className="topnav">
-                    <input type="text" placeholder="Search"></input>
-
+        if(!this.props.currentPortfolio){
+            return null
+        } else{
+            return(
+                <div>
+                    <div className="topnav">
+                        <input type="text" placeholder="Search"></input>
+    
+                    </div>
+                    <br/>
+                    <h2>{this.props.currentPortfolio.value}</h2>
+                    <p>Buying Power</p>
+                    <p>{this.props.currentUser.available_liquidity}</p>
+    
+                    <Link className="btn" to={`/users/${this.state.id}/edit`}>Change User Information</Link>
+    
+                    <button onClick={this.signout}>Log out</button>
                 </div>
-                <br/>
-                <h2>{this.props.currentPortfolio.value}</h2>
-                <p>Buying Power</p>
-                <p>{this.props.currentUser.available_liquidity}</p>
+            )
+        }
 
-                <Link className="btn" to={`/users/${this.state.id}/edit`}>Change User Information</Link>
-
-                <button onClick={this.signout}>Log out</button>
-            </div>
-        )
     }
 
 
