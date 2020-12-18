@@ -8,8 +8,8 @@ const mSTP = state => ({
 });
 
 const Auth = ({ loggedin, id, path, component: Component }) => (
-    // <Route path={path} render={props => ((loggedin && id != 1) ? <Redirect to={`/users/${id}`} /> : <Component {...props} />)} />
-    <Route path={path} render={props => ((loggedin) ? <Redirect to={`/`} /> : <Component {...props} />)} />
+    <Route path={path} render={props => ((loggedin && id != 1) ? <Redirect to={`/users/${id}`} /> : <Component {...props} />)} />
+    // <Route path={path} render={props => ((loggedin) ? <Redirect to={`/`} /> : <Component {...props} />)} />
 )
 
 export const AuthRoute = withRouter(connect(mSTP, null)(Auth));

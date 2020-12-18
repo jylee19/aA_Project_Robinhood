@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 class Dashboard extends React.Component {
@@ -33,9 +34,11 @@ class Dashboard extends React.Component {
 
                 </div>
                 <br/>
-                {/* <h2>{this.props.currentPortfolio.value}</h2> */}
+                <h2>{this.props.currentPortfolio.value}</h2>
                 <p>Buying Power</p>
                 <p>{this.props.currentUser.available_liquidity}</p>
+
+                <Link className="btn" to={`/users/${this.state.id}/edit`}>Change User Information</Link>
 
                 <button onClick={this.signout}>Log out</button>
             </div>

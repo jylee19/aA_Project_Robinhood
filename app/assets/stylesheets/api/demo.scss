@@ -1,0 +1,38 @@
+#demo-end{
+    background-color: #04c805;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 45px;
+    padding-right: 45px;
+    margin-top: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+}
+
+#demo-end:hover{
+    cursor: pointer;
+}
+
+.demo-container{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#demo-title{
+    font-size: 20px;
+    margin: 20px;
+}
+
+#demo-image{
+    height: 400px;
+    width: 640px;
+    margin: 20px;
+}
+
+#demo-quote{
+    font-size: 16px;
+    margin: 20px;
+}

@@ -8,6 +8,8 @@ class Api::UsersController < ApplicationController
         @user.total_trades_made = 0
         if @user.save!
             login!(@user)
+            @user.portfolio_id = @user.id
+            @user.update(user_params)
             @portfolio = Portfolio.new()
             @portfolio.user_id = @user.id
             @portfolio.value = 0

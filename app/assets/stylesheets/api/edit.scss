@@ -1,0 +1,56 @@
+.edit-container{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#demo-title{
+    font-size: 20px;
+    margin: 20px;
+}
+
+.demo-form{
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.edit-values{
+    width: 400px;
+    height: 40px;
+    border: none;
+    background-color: #f5f8fa;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    text-indent: 8px;
+}
+
+.edit-values:hover{
+    border: solid;
+    border-width: 1px;
+    border-color: #c9c9c9;
+    background-color: white;
+}
+
+.edit-values:active,
+.edit-values:focus{
+    border: solid;
+    border-width: 1px;
+    outline-color:#04c805
+}
+
+#edit-button{
+    background-color: #04c805;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 45px;
+    padding-right: 45px;
+    margin-top: 40px;
+    font-weight: bold;
+    outline: none;
+}
+
+#edit-button:hover{
+    cursor: pointer;
+}

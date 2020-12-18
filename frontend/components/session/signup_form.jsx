@@ -55,9 +55,9 @@ class SignupForm extends React.Component {
                         <form onSubmit={ this.handleSubmit }>
                             <input className="su-values" id='email' type='text' placeholder="Email" value={ this.state.email } onChange={ this.update('email') }></input>        
                             <br/>
-                            <input className="su-values" id='un' type='text' placeholder="   Username" value={ this.state.username } onChange={ this.update('username') }></input>
+                            <input className="su-values" id='un' type='text' placeholder="Username" value={ this.state.username } onChange={ this.update('username') }></input>
                             <br/>
-                            <input className="su-values" id='pass' type='password' placeholder="   Password (min. 6 characters)" value={ this.state.password } onChange={ this.update('password') }></input>
+                            <input className="su-values" id='pass' type='password' placeholder="Password (min. 6 characters)" value={ this.state.password } onChange={ this.update('password') }></input>
                         <ul>
                             {errors}
                         </ul>
@@ -70,22 +70,29 @@ class SignupForm extends React.Component {
         } else {
             display = (
                 <React.Fragment>
-                    <h1>Change user information</h1>
-                    <form onSubmit={ this.handleSubmit }>
-                    <label>Email:
-                        <input id='email' type='text' value={ this.state.email } onChange={ this.update('email') }></input>
-                    </label>                
-                    <label>Username:
-                        <input id='un' type='text' value={ this.state.username } onChange={ this.update('username') }></input>
-                    </label>
-                    <label>Password:
-                        <input id='pass' type='password' value={ this.state.password } onChange={ this.update('password') }></input>
-                    </label>
-                    <ul>
-                        {errors}
-                    </ul>
-                    <button>{this.props.formType}</button>
-                    </form>
+                    <div className="edit-container">
+                        <h1 id="demo-title">Change user information</h1>
+                        <form className="demo-form" onSubmit={ this.handleSubmit }>
+                        <label>Email:
+                            <br/>
+                            <input className="edit-values" id='email' type='text' value={ this.state.email } onChange={ this.update('email') }></input>
+                        </label>    
+                        <br/>            
+                        <label>Username:
+                            <br/>
+                            <input className="edit-values" id='un' type='text' value={ this.state.username } onChange={ this.update('username') }></input>
+                        </label>
+                        <br/>
+                        <label>Password:
+                            <br/>
+                            <input className="edit-values" id='pass' type='password' placeholder="Re-enter or change password" value={ this.state.password } onChange={ this.update('password') }></input>
+                        </label>
+                        <ul>
+                            {errors}
+                        </ul>
+                        <button id="edit-button">{this.props.formType}</button>
+                        </form>
+                    </div>
                 </React.Fragment>
             )
         }

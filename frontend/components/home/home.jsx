@@ -49,19 +49,18 @@ class Home extends Component {
 
     render() {
         if (this.state.redirect) {
-            console.log(this.state.redirect)
             return <Redirect to={this.state.redirect}/>
         }
-        let display;
-        if (this.state.username === 'demoUser') {
-            return(
-                <div>
-                    <p>Welcome to the Robingoods demo!</p>
-                    <p>We hope that you'll learn a thing or two</p>
-                    <Link className="btn" to="/demo"><button>Click here to begin!</button></Link>
-                </div>               
-            )
-         }
+        // let display;
+        // if (this.state.username === 'demoUser') {
+        //     return(
+        //         <div>
+        //             <p>Welcome to the Robingoods demo!</p>
+        //             <p>We hope that you'll learn a thing or two</p>
+        //             <Link className="btn" to="/demo"><button>Click here to begin!</button></Link>
+        //         </div>               
+        //     )
+        //  }
         // else if (this.props.currentUser) {
         // //     return this.setPortfolio();
         // } else {

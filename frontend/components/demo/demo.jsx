@@ -9,22 +9,22 @@ class Demo extends React.Component {
         super(props)
         this.state = {
             id: this.props.demoUser.id,
-            portfolio_id: this.props.demoUser.id
+            portfolio_id: this.props.demoUser.id,
+            redirect: null
         }
-        if (this.props.demoUser.portfolio_id === null){
-            this.props.updatePortfolioId(this.state);
-        }
+        // if (this.props.demoUser.portfolio_id === null){
+        //     this.props.updatePortfolioId(this.state);
+        // }
         this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount(){
-        console.log(this.state.portfolio_id)
         this.props.fetchPortfolio(this.state.portfolio_id);
     }
 
     handleClick(e) {
         //set state to default before logging out
-        this.props.logout()
+        this.props.logout().then(() => this.setState({ redirect: `/signup` }));
     }
 
     render() {
@@ -34,11 +34,15 @@ class Demo extends React.Component {
         }
         return (
             <React.Fragment>
-                <h1>Welcome to a Robingoods demo! Make yourself at home!</h1>
-                <br/>
-                <p>Hello there {this.props.demoUser.username}!</p>
+                <div className="demo-container">
+                    <h1 id="demo-title">Welcome to a Robingoods demo! Make yourself at home!</h1>
+                    <img className="demo-image" src={window.firePlace}/>
+                    <br/>
+                    <p id="demo-quote">The key to making money in stocks is to not get scared out of them. - Peter Lynch</p>
+                    {/* <p>Hello there {this.props.demoUser.username}!</p> */}
 
-                <Link className="btn" to='/signup'><button onClick={this.handleClick}>Ready to start your investing adventure?</button></Link>
+                    <button id="demo-end" onClick={this.handleClick}>Ready to start your investing adventure?</button>
+                </div>
             </React.Fragment>
         )
     }
