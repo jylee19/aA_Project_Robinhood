@@ -42,7 +42,9 @@ class Dashboard extends React.Component {
                     <p>Buying Power</p>
                     <p>{this.props.currentUser.available_liquidity}</p>
     
+
                     <Link className="btn" to={`/users/${this.state.id}/edit`}>Change User Information</Link>
+    
     
                     <button onClick={this.signout}>Log out</button>
                 </div>
