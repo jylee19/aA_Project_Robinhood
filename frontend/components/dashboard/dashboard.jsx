@@ -34,7 +34,15 @@ class Dashboard extends React.Component {
             return(
                 <div>
                     <div className="topnav">
+                        <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
                         <input type="text" placeholder="Search"></input>
+                        <ul className='nav-dash-links'>
+                            <div className='dash-links'>Free Stocks</div>
+                            <div className='dash-links'>Portfolio</div>
+                            <div className='dash-links'>Cash</div>
+                            <div className='dash-links'>Messages</div>
+                            <div className='dash-links'>Account</div>
+                        </ul>
     
                     </div>
                     <br/>
