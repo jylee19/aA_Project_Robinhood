@@ -6,6 +6,7 @@
     justify-content: space-between;
     position: relative;
     border-bottom: solid;
+    height: 60px;
 }
 
 .nav-dash-links{
@@ -19,4 +20,13 @@
 
 .logo-dashboard{
     padding-left: 50px;
+}
+
+#dashboard-search-nav{
+    width: 450px;
+    height: 30px;
+}
+
+.buying-power{
+    display: flex;
 }

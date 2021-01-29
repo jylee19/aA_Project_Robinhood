@@ -35,7 +35,7 @@ class Dashboard extends React.Component {
                 <div>
                     <div className="topnav">
                         <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
-                        <input type="text" placeholder="Search"></input>
+                        <input id='dashboard-search-nav' type="text" placeholder="Search"></input>
                         <ul className='nav-dash-links'>
                             <div className='dash-links'>Free Stocks</div>
                             <div className='dash-links'>Portfolio</div>
@@ -47,8 +47,10 @@ class Dashboard extends React.Component {
                     </div>
                     <br/>
                     <h2>{this.props.currentPortfolio.value}</h2>
-                    <p>Buying Power</p>
-                    <p>{this.props.currentUser.available_liquidity}</p>
+                    <div className='buying-power'>
+                        <p>Buying Power</p>
+                        <p>{this.props.currentUser.available_liquidity}</p>
+                    </div>
     
 
                     <Link className="btn" to={`/users/${this.state.id}/edit`}>Change User Information</Link>
