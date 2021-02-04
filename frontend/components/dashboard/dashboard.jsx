@@ -48,15 +48,15 @@ class Dashboard extends React.Component {
                     <br/>
                     <h2>{this.props.currentPortfolio.value}</h2>
                     <div className='buying-power'>
-                        <div>is this here </div>
                         <div id='bp'>Buying Power</div>
                         <div id='liquidity' >{this.props.currentUser.available_liquidity}</div>
                     </div>
     
+                    <br/>
 
                     <Link className="btn" to={`/users/${this.state.id}/edit`}>Change User Information</Link>
     
-    
+                    <br/>
                     <button onClick={this.signout}>Log out</button>
                 </div>
             )
