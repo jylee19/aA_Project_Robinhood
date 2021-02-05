@@ -57,7 +57,7 @@ class Dashboard extends React.Component {
                     <Link className="btn" to={`/users/${this.state.id}/edit`}>Change User Information</Link>
     
                     <br/>
-                    <button onClick={this.signout}>Log out</button>
+                    <button id='log-out-btn' onClick={this.signout}>Log out</button>
                 </div>
             )
         }
