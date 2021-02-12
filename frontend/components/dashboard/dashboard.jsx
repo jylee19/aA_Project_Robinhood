@@ -46,7 +46,7 @@ class Dashboard extends React.Component {
     
                     </div>
                     <br/>
-                    <h2>{this.props.currentPortfolio.value}</h2>
+                    <h2 id='portfolio-value'>{this.props.currentPortfolio.value}</h2>
                     <div className='buying-power'>
                         <div id='bp'>Buying Power</div>
                         <div id='liquidity' >{this.props.currentUser.available_liquidity}</div>

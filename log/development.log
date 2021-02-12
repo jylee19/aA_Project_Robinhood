@@ -33112,3 +33112,25 @@ Processing by Api::PortfoliosController#show as */*
 Completed 200 OK in 44ms (Views: 40.0ms | ActiveRecord: 2.7ms)
 
 
+Started GET "/" for ::1 at 2021-02-10 14:20:27 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (10.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nMsQn/watK3Ai4k8tVuL1NzCWAP5fSx28TfmSk6AuJVB1HtkBbKh+tZ67wbzafw9Hh0SnvIqg1io+hiK9Q9FVg=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (5.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 4], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (68.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (164.7ms)
+Completed 200 OK in 1424ms (Views: 1341.5ms | ActiveRecord: 17.4ms)
+
+
+Started GET "/api/portfolios/4" for ::1 at 2021-02-10 14:20:30 -0800
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"4"}
+  [1m[36mPortfolio Load (1.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:15
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.4ms)
+Completed 200 OK in 50ms (Views: 42.2ms | ActiveRecord: 3.0ms)
+
+
