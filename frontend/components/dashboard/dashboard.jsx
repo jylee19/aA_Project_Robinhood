@@ -34,17 +34,30 @@ class Dashboard extends React.Component {
             return(
                 <div>
                     <div className="topnav">
-                        <input type="text" placeholder="Search"></input>
+                        <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
+                        <input id='dashboard-search-nav' type="text" placeholder="Search"></input>
+                        <ul className='nav-dash-links'>
+                            <div className='dash-links'>Free Stocks</div>
+                            <div className='dash-links'>Portfolio</div>
+                            <div className='dash-links'>Cash</div>
+                            <div className='dash-links'>Messages</div>
+                            <div className='dash-links'>Account</div>
+                        </ul>
     
                     </div>
                     <br/>
-                    <h2>{this.props.currentPortfolio.value}</h2>
-                    <p>Buying Power</p>
-                    <p>{this.props.currentUser.available_liquidity}</p>
+                    <h2 id='portfolio-value'>{this.props.currentPortfolio.value}</h2>
+                    <div className='buying-power'>
+                        <div id='bp'>Buying Power</div>
+                        <div id='liquidity' >{this.props.currentUser.available_liquidity}</div>
+                    </div>
     
+                    <br/>
+
                     <Link className="btn" to={`/users/${this.state.id}/edit`}>Change User Information</Link>
     
-                    <button onClick={this.signout}>Log out</button>
+                    <br/>
+                    <button id='log-out-btn' onClick={this.signout}>Log out</button>
                 </div>
             )
         }

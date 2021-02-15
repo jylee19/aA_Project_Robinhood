@@ -1,0 +1,45 @@
+.topnav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    position: relative;
+    border-bottom: solid;
+    height: 60px;
+}
+
+.nav-dash-links{
+    float: right;
+    padding-right: 20px;
+}
+
+.dash-links{
+    padding-right: 40px;
+}
+
+.logo-dashboard{
+    padding-left: 50px;
+}
+
+#dashboard-search-nav{
+    width: 450px;
+    height: 30px;
+}
+
+.buying-power{
+    display: flex;
+}
+
+#bp{
+    margin-right: 50px;
+    color: blue;
+}
+
+#liquidity{
+    margin-left: 40px;
+}
+
+#log-out-btn{
+    color: red;
+}
