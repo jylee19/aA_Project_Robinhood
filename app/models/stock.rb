@@ -14,7 +14,9 @@ class Stock < ApplicationRecord
     )
 
         quote = client.quote('AAPL')
+        symbols = client.ref_data_symbols()
         puts quote.latest_price;
+        puts symbols.first;
     end
 
 end
