@@ -1,7 +1,8 @@
 class Api::StocksController < ApplicationController
 
     def create
-
+        @stock = Stock.new(stock_params)
+        
     end
 
     def update
@@ -10,7 +11,7 @@ class Api::StocksController < ApplicationController
 
     private
     def stock_params
-        params.require(:stock).permit(:email, :username, :password, :portfolio_id)
+        params.require(:stock).permit(:NYSE_abv)
     end
 
 end
