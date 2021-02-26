@@ -7,6 +7,7 @@ import SignupFormContainer from './session/signup_form_container';
 import demoContainer from './demo/demo_container';
 import editUserContainer from './session/edit_form_container';
 import dashboardContainer from './dashboard/dashboard_container';
+import stockContainer from './stock/stock_container';
 
 const App = () => (
   <div>
@@ -16,6 +17,7 @@ const App = () => (
     <Route exact path ="/demo" component={demoContainer} />
     <Route exact path="/users/:userId/edit" component={editUserContainer} />
     <Route exact path="/users/:userId" component={dashboardContainer} />
+    <Route exact path="/:stock" component={stockContainer} />
   </div>
 );
 

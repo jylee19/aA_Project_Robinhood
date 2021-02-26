@@ -3,12 +3,13 @@ import { RECEIVE_STOCK } from '../actions/stock_actions';
 
 const _nullStock = {};
 
-export default (state = _nullPortfolio, action) => {
+export default (state = _nullStock, action) => {
     Object.freeze(state);
     switch(action.type) {
         case RECEIVE_STOCK:
-            return Object.assign({}, state, { [action.stock.id]: action.stock})
+            return Object.assign({}, state, { [action]: action.stock})
         default:
             return state;
     }
 }
+

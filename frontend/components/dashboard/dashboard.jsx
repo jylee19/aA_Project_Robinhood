@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
+import { Redirect, withRouter } from 'react-router';
 
 class Dashboard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             id: this.props.currentUser.id,
-            portfolio_id: this.props.currentUser.id
+            portfolio_id: this.props.currentUser.id,
+            abv: null,
+            redirect: null
         }
         // if (this.props.currentUser.portfolio_id === null){
         //     this.props.makePortfolio(this.state)
@@ -16,11 +18,28 @@ class Dashboard extends React.Component {
         //     this.props.showPortfolio(this.state.id);
         // }
         this.signout = this.signout.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     signout(e){
         this.props.logout();
-        
+    }
+
+    handleSubmit(e){
+        this.props.showStock(this.state.abv);
+        this.setState({ redirect: `/${this.state.abv}` })
+    }
+
+    handleSearch(e){
+        this.setState({ abv: e.target.value })
+    }
+
+    handleKeyPress(e) {
+        if (e.key === 'Enter') {
+            this.handleSubmit();
+        }
     }
 
     componentDidMount(){
@@ -30,12 +49,14 @@ class Dashboard extends React.Component {
     render(){
         if(!this.props.currentPortfolio){
             return null
-        } else{
+        } else if(this.state.redirect) {
+            return <Redirect to={this.state.redirect}/> 
+        } else {
             return(
                 <div>
                     <div className="topnav">
                         <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
-                        <input id='dashboard-search-nav' type="text" placeholder="Search"></input>
+                        <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } onKeyUp = { this.handleKeyPress } placeholder="Search"></input>
                         <ul className='nav-dash-links'>
                             <div className='dash-links'>Free Stocks</div>
                             <div className='dash-links'>Portfolio</div>
