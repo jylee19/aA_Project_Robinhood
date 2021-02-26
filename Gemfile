@@ -44,6 +44,7 @@ gem 'annotate'
 gem 'bcrypt'
 gem 'jquery-rails'
 gem 'http'
+gem 'iex-ruby-client'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
