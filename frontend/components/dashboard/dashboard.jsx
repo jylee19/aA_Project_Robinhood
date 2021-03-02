@@ -9,7 +9,8 @@ class Dashboard extends React.Component {
             id: this.props.currentUser.id,
             portfolio_id: this.props.currentUser.id,
             abv: null,
-            redirect: null
+            redirect: null,
+            tickers: []
         }
         // if (this.props.currentUser.portfolio_id === null){
         //     this.props.makePortfolio(this.state)
@@ -21,6 +22,7 @@ class Dashboard extends React.Component {
         this.handleSearch = this.handleSearch.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
+        // this.handlePromise = this.handlePromise.bind(this);
     }
 
     signout(e){
@@ -32,8 +34,22 @@ class Dashboard extends React.Component {
         this.setState({ redirect: `/${this.state.abv}` })
     }
 
+    convertPromise(p){
+        this.setState({ tickers: p });
+    }
+
     handleSearch(e){
         this.setState({ abv: e.target.value })
+        let tickers;
+        console.log(e.target.value)
+        fetch(`https://cors-container.herokuapp.com/https://ticker-2e1ica8b9.now.sh//keyword/${e.target.value}`)
+            .then(results => {
+                // console.log("here")
+                console.log(results.json())
+            }).then(data => {
+                this.convertPromise(data);
+            })            
+        // console.log(this.state.tickers);
     }
 
     handleKeyPress(e) {
@@ -47,6 +63,7 @@ class Dashboard extends React.Component {
     }
 
     render(){
+        console.log(this.state.tickers)
         if(!this.props.currentPortfolio){
             return null
         } else if(this.state.redirect) {
