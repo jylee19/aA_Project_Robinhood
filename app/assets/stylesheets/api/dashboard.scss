@@ -6,6 +6,7 @@
     justify-content: space-between;
     position: relative;
     border-bottom: solid;
+    border-color: blue;
     height: 60px;
 }
 
@@ -42,4 +43,21 @@
 
 #log-out-btn{
     color: red;
+}
+
+.search-bar{
+    display: flex;
+    flex-direction: column;
+}
+
+.tickers{
+    z-index: 10;
+}
+
+.search-bar-tickers{
+    height: 210px;
+    width: 450px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
 }

@@ -22,7 +22,8 @@ class Dashboard extends React.Component {
         this.handleSearch = this.handleSearch.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
-        // this.handlePromise = this.handlePromise.bind(this);
+        this.convertPromise = this.convertPromise.bind(this);
+        this.renderTickers = this.renderTickers.bind(this);
     }
 
     signout(e){
@@ -35,20 +36,23 @@ class Dashboard extends React.Component {
     }
 
     convertPromise(p){
+        console.log(p)
         this.setState({ tickers: p });
     }
 
     handleSearch(e){
         this.setState({ abv: e.target.value })
         let tickers;
-        console.log(e.target.value)
+        // console.log(e.target.value)
         fetch(`https://cors-container.herokuapp.com/https://ticker-2e1ica8b9.now.sh//keyword/${e.target.value}`)
             .then(results => {
                 // console.log("here")
-                console.log(results.json())
-            }).then(data => {
+                return results.json();
+                // this.convertPromise(results.json());
+            })
+            .then(data =>{
                 this.convertPromise(data);
-            })            
+            })
         // console.log(this.state.tickers);
     }
 
@@ -58,12 +62,27 @@ class Dashboard extends React.Component {
         }
     }
 
+    renderTickers(){
+        console.log(this.state.tickers)
+        if (this.state.tickers.length != 0){
+            return(
+                <div className = 'search-bar-tickers'>
+                    {this.state.tickers.map((stocks, i) => 
+                        <ul key={i}>
+                            {`${stocks.symbol}, ${stocks.name}`}
+                        </ul>
+                    )}
+                </div>
+            )
+        }
+    }
+
     componentDidMount(){
         this.props.showPortfolio(this.state.portfolio_id)
     }
 
     render(){
-        console.log(this.state.tickers)
+        // console.log(this.state.tickers)
         if(!this.props.currentPortfolio){
             return null
         } else if(this.state.redirect) {
@@ -73,7 +92,10 @@ class Dashboard extends React.Component {
                 <div>
                     <div className="topnav">
                         <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
-                        <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } onKeyUp = { this.handleKeyPress } placeholder="Search"></input>
+                        <div className='search-bar'>
+                            <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } onKeyUp = { this.handleKeyPress } placeholder="Search"></input>
+                            { this.renderTickers() }
+                        </div>
                         <ul className='nav-dash-links'>
                             <div className='dash-links'>Free Stocks</div>
                             <div className='dash-links'>Portfolio</div>
