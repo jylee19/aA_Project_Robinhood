@@ -48,6 +48,8 @@
 .search-bar{
     display: flex;
     flex-direction: column;
+    position: relative;
+    top: 50px;
 }
 
 .tickers{
@@ -55,9 +57,13 @@
 }
 
 .search-bar-tickers{
-    height: 210px;
+    max-height: 210px;
     width: 450px;
     overflow: scroll;
     display: flex;
     flex-direction: column;
+}
+
+#select-stock{
+    width: 400px;
 }

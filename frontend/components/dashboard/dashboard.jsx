@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect, withRouter } from 'react-router';
+import SearchBar from './search_bar';
+
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -24,6 +26,7 @@ class Dashboard extends React.Component {
         this.handleKeyPress = this.handleKeyPress.bind(this);
         this.convertPromise = this.convertPromise.bind(this);
         this.renderTickers = this.renderTickers.bind(this);
+        this.redirectStock = this.redirectStock.bind(this);
     }
 
     signout(e){
@@ -35,42 +38,55 @@ class Dashboard extends React.Component {
         this.setState({ redirect: `/${this.state.abv}` })
     }
 
+    redirectStock(e){
+        let stock = e.target.getAttribute('data-arg1');
+        this.setState({redirect: `/${stock}`})
+    }
+
     convertPromise(p){
         console.log(p)
         this.setState({ tickers: p });
     }
 
+    // checkStock(p){
+    //     if (p === [])
+    // }
+
     handleSearch(e){
-        this.setState({ abv: e.target.value })
-        let tickers;
-        // console.log(e.target.value)
-        fetch(`https://cors-container.herokuapp.com/https://ticker-2e1ica8b9.now.sh//keyword/${e.target.value}`)
-            .then(results => {
-                // console.log("here")
-                return results.json();
-                // this.convertPromise(results.json());
-            })
-            .then(data =>{
-                this.convertPromise(data);
-            })
-        // console.log(this.state.tickers);
+        if(e.target.value === ""){
+            this.setState({ abv: null })
+        } else {
+            this.setState({ abv: e.target.value })
+            // console.log(e.target.value)
+            fetch(`https://cors-container.herokuapp.com/https://ticker-2e1ica8b9.now.sh//keyword/${e.target.value}`)
+                .then(results => {
+                    // console.log("here")
+                    return results.json();
+                    // this.convertPromise(results.json());
+                })
+                .then(data =>{
+                    this.convertPromise(data);
+                })
+            // console.log(this.state.tickers);
+        }
     }
 
     handleKeyPress(e) {
-        if (e.key === 'Enter') {
+        if ((e.key === 'Enter') && (this.state.abv != null)) {
             this.handleSubmit();
         }
     }
 
+
     renderTickers(){
         console.log(this.state.tickers)
-        if (this.state.tickers.length != 0){
+        if (this.state.tickers.length != 0 && this.state.abv != null){
             return(
                 <div className = 'search-bar-tickers'>
                     {this.state.tickers.map((stocks, i) => 
-                        <ul key={i}>
+                        <button key={i} onClick={this.redirectStock} data-arg1={stocks.symbol}>
                             {`${stocks.symbol}, ${stocks.name}`}
-                        </ul>
+                        </button>
                     )}
                 </div>
             )
@@ -82,6 +98,7 @@ class Dashboard extends React.Component {
     }
 
     render(){
+        console.log(this.state.abv)
         // console.log(this.state.tickers)
         if(!this.props.currentPortfolio){
             return null
@@ -92,10 +109,12 @@ class Dashboard extends React.Component {
                 <div>
                     <div className="topnav">
                         <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
+                        {/* <SearchBar /> */}
                         <div className='search-bar'>
                             <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } onKeyUp = { this.handleKeyPress } placeholder="Search"></input>
                             { this.renderTickers() }
                         </div>
+                        {/* <Select options={this.state.tickers} onChange={this.handleSearch} placeholder="Search" openMenuOnClick={false} /> */}
                         <ul className='nav-dash-links'>
                             <div className='dash-links'>Free Stocks</div>
                             <div className='dash-links'>Portfolio</div>
