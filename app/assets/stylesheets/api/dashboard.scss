@@ -26,6 +26,8 @@
 #dashboard-search-nav{
     width: 450px;
     height: 30px;
+    text-indent: 10px;
+    border: none;
 }
 
 .buying-power{
@@ -48,8 +50,16 @@
 .search-bar{
     display: flex;
     flex-direction: column;
-    position: relative;
-    top: 50px;
+    overflow: hidden;
+    position: fixed;
+    top: 12px;
+    left: 150px;
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+
+.search-bar:active{
+    background-color: lightgray;
 }
 
 .tickers{
@@ -58,12 +68,53 @@
 
 .search-bar-tickers{
     max-height: 210px;
-    width: 450px;
-    overflow: scroll;
+    width: 454px;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    // border: 1px solid gray;
+    // border-top: none;
+    // border-radius: 2px;
+}
+
+.search-bar-tickers::-webkit-scrollbar{
+    display: none;
 }
 
 #select-stock{
     width: 400px;
+}
+
+.search-btn{
+    background-color: lightgray;
+    text-align: left;
+    border: none;
+    height: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    text-indent: 9px;
+}
+
+.search-btn:hover{
+    background-color: gray;
+    cursor: pointer;
+}
+
+#dashboard-search-nav:active,
+#dashboard-search-nav:focus{
+    outline: none;
+    background-color: lightgray;
+    // border: 2px solid gray;
+    // border-radius: 2px;
+}
+
+#dashboard-search-nav:active:not(:placeholder-shown),
+#dashboard-search-nav:focus:not(:placeholder-shown){
+    outline: none;
+    background-color: lightgray;
+    // border: 2px solid gray;
+    // border-radius: 2px;
+    // border-bottom: none;
 }

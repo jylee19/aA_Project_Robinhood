@@ -84,7 +84,7 @@ class Dashboard extends React.Component {
             return(
                 <div className = 'search-bar-tickers'>
                     {this.state.tickers.map((stocks, i) => 
-                        <button key={i} onClick={this.redirectStock} data-arg1={stocks.symbol}>
+                        <button className='search-btn' key={i} onClick={this.redirectStock} data-arg1={stocks.symbol}>
                             {`${stocks.symbol}, ${stocks.name}`}
                         </button>
                     )}
@@ -111,7 +111,7 @@ class Dashboard extends React.Component {
                         <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
                         {/* <SearchBar /> */}
                         <div className='search-bar'>
-                            <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } onKeyUp = { this.handleKeyPress } placeholder="Search"></input>
+                            <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } onKeyUp = { this.handleKeyPress } placeholder="Search For A Stock" autoComplete='off'></input>
                             { this.renderTickers() }
                         </div>
                         {/* <Select options={this.state.tickers} onChange={this.handleSearch} placeholder="Search" openMenuOnClick={false} /> */}
