@@ -6,6 +6,11 @@ class Api::StocksController < ApplicationController
         @stock.value = Stock.stock_price(@stock.NYSE_abv)
     end
 
+    # sell
+    def destroy
+
+    end
+
     # update ticker
     def update
 
@@ -21,6 +26,8 @@ class Api::StocksController < ApplicationController
         @stock.value = Stock.stock_price('AAPL')
         render :show
     end
+
+
 
     private
     def stock_params

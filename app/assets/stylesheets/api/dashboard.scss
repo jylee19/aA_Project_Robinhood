@@ -79,6 +79,19 @@
     // border-radius: 2px;
 }
 
+.search-bar-tickers:hover{
+    max-height: 210px;
+    width: 454px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    // border: 1px solid gray;
+    // border-top: none;
+    // border-radius: 2px;
+}
+
 .search-bar-tickers::-webkit-scrollbar{
     display: none;
 }
@@ -117,4 +130,30 @@
     // border: 2px solid gray;
     // border-radius: 2px;
     // border-bottom: none;
+}
+
+.search-bar>div{
+    display:none;
+}
+
+.search-bar:active>div,
+.search-bar:focus>div{
+    max-height: 210px;
+    width: 454px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#dashboard-search-nav:active + div,
+#dashboard-search-nav:focus + div{
+    max-height: 210px;
+    width: 454px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }

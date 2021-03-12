@@ -40,6 +40,7 @@ class Dashboard extends React.Component {
 
     redirectStock(e){
         let stock = e.target.getAttribute('data-arg1');
+        this.props.showStock(stock)
         this.setState({redirect: `/${stock}`})
     }
 
@@ -48,9 +49,6 @@ class Dashboard extends React.Component {
         this.setState({ tickers: p });
     }
 
-    // checkStock(p){
-    //     if (p === [])
-    // }
 
     handleSearch(e){
         if(e.target.value === ""){
