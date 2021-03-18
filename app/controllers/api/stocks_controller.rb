@@ -3,7 +3,8 @@ class Api::StocksController < ApplicationController
     # buy
     def create 
         @stock = Stock.new(stock_params)
-        @stock.value = Stock.stock_price(@stock.NYSE_abv)
+        if @stock.save!
+            @portfolio = Portfolio.find_by(id: )
     end
 
     # sell
@@ -24,6 +25,7 @@ class Api::StocksController < ApplicationController
         # @stock.value = Stock.stock_price(@stock.NYSE_abv)
         @stock.NYSE_abv = 'AAPL'
         @stock.value = Stock.stock_price('AAPL')
+        @stock.comp_description = Stock.get_description('AAPL')
         render :show
     end
 

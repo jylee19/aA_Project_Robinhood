@@ -16,4 +16,15 @@ class Stock < ApplicationRecord
         # puts symbols.first;
     end
 
+    def self.get_description(symbol)
+        client = IEX::Api::Client.new(
+        publishable_token: 'Tpk_8ecd293d171f48c793e2a1435a284f9c',
+        endpoint: 'https://sandbox.iexapis.com/stable'
+        )
+
+        description = client.company(symbol);
+        description.description;
+
+    end
+
 end

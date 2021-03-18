@@ -133,7 +133,9 @@ class Stock extends Component {
                     <div>{this.props.currentStock.value}</div>
                         {this.tradeOptions()}
                     <div>
-
+                    {/* <div>
+                        {this.props.currentStock.comp_description}
+                    </div> */}
                     </div>
                 </div>
             )

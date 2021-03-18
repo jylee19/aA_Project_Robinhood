@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_192006) do
+ActiveRecord::Schema.define(version: 2021_03_18_004226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_03_08_192006) do
     t.integer "num_stocks", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "funds"
     t.index ["user_id"], name: "index_portfolios_on_user_id", unique: true
   end
 
@@ -48,7 +49,6 @@ ActiveRecord::Schema.define(version: 2021_03_08_192006) do
     t.string "email", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
-    t.float "available_liquidity", null: false
     t.integer "trades_made_today", null: false
     t.integer "total_trades_made", null: false
     t.datetime "created_at", null: false
