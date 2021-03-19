@@ -11,7 +11,7 @@ class Stock extends Component {
             value: null,
             portfolio_id: null,
             comp_description: null,
-            number: 0,
+            number: 1,
             redirect: null,
             tickers: []
         }
@@ -40,7 +40,15 @@ class Stock extends Component {
     }
 
     createBuy(){
-
+        let stock = {
+            abv: 'APPL',
+            value: 150,
+            portfolio_id: 6,
+            comp_description: "testing",
+            number: 1,
+            purchase_price: 150
+        }
+        this.props.buyStock(stock)
     }
 
     createSell(){
@@ -68,13 +76,13 @@ class Stock extends Component {
 
     handleSubmit(e){
         this.props.showStock(this.state.abv);
-        this.setState({ redirect: `/${this.state.abv}` })
+        this.setState({ redirect: `/stocks/${this.state.abv}` })
     }
 
     redirectStock(e){
         let stock = e.target.getAttribute('data-arg1');
         this.props.showStock(stock)
-        this.setState({redirect: `/${stock}`})
+        this.setState({redirect: `/stocks/${stock}`})
     }
 
     convertPromise(p){

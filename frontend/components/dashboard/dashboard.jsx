@@ -35,13 +35,14 @@ class Dashboard extends React.Component {
 
     handleSubmit(e){
         this.props.showStock(this.state.abv);
-        this.setState({ redirect: `/${this.state.abv}` })
+        this.setState({ redirect: `/stocks/${this.state.abv}` })
     }
 
     redirectStock(e){
+        debugger
         let stock = e.target.getAttribute('data-arg1');
         this.props.showStock(stock)
-        this.setState({redirect: `/${stock}`})
+        this.setState({redirect: `/stocks/${stock}`})
     }
 
     convertPromise(p){

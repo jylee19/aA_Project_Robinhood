@@ -3,12 +3,24 @@ class Api::StocksController < ApplicationController
     # buy
     def create 
         @stock = Stock.new(stock_params)
-        if @stock.save!
-            @portfolio = Portfolio.find_by(id: )
+        @portfolio = Portfolio.find_by(id: @stock.portfolio_id)
+        if @portfolio.funds >= (@stock.value * @stock.number)
+            @stock.save!
+            @portfolio.funds = @portfolio.funds - (@stock.value * @stock.number)
+            Portfolio.update(@portfolio.id, :funds => @portfolio.funds)
+            num_stocks = @portfolio.num_stocks + @stock.number
+            Portfolio.update(@portfolio.id, :num_stocks => num_stocks)
+            render :show
+        else
+            render json: @stock.errors.full_messages, status: 422
+        end
+    end
+
     end
 
     # sell
     def destroy
+
 
     end
 
@@ -33,7 +45,7 @@ class Api::StocksController < ApplicationController
 
     private
     def stock_params
-        params.require(:stock).permit(:NYSE_abv)
+        params.require(:stock).permit(:NYSE_abv, :portfolio_id, :value, :comp_description, :number, :purchase_price)
     end
 
 end

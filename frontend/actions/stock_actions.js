@@ -12,3 +12,7 @@ const receiveStock = (stock) => {
 export const showStock = (stockAbv) => dispatch => {
     return StockAPIUtil.fetchStock(stockAbv).then(s => dispatch(receiveStock(s)))
 }
+
+export const buyStock = (stock) => dispatch => {
+    return StockAPIUtil.postStock(stock).then(s => dispatch(receiveStock(s)))
+}

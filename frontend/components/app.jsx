@@ -15,12 +15,12 @@ const App = () => (
   <div>
     {/* <PersistGate loading={null} persistor={persistor}> */}
       <Route exact path="/" component={HomeContainer} />
-      <AuthRoute path="/login" component={LoginFormContainer} />
-      <AuthRoute path="/signup" component={SignupFormContainer} />
+      <AuthRoute exact path="/login" component={LoginFormContainer} />
+      <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route exact path ="/demo" component={demoContainer} />
       <Route exact path="/users/:userId/edit" component={editUserContainer} />
       <Route exact path="/users/:userId" component={dashboardContainer} />
-      <Route exact path="/:stock" component={stockContainer} />
+      <Route exact path="/stocks/:stock" component={stockContainer} />
     {/* </PersistGate> */}
   </div>
 );
