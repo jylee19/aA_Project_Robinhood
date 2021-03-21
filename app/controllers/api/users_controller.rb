@@ -10,7 +10,7 @@ class Api::UsersController < ApplicationController
             @user.update(user_params)
             @portfolio = Portfolio.new()
             @portfolio.user_id = @user.id
-            @portfolio.value = 0
+            @portfolio.value = 10000.00
             @portfolio.num_stocks = 0
             @portfolio.funds = 10000.00
             @portfolio.save!

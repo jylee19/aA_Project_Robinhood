@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
         else
             login!(@user)
             render "api/users/show.json.jbuilder"
-        end
+        e
     end
 
     def destroy

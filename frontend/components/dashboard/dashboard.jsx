@@ -39,7 +39,6 @@ class Dashboard extends React.Component {
     }
 
     redirectStock(e){
-        debugger
         let stock = e.target.getAttribute('data-arg1');
         this.props.showStock(stock)
         this.setState({redirect: `/stocks/${stock}`})

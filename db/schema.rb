@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_18_190913) do
+ActiveRecord::Schema.define(version: 2021_03_19_184432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,8 +41,6 @@ ActiveRecord::Schema.define(version: 2021_03_18_190913) do
     t.datetime "updated_at", null: false
     t.float "number"
     t.float "purchase_price"
-    t.index ["NYSE_abv"], name: "index_stocks_on_NYSE_abv", unique: true
-    t.index ["portfolio_id"], name: "index_stocks_on_portfolio_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|

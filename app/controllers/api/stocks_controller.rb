@@ -2,21 +2,31 @@ class Api::StocksController < ApplicationController
 
     # buy
     def create 
-        @stock = Stock.new(stock_params)
-        @portfolio = Portfolio.find_by(id: @stock.portfolio_id)
-        if @portfolio.funds >= (@stock.value * @stock.number)
+        @stock = Stock.find_by(NYSE_abv: params[:stock][:NYSE_abv], portfolio_id: params[:stock][:portfolio_id])
+        @portfolio = Portfolio.find_by(id: params[:stock][:portfolio_id])
+        holder = Stock.new(stock_params)
+        if @portfolio.funds < (holder.value * holder.number)
+            render json: @stock.errors.full_messages, status: 422
+        elsif @stock.nil?
+            @stock = Stock.new(stock_params)
             @stock.save!
             @portfolio.funds = @portfolio.funds - (@stock.value * @stock.number)
-            Portfolio.update(@portfolio.id, :funds => @portfolio.funds)
+            Portfolio.update(@portfolio.id, funds: @portfolio.funds)
             num_stocks = @portfolio.num_stocks + @stock.number
-            Portfolio.update(@portfolio.id, :num_stocks => num_stocks)
+            Portfolio.update(@portfolio.id, num_stocks: num_stocks)
             render :show
         else
-            render json: @stock.errors.full_messages, status: 422
+            new_value = @stock.value + holder.value
+            new_number = @stock.number + holder.number
+            avg_cost = (new_value) / (new_number)
+            Stock.update(@stock.id, purchase_price: avg_cost, value: new_value, number: new_number)
+            @portfolio.funds = @portfolio.funds - holder.value
+            num_stocks = @portfolio.num_stocks + holder.number
+            Portfolio.update(@portfolio.id, funds: @portfolio.funds, num_stocks: num_stocks)
+            render :show
         end
     end
 
-    end
 
     # sell
     def destroy
