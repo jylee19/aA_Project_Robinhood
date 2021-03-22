@@ -58,14 +58,15 @@ class Api::StocksController < ApplicationController
 
     # Stock page
     def show
-        # @stock = Stock.new(stock_params)
-        @stock = Stock.new()
-        puts @stock
-        # @stock.value = Stock.stock_price(@stock.NYSE_abv)
-        @stock.NYSE_abv = 'AAPL'
-        @stock.value = Stock.stock_price('AAPL')
-        @stock.comp_description = Stock.get_description('AAPL')
-        render :show
+        @stock = Stock.find_by(NYSE_abv: params[:stock][:NYSE_abv], portfolio_id: params[:stock][:portfolio_id])
+        if @stock.nil?
+            @stock = Stock.new(stock_params)
+            @stock.value = Stock.stock_price(@stock.NYSE_abv)
+            @stock.comp_description = Stock.get_description(@stock.NYSE_abv)
+            render :show
+        else
+            render :show
+        end
     end
 
 

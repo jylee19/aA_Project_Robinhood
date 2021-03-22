@@ -86,14 +86,19 @@ class Stock extends Component {
     }
 
     handleSubmit(e){
-        this.props.showStock(this.state.abv);
+        let stock = {
+            NYSE_abv: this.state.abv
+        }
+        this.props.showStock(stock);
         this.setState({ redirect: `/stocks/${this.state.abv}` })
     }
 
     redirectStock(e){
-        let stock = e.target.getAttribute('data-arg1');
+        let stock = {
+            NYSE_abv: e.target.getAttribute('data-arg1')
+        }
         this.props.showStock(stock)
-        this.setState({redirect: `/stocks/${stock}`})
+        this.setState({redirect: `/stocks/${stock.NYSE_abv}`})
     }
 
     convertPromise(p){

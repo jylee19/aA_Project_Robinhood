@@ -1,8 +1,9 @@
 
-export const fetchStock = (stockAbv) => {
+export const fetchStock = (stock) => {
     return $.ajax({
-        url: `/api/stocks/${stockAbv}`,
-        method: 'GET'
+        url: `/api/stocks/${stock.NYSE_abv}`,
+        method: 'GET',
+        data: { stock }
     })
 }
 
