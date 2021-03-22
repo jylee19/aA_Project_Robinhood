@@ -13,3 +13,11 @@ export const postStock = (stock) => {
         data: { stock }
     })
 }
+
+export const deleteStock = (stock) => {
+    return $.ajax({
+        url: `/api/stocks/${stock.id}`,
+        method: 'DELETE',
+        data: { stock }
+    })
+}

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { showStock, buyStock } from '../../actions/stock_actions'
+import { showStock, buyStock, sellStock } from '../../actions/stock_actions'
 import Stock from './stock'
 
 
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         showStock: NYSE_abv => dispatch(showStock(NYSE_abv)),
-        buyStock: (stock) => dispatch(buyStock(stock))
+        buyStock: (stock) => dispatch(buyStock(stock)),
+        sellStock: (stock) => dispatch(sellStock(stock))
     }
 }
 

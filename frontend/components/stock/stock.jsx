@@ -48,12 +48,21 @@ class Stock extends Component {
             number: 1,
             purchase_price: 150
         }
-        
+
         this.props.buyStock(stock)
     }
 
     createSell(){
-
+        let stock = {
+            NYSE_abv: 'APPL',
+            value: 150,
+            portfolio_id: 6,
+            comp_description: "testing",
+            number: 1,
+            purchase_price: 150
+        }
+        
+        this.props.sellStock(stock)
     }
 
     componentDidMount(){

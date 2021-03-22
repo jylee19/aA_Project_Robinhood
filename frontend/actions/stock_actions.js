@@ -1,3 +1,4 @@
+import Stock from '../components/stock/stock';
 import * as StockAPIUtil from '../util/stock_api_util';
 
 export const RECEIVE_STOCK = 'RECEIVE_STOCK'
@@ -15,4 +16,8 @@ export const showStock = (stockAbv) => dispatch => {
 
 export const buyStock = (stock) => dispatch => {
     return StockAPIUtil.postStock(stock)
+}
+
+export const sellStock = (stock) => dispatch => {
+    return StockAPIUtil.deleteStock(stock)
 }
