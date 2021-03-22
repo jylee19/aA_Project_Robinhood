@@ -36,14 +36,15 @@ class Api::StocksController < ApplicationController
         if holder.number > @stock.number
             render json: @stock.errors.full_messages, status: 422
         else
-            new_value = @stock.value - @holder.value
-            new_number = @stock.number - @holder.number
+            new_value = @stock.value - holder.value
+            new_number = @stock.number - holder.number
             avg_cost = (new_value) / (new_number)
             Stock.update(@stock.id, purchase_price: avg_cost, value: new_value, number: new_number)
             @portfolio.funds = @portfolio.funds + holder.value
             num_stocks = @portfolio.num_stocks - holder.number
             Portfolio.update(@portfolio.id, funds: @portfolio.funds, num_stocks: num_stocks)
-            if new_number = 0
+            if new_number > 0        
+            else
                 Stock.destroy(@stock.id)
             end
             render :show

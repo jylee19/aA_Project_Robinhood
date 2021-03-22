@@ -54,6 +54,7 @@ class Stock extends Component {
 
     createSell(){
         let stock = {
+            id: 3,
             NYSE_abv: 'APPL',
             value: 150,
             portfolio_id: 6,
