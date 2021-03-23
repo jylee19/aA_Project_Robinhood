@@ -35,7 +35,8 @@ class Dashboard extends React.Component {
 
     handleSubmit(e){
         let stock = {
-            NYSE_abv: this.state.abv
+            NYSE_abv: this.state.abv,
+            portfolio_id: this.props.currentPortfolio.id
         }
         this.props.showStock(stock);
         this.setState({ redirect: `/stocks/${this.state.abv}` })
@@ -43,7 +44,8 @@ class Dashboard extends React.Component {
 
     redirectStock(e){
         let stock = {
-            NYSE_abv: e.target.getAttribute('data-arg1')
+            NYSE_abv: e.target.getAttribute('data-arg1'),
+            portfolio_id: this.props.currentPortfolio.id
         }
         this.props.showStock(stock)
         this.setState({redirect: `/stocks/${stock.NYSE_abv}`})

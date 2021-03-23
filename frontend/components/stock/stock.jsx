@@ -41,12 +41,12 @@ class Stock extends Component {
 
     createBuy(){
         let stock = {
-            NYSE_abv: 'APPL',
-            value: 150,
+            NYSE_abv: 'AAPL',
+            current_price: 150,
             portfolio_id: 6,
             comp_description: "testing",
             number: 1,
-            purchase_price: 150
+            purchase_price: 150,
         }
 
         this.props.buyStock(stock)
@@ -55,8 +55,8 @@ class Stock extends Component {
     createSell(){
         let stock = {
             id: 3,
-            NYSE_abv: 'APPL',
-            value: 150,
+            NYSE_abv: 'AAPL',
+            current_price: 150,
             portfolio_id: 6,
             comp_description: "testing",
             number: 1,
@@ -87,7 +87,8 @@ class Stock extends Component {
 
     handleSubmit(e){
         let stock = {
-            NYSE_abv: this.state.abv
+            NYSE_abv: this.state.abv,
+            portfolio_id: this.props.currentPortfolio.id
         }
         this.props.showStock(stock);
         this.setState({ redirect: `/stocks/${this.state.abv}` })
@@ -95,7 +96,8 @@ class Stock extends Component {
 
     redirectStock(e){
         let stock = {
-            NYSE_abv: e.target.getAttribute('data-arg1')
+            NYSE_abv: e.target.getAttribute('data-arg1'),
+            portfolio_id: this.props.currentPortfolio.id
         }
         this.props.showStock(stock)
         this.setState({redirect: `/stocks/${stock.NYSE_abv}`})
@@ -154,7 +156,7 @@ class Stock extends Component {
                         </ul>
                     </div>
                     <div>Value</div>
-                    <div>{this.props.currentStock.value}</div>
+                    <div>{this.props.currentStock.current_price}</div>
                         {this.tradeOptions()}
                     <div>
                     {/* <div>
