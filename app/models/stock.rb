@@ -1,5 +1,5 @@
 require 'rubygems'
-
+require 'rest-client'
 
 class Stock < ApplicationRecord
 
@@ -11,9 +11,7 @@ class Stock < ApplicationRecord
         )
 
         quote = client.quote(symbol)
-        # symbols = client.ref_data_symbols()
         quote.latest_price;
-        # puts symbols.first;
     end
 
     def self.get_description(symbol)
@@ -26,5 +24,22 @@ class Stock < ApplicationRecord
         description.description;
 
     end
+
+    def self.get_open(symbol)
+        # client = Alphavantage::Client.new key: "JLIBEKIH4Z1YQDP1"
+        # stock = Alphavantage::Stock.new symbol: symbol, key: "JLIBEKIH4Z1YQDP1"
+        puts symbol
+        response = RestClient.get 'https://www.alphavantage.co/query', {params: {
+            function: 'GLOBAL_QUOTE',
+            symbol: `IBM`,
+            apikey: 'JLIBEKIH4Z1YQDP1'       
+        } }
+
+        stock = JSON.parse(response)
+        puts stock
+
+
+    end
+        
 
 end

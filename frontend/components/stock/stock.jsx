@@ -8,10 +8,7 @@ class Stock extends Component {
         super(props);
         this.state = {
             abv: null,
-            value: null,
-            portfolio_id: null,
-            comp_description: null,
-            number: 1,
+            current_price: this.props.currentStock.current_price,
             redirect: null,
             tickers: []
         }
@@ -24,6 +21,8 @@ class Stock extends Component {
         this.convertPromise = this.convertPromise.bind(this);
         this.renderTickers = this.renderTickers.bind(this);
         this.redirectStock = this.redirectStock.bind(this);
+        this.ownStock = this.ownStock.bind(this);
+        this.refreshData = this.refreshData.bind(this)
     }
 
     tradeOptions(){
@@ -32,21 +31,33 @@ class Stock extends Component {
                 <button className='trade-option' onClick={this.createBuy}>
                     Buy {this.props.currentStock.NYSE_abv}
                 </button>
-                <button className='trade-option' onClick={this.createSell}>
-                    Sell {this.props.currentStock.NYSE_abv}
-                </button>
+                {this.ownStock}
             </div>
         )
     }
 
+    ownStock(){
+        if (this.props.currentStock.number != null){
+            return (
+            <div>
+                <button className='trade-option' onClick={this.createSell}>
+                    Sell {this.props.currentStock.NYSE_abv}
+                </button>
+            </div>
+            )
+        }
+        
+    }
+
     createBuy(){
+        console.log(this.props.currentStock.NYSE_abv)
         let stock = {
-            NYSE_abv: 'AAPL',
-            current_price: 150,
-            portfolio_id: 6,
-            comp_description: "testing",
+            NYSE_abv: this.props.currentStock.NYSE_abv,
+            current_price: this.props.currentStock.current_price,
+            portfolio_id: this.props.currentStock.portfolio_id,
+            comp_description: this.props.currentStock.comp_description,
             number: 1,
-            purchase_price: 150,
+            purchase_price: this.props.currentStock.purchase_price
         }
 
         this.props.buyStock(stock)
@@ -54,24 +65,39 @@ class Stock extends Component {
 
     createSell(){
         let stock = {
-            id: 3,
-            NYSE_abv: 'AAPL',
-            current_price: 150,
-            portfolio_id: 6,
-            comp_description: "testing",
+            // id: this.props.currentStock.id,
+            NYSE_abv: this.props.currentStock.NYSE_abv,
+            current_price: this.props.currentStock.current_price,
+            portfolio_id: this.props.currentStock.portfolio_id,
+            comp_description: this.props.currentStock.comp_description,
             number: 1,
-            purchase_price: 150
+            purchase_price: this.props.currentStock.purchase_price
         }
         
         this.props.sellStock(stock)
     }
 
     componentDidMount(){
-        
+        // console.log(this.props.currentStock.NYSE_abv)
+        // setInterval(() => this.refreshData(), 10000)
+    }
+
+    refreshData(){
+        // debugger
+        if (this.props.currentStock.NYSE_abv !== undefined){
+            console.log(this.props.currentStock)
+            console.log(this.props.currentStock.NYSE_abv);
+            console.log(this.props.currentPortfolio.id)
+            let stock = {
+                NYSE_abv: this.props.currentStock.NYSE_abv,
+                portfolio_id: this.props.currentPortfolio.id
+            }
+            this.props.showStock(stock).then(this.setState({ current_price: this.props.currentStock.current_price }))
+        }
     }
 
     renderTickers(){
-        console.log(this.state.tickers)
+        // console.log(this.state.tickers)
         if (this.state.tickers.length != 0 && this.state.abv != null){
             return(
                 <div className = 'search-bar-tickers'>
@@ -104,7 +130,6 @@ class Stock extends Component {
     }
 
     convertPromise(p){
-        console.log(p)
         this.setState({ tickers: p });
     }
 
@@ -135,7 +160,7 @@ class Stock extends Component {
     }
 
     render () {
-        console.log(this.state.redirect)
+        console.log(this.state.current_abv)
         if (this.state.redirect && this.state.redirect != `/${this.props.currentStock.NYSE_abv}`) {
             return <Redirect to={this.state.redirect}/>
         } else {
@@ -157,12 +182,29 @@ class Stock extends Component {
                     </div>
                     <div>Value</div>
                     <div>{this.props.currentStock.current_price}</div>
-                        {this.tradeOptions()}
                     <div>
+                        {this.tradeOptions()}
+                        <div>
+                            <div>
+                                <button>Buy {this.props.currentStock.NYSE_abv}</button>
+                            </div>
+                            <p id='trade-text'>Invest in</p>
+                            <select className='trade-select'>
+                                <option value="Dollars">Dollars</option>
+                                <option value="Shares">Shares</option>  
+                            </select>
+                        </div>
+                        <div>
+                            <p id='trade-text'>Amount</p>
+                            <input id='trade-amount'></input>
+                        </div>
+                        <p id='trade-text-quantity'>Est. Quantity</p>
+
+                        <button className='review-order'>Review Order</button>
+                    </div>
                     {/* <div>
                         {this.props.currentStock.comp_description}
                     </div> */}
-                    </div>
                 </div>
             )
         }

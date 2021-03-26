@@ -52,7 +52,6 @@ class Dashboard extends React.Component {
     }
 
     convertPromise(p){
-        console.log(p)
         this.setState({ tickers: p });
     }
 
@@ -84,7 +83,6 @@ class Dashboard extends React.Component {
 
 
     renderTickers(){
-        console.log(this.state.tickers)
         if (this.state.tickers.length != 0 && this.state.abv != null){
             return(
                 <div className = 'search-bar-tickers'>
@@ -103,7 +101,7 @@ class Dashboard extends React.Component {
     }
 
     render(){
-        console.log(this.state.abv)
+        // console.log(this.state.abv)
         // console.log(this.state.tickers)
         if(!this.props.currentPortfolio){
             return null

@@ -10,6 +10,7 @@ class Api::StocksController < ApplicationController
         elsif @stock.nil?
             @stock = Stock.new(stock_params)
             @stock.value = @stock.current_price * @stock.number
+            @stock.opening_price = Stock.get_open(@stock.NYSE_abv)
             @stock.save!
             @portfolio.funds = @portfolio.funds - (@stock.current_price * @stock.number)
             Portfolio.update(@portfolio.id, funds: @portfolio.funds)
@@ -60,13 +61,16 @@ class Api::StocksController < ApplicationController
     # Stock page
     def show
         @stock = Stock.find_by(NYSE_abv: params[:stock][:NYSE_abv], portfolio_id: params[:stock][:portfolio_id])
-        puts @stock.nil?
+        # puts @stock.nil?
         if @stock.nil?
             @stock = Stock.new(stock_params)
             @stock.current_price = Stock.stock_price(@stock.NYSE_abv)
             @stock.comp_description = Stock.get_description(@stock.NYSE_abv)
+            @stock.opening_price = Stock.get_open(@stock.NYSE_abv)
             render :show
         else
+            @stock.current_price = Stock.stock_price(@stock.NYSE_abv)
+            @stock.opening_price = Stock.get_open(@stock.NYSE_abv)
             render :show
         end
     end
