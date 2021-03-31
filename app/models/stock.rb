@@ -1,5 +1,6 @@
 require 'rubygems'
-require 'rest-client'
+# require 'rest-client'
+# require 'alphavantagerb'
 
 class Stock < ApplicationRecord
 
@@ -25,20 +26,10 @@ class Stock < ApplicationRecord
 
     end
 
-    def self.get_open(symbol)
-        # client = Alphavantage::Client.new key: "JLIBEKIH4Z1YQDP1"
-        # stock = Alphavantage::Stock.new symbol: symbol, key: "JLIBEKIH4Z1YQDP1"
-        puts symbol
-        response = RestClient.get 'https://www.alphavantage.co/query', {params: {
-            function: 'GLOBAL_QUOTE',
-            symbol: `IBM`,
-            apikey: 'JLIBEKIH4Z1YQDP1'       
-        } }
-
-        stock = JSON.parse(response)
-        puts stock
-
-
+    def self.get_close(symbol)
+        client = Avantage::Client.new('JLIBEKIH4Z1YQDP1')
+        stock = client.get(:global_quote, symbol: 'AAPL')
+        stock["Global Quote"]["08. previous close"]
     end
         
 

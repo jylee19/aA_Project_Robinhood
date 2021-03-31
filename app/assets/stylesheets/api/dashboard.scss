@@ -5,8 +5,8 @@
     width: 100%;
     justify-content: space-between;
     position: relative;
-    border-bottom: solid;
-    border-color: blue;
+    // border-bottom: solid;
+    // border-color: blue;
     height: 60px;
 }
 
@@ -17,6 +17,14 @@
 
 .dash-links{
     padding-right: 40px;
+    border: none;
+}
+
+.dash-links:hover,
+.dash-links:active{
+    cursor: pointer;
+    color: #00c805
+
 }
 
 .logo-dashboard{
@@ -28,6 +36,8 @@
     height: 30px;
     text-indent: 10px;
     border: none;
+    background-color: #000000;
+    color: white;
 }
 
 .buying-power{
@@ -54,12 +64,13 @@
     position: fixed;
     top: 12px;
     left: 150px;
-    border: 1px solid gray;
+    border: 1px solid #40494e;
     border-radius: 2px;
+    background-color: #000000;
 }
 
 .search-bar:active{
-    background-color: lightgray;
+    background-color: #1e2225;
 }
 
 .tickers{
@@ -101,13 +112,14 @@
 }
 
 .search-btn{
-    background-color: lightgray;
+    background-color: #1e2225;
     text-align: left;
     border: none;
     height: 20px;
     padding-top: 5px;
     padding-bottom: 10px;
     text-indent: 9px;
+    color: white;
 }
 
 .search-btn:hover{
@@ -118,7 +130,7 @@
 #dashboard-search-nav:active,
 #dashboard-search-nav:focus{
     outline: none;
-    background-color: lightgray;
+    background-color: #1e2225;
     // border: 2px solid gray;
     // border-radius: 2px;
 }
@@ -126,7 +138,7 @@
 #dashboard-search-nav:active:not(:placeholder-shown),
 #dashboard-search-nav:focus:not(:placeholder-shown){
     outline: none;
-    background-color: lightgray;
+    background-color: #1e2225;
     // border: 2px solid gray;
     // border-radius: 2px;
     // border-bottom: none;

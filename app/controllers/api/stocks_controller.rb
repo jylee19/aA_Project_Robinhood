@@ -66,11 +66,11 @@ class Api::StocksController < ApplicationController
             @stock = Stock.new(stock_params)
             @stock.current_price = Stock.stock_price(@stock.NYSE_abv)
             @stock.comp_description = Stock.get_description(@stock.NYSE_abv)
-            @stock.opening_price = Stock.get_open(@stock.NYSE_abv)
+            @stock.previous_close = Stock.get_close(@stock.NYSE_abv)
             render :show
         else
             @stock.current_price = Stock.stock_price(@stock.NYSE_abv)
-            @stock.opening_price = Stock.get_open(@stock.NYSE_abv)
+            @stock.previous_close = Stock.get_close(@stock.NYSE_abv)
             render :show
         end
     end

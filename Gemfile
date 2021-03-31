@@ -50,6 +50,8 @@ gem 'mime-types'
 gem 'netrc'
 gem 'http-accept'
 gem 'http-cookie'
+gem 'alphavantagerb'
+gem 'avantage'
 
 
 group :development, :test do

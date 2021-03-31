@@ -109,7 +109,7 @@ class Dashboard extends React.Component {
             return <Redirect to={this.state.redirect}/> 
         } else {
             return(
-                <div>
+                <div className='page'>
                     <div className="topnav">
                         <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
                         {/* <SearchBar /> */}

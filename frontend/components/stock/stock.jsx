@@ -27,16 +27,17 @@ class Stock extends Component {
 
     tradeOptions(){
         return(
-            <div>
+            <div className='buy-sell-div'>
                 <button className='trade-option' onClick={this.createBuy}>
                     Buy {this.props.currentStock.NYSE_abv}
                 </button>
-                {this.ownStock}
+                {this.ownStock()}
             </div>
         )
     }
 
     ownStock(){
+        console.log(this.props.currentStock)
         if (this.props.currentStock.number != null){
             return (
             <div>
@@ -160,12 +161,11 @@ class Stock extends Component {
     }
 
     render () {
-        console.log(this.state.current_abv)
         if (this.state.redirect && this.state.redirect != `/${this.props.currentStock.NYSE_abv}`) {
             return <Redirect to={this.state.redirect}/>
         } else {
             return(
-                <div>
+                <div className='page'>
                     <div className="topnav">
                         <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
                         <div className='search-bar'>
@@ -173,34 +173,38 @@ class Stock extends Component {
                             { this.renderTickers() }
                         </div>
                         <ul className='nav-dash-links'>
-                            <div className='dash-links'>Free Stocks</div>
-                            <div className='dash-links'>Portfolio</div>
-                            <div className='dash-links'>Cash</div>
-                            <div className='dash-links'>Messages</div>
-                            <div className='dash-links'>Account</div>
+                            <btn className='dash-links'>Free Stocks</btn>
+                            <btn className='dash-links'>Portfolio</btn>
+                            <btn className='dash-links'>Cash</btn>
+                            <btn className='dash-links'>Messages</btn>
+                            <btn className='dash-links'>Account</btn>
                         </ul>
                     </div>
                     <div>Value</div>
                     <div>{this.props.currentStock.current_price}</div>
-                    <div>
+                    <div className='trade-section'>
                         {this.tradeOptions()}
-                        <div>
-                            <div>
-                                <button>Buy {this.props.currentStock.NYSE_abv}</button>
-                            </div>
+                        <div className='trade-segments'>
                             <p id='trade-text'>Invest in</p>
                             <select className='trade-select'>
                                 <option value="Dollars">Dollars</option>
                                 <option value="Shares">Shares</option>  
                             </select>
                         </div>
-                        <div>
+                        <div className='trade-segments'>
                             <p id='trade-text'>Amount</p>
                             <input id='trade-amount'></input>
                         </div>
-                        <p id='trade-text-quantity'>Est. Quantity</p>
+                        <div className='trade-segments'>
+                            <p id='trade-text-quantity'>Est. Quantity</p>
+                        </div>
 
                         <button className='review-order'>Review Order</button>
+                        <div id='bp-container'>
+                            <div id='buying-power'>
+                                ${this.props.currentPortfolio.funds.toFixed(2)} Buying Power Available
+                            </div>
+                        </div>
                     </div>
                     {/* <div>
                         {this.props.currentStock.comp_description}
