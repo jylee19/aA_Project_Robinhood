@@ -45,6 +45,14 @@ gem 'bcrypt'
 gem 'jquery-rails'
 gem 'http'
 gem 'iex-ruby-client'
+gem 'rest-client'
+gem 'mime-types'
+gem 'netrc'
+gem 'http-accept'
+gem 'http-cookie'
+gem 'alphavantagerb'
+gem 'avantage'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

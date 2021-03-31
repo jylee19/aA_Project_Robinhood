@@ -7,13 +7,7 @@ import Root from './components/root';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
-    // console.log(window.currentUser)
     if (window.currentUser) {
-        // console.log('here')
-        // console.log(window.currentUser.user.id)
-        // console.log(window.currentUser.user)
-        // console.log(window.currentUser.portfolio.id)
-        // console.log(window.currentUser.portfolio)
         const preloadedState = {
             entities: {
                 user: { [window.currentUser.user.id]: window.currentUser.user }
@@ -21,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
             session: { id: window.currentUser.user.id }
         };
         store = configureStore(preloadedState);
-        // console.log(store)
         delete window.currentUser;
     } else {
         store = configureStore();

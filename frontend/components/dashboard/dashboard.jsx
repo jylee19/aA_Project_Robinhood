@@ -34,23 +34,27 @@ class Dashboard extends React.Component {
     }
 
     handleSubmit(e){
-        this.props.showStock(this.state.abv);
-        this.setState({ redirect: `/${this.state.abv}` })
+        let stock = {
+            NYSE_abv: this.state.abv,
+            portfolio_id: this.props.currentPortfolio.id
+        }
+        this.props.showStock(stock);
+        this.setState({ redirect: `/stocks/${this.state.abv}` })
     }
 
     redirectStock(e){
-        let stock = e.target.getAttribute('data-arg1');
-        this.setState({redirect: `/${stock}`})
+        let stock = {
+            NYSE_abv: e.target.getAttribute('data-arg1'),
+            portfolio_id: this.props.currentPortfolio.id
+        }
+        this.props.showStock(stock)
+        this.setState({redirect: `/stocks/${stock.NYSE_abv}`})
     }
 
     convertPromise(p){
-        console.log(p)
         this.setState({ tickers: p });
     }
 
-    // checkStock(p){
-    //     if (p === [])
-    // }
 
     handleSearch(e){
         if(e.target.value === ""){
@@ -79,7 +83,6 @@ class Dashboard extends React.Component {
 
 
     renderTickers(){
-        console.log(this.state.tickers)
         if (this.state.tickers.length != 0 && this.state.abv != null){
             return(
                 <div className = 'search-bar-tickers'>
@@ -98,7 +101,7 @@ class Dashboard extends React.Component {
     }
 
     render(){
-        console.log(this.state.abv)
+        // console.log(this.state.abv)
         // console.log(this.state.tickers)
         if(!this.props.currentPortfolio){
             return null
@@ -106,7 +109,7 @@ class Dashboard extends React.Component {
             return <Redirect to={this.state.redirect}/> 
         } else {
             return(
-                <div>
+                <div className='page'>
                     <div className="topnav">
                         <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
                         {/* <SearchBar /> */}

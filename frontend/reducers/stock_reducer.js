@@ -7,7 +7,7 @@ export default (state = _nullStock, action) => {
     Object.freeze(state);
     switch(action.type) {
         case RECEIVE_STOCK:
-            return Object.assign({}, state, { [action.stock]: action.stock})
+            return Object.assign({}, state, action.stock)
         default:
             return state;
     }

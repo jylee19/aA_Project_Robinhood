@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_25_002425) do
+ActiveRecord::Schema.define(version: 2021_03_29_234220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,22 +28,21 @@ ActiveRecord::Schema.define(version: 2021_02_25_002425) do
     t.integer "num_stocks", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "funds"
     t.index ["user_id"], name: "index_portfolios_on_user_id", unique: true
   end
 
   create_table "stocks", force: :cascade do |t|
     t.string "NYSE_abv", null: false
-    t.integer "portfolio_id", null: false
-    t.integer "holder_id", null: false
+    t.integer "portfolio_id"
     t.float "value", null: false
     t.string "comp_description", null: false
-    t.integer "num_trades", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "number"
-    t.index ["NYSE_abv"], name: "index_stocks_on_NYSE_abv", unique: true
-    t.index ["holder_id"], name: "index_stocks_on_holder_id", unique: true
-    t.index ["portfolio_id"], name: "index_stocks_on_portfolio_id", unique: true
+    t.float "purchase_price"
+    t.float "current_price"
+    t.float "previous_close"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,7 +50,6 @@ ActiveRecord::Schema.define(version: 2021_02_25_002425) do
     t.string "email", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
-    t.float "available_liquidity", null: false
     t.integer "trades_made_today", null: false
     t.integer "total_trades_made", null: false
     t.datetime "created_at", null: false
