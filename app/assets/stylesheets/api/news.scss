@@ -1,0 +1,28 @@
+.article-image{
+    max-height: 250px;
+    max-width: 250px;
+}
+
+.news-list{
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 700px;
+    justify-content: space-around;
+}
+
+.article{
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-between;
+}
+
+#article-summary{
+    font-size: 12px;
+}
+
+.article-text{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
+import NewsContainer from './news_container';
 
 class Stock extends Component {
 
@@ -209,6 +210,9 @@ class Stock extends Component {
                     {/* <div>
                         {this.props.currentStock.comp_description}
                     </div> */}
+                    <NewsContainer
+                        abv={this.props.currentStock.NYSE_abv}
+                    />
                 </div>
             )
         }
