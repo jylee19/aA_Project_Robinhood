@@ -47,13 +47,16 @@ class News extends Component{
         return(
             <div className='news-list'>
                 {first_news.map((news, i) => 
-                    <div className='article' key={i} >
-                        <div className='article-text'>
-                            {news.headline}
-                            <p id='article-summary'>{news.summary}</p>
+                    <a href={news.url} target="_blank">
+                        <div className='article' key={i} >
+                            <div className='article-text'>
+                                <p id='article-source'>{news.source}</p>
+                                <p id='article-headline'>{news.headline}</p>
+                                <p id='article-summary'>{news.summary}</p>
+                            </div>
+                            <img className='article-image' src={news.image}/>
                         </div>
-                        <img className='article-image' src={news.image}/>
-                    </div>
+                    </a>
                 )}
 
             </div>
