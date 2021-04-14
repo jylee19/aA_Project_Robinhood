@@ -11,6 +11,8 @@ class Api::StocksController < ApplicationController
             @stock = Stock.new(stock_params)
             @stock.value = @stock.current_price * @stock.number
             @stock.opening_price = Stock.get_open(@stock.NYSE_abv)
+            @stock.company_name = Stock.get_name(@stock.NYSE_abv)
+            @stock.comp_description = Stock.get_description(@stock.NYSE_abv)
             @stock.save!
             @portfolio.funds = @portfolio.funds - (@stock.current_price * @stock.number)
             Portfolio.update(@portfolio.id, funds: @portfolio.funds)
@@ -67,6 +69,7 @@ class Api::StocksController < ApplicationController
             @stock.current_price = Stock.stock_price(@stock.NYSE_abv)
             @stock.comp_description = Stock.get_description(@stock.NYSE_abv)
             @stock.previous_close = Stock.get_close(@stock.NYSE_abv)
+            @stock.company_name = Stock.get_name(@stock.NYSE_abv)
             render :show
         else
             @stock.current_price = Stock.stock_price(@stock.NYSE_abv)
@@ -79,7 +82,7 @@ class Api::StocksController < ApplicationController
 
     private
     def stock_params
-        params.require(:stock).permit(:NYSE_abv, :portfolio_id, :value, :comp_description, :number, :purchase_price, :current_price)
+        params.require(:stock).permit(:NYSE_abv, :portfolio_id, :value, :comp_description, :number, :purchase_price, :current_price, :company_name)
     end
 
 end

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
+import NewsContainer from './news_container';
 
 class Stock extends Component {
 
@@ -22,7 +23,8 @@ class Stock extends Component {
         this.renderTickers = this.renderTickers.bind(this);
         this.redirectStock = this.redirectStock.bind(this);
         this.ownStock = this.ownStock.bind(this);
-        this.refreshData = this.refreshData.bind(this)
+        this.refreshData = this.refreshData.bind(this);
+        this.reviewOrder = this.reviewOrder.bind(this);
     }
 
     tradeOptions(){
@@ -76,6 +78,10 @@ class Stock extends Component {
         }
         
         this.props.sellStock(stock)
+    }
+
+    reviewOrder(){
+
     }
 
     componentDidMount(){
@@ -180,7 +186,9 @@ class Stock extends Component {
                             <btn className='dash-links'>Account</btn>
                         </ul>
                     </div>
-                    <div>Value</div>
+                    <div className='spacer'>
+                    </div>
+                    <div>{this.props.currentStock.company_name}</div>
                     <div>{this.props.currentStock.current_price}</div>
                     <div className='trade-section'>
                         {this.tradeOptions()}
@@ -199,7 +207,7 @@ class Stock extends Component {
                             <p id='trade-text-quantity'>Est. Quantity</p>
                         </div>
 
-                        <button className='review-order'>Review Order</button>
+                        <button className='review-order' onClick={this.reviewOrder}>Review Order</button>
                         <div id='bp-container'>
                             <div id='buying-power'>
                                 ${this.props.currentPortfolio.funds.toFixed(2)} Buying Power Available
@@ -209,6 +217,9 @@ class Stock extends Component {
                     {/* <div>
                         {this.props.currentStock.comp_description}
                     </div> */}
+                    <NewsContainer
+                        abv={this.props.currentStock.NYSE_abv}
+                    />
                 </div>
             )
         }

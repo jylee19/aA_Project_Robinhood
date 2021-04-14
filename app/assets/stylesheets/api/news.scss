@@ -1,0 +1,52 @@
+.article-image{
+    max-height: 250px;
+    max-width: 250px;
+}
+
+.news-list{
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 700px;
+    justify-content: space-around;
+}
+
+#article-source{
+    font-size: 12px;
+}
+
+.article{
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-between;
+    width: 800px;
+}
+
+.article:hover{
+    cursor: pointer;
+    background-color: #1e2225;
+}
+
+#article-headline{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#article-summary{
+    font-size: 12px;
+    color: #495154;
+    text-overflow: ellipsis;
+}
+
+.article-text{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+#stock-news{
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2f373a;
+    width: 800px;
+}

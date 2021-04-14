@@ -38,11 +38,14 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 5px;
     justify-content: space-between;
+    position: fixed;
+    top: 90px;
+    right: 160px;
 }
 
 .page{
     background-color: #000000;
-    height: 100vh;
+    // height: 100vh;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
