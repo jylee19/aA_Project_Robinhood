@@ -127,6 +127,8 @@ class Dashboard extends React.Component {
                         </ul>
     
                     </div>
+                    <div className='spacer'>
+                    </div>
                     <br/>
                     <h2 id='portfolio-value'>{this.props.currentPortfolio.value}</h2>
                     <div className='buying-power'>

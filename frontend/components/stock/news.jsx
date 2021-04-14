@@ -72,6 +72,9 @@ class News extends Component{
         console.log(this.state.news)
         return(
             <div>
+                <div id='stock-news'>
+                    News
+                </div>
                 {this.renderNews()}
             </div>
         )
