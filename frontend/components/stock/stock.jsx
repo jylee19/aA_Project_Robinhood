@@ -25,6 +25,7 @@ class Stock extends Component {
         this.ownStock = this.ownStock.bind(this);
         this.refreshData = this.refreshData.bind(this);
         this.reviewOrder = this.reviewOrder.bind(this);
+        this.calculateDifference = this.calculateDifference.bind(this)
     }
 
     tradeOptions(){
@@ -166,6 +167,32 @@ class Stock extends Component {
         }
     }
 
+    calculateDifference(){
+        let difference = (this.props.currentStock.current_price - this.props.currentStock.previous_close).toFixed(2);
+        let percentageChange = ((difference / this.props.currentStock.previous_close) * 100).toFixed(2);
+        if (difference >= 0){
+            return(
+                <div className='day-change'>
+                    <div>
+                        +${difference} (+{percentageChange}%)
+                    </div>
+                    <span id='today'>Today</span>
+                </div>
+            )
+        } else {
+            difference = difference * -1;
+            return(
+                <div className='day-change'>
+                    <div>
+                        -${difference} ({percentageChange}%)
+                    </div>
+                    <span id='today'>Today</span>
+                </div>
+            )
+        }
+
+    }
+
     render () {
         if (this.state.redirect && this.state.redirect != `/${this.props.currentStock.NYSE_abv}`) {
             return <Redirect to={this.state.redirect}/>
@@ -189,7 +216,8 @@ class Stock extends Component {
                     <div className='spacer'>
                     </div>
                     <div id='stock-name'>{this.props.currentStock.company_name}</div>
-                    <div id='stock-price'>{this.props.currentStock.current_price}</div>
+                    <div id='stock-price'>${this.props.currentStock.current_price}</div>
+                    {this.calculateDifference()}
                     <div className='trade-section'>
                         {this.tradeOptions()}
                         <div className='trade-segments'>
