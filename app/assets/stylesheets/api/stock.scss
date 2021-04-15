@@ -118,3 +118,22 @@
 //40494e
 
 //30363a
+
+#stock-name{
+    font-size: 32px;
+}
+
+#stock-price{
+    font-size: 32px;
+}
+
+.day-change{
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+}
+
+#today{
+    padding-left: 4px;
+    color: #495154;
+}
