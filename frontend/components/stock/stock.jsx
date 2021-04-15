@@ -188,8 +188,8 @@ class Stock extends Component {
                     </div>
                     <div className='spacer'>
                     </div>
-                    <div>{this.props.currentStock.company_name}</div>
-                    <div>{this.props.currentStock.current_price}</div>
+                    <div id='stock-name'>{this.props.currentStock.company_name}</div>
+                    <div id='stock-price'>{this.props.currentStock.current_price}</div>
                     <div className='trade-section'>
                         {this.tradeOptions()}
                         <div className='trade-segments'>
