@@ -48,6 +48,7 @@
     // height: 100vh;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 150px;
 }
 
 .trade-select{
@@ -130,10 +131,16 @@
 .day-change{
     display: flex;
     flex-direction: row;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 #today{
     padding-left: 4px;
     color: #495154;
+}
+
+.setting{
+    background-color: #000000;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

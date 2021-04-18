@@ -12,6 +12,7 @@ class Stock < ApplicationRecord
         )
 
         quote = client.quote(symbol)
+        puts quote
         quote.latest_price;
     end
 

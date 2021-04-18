@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import NewsContainer from './news_container';
+// import StockChartContainer from './stock_chart_container';
+import StockPortfolioValue from './stock_portfolio_value';
+import About from './about';
 
 class Stock extends Component {
 
@@ -26,6 +29,7 @@ class Stock extends Component {
         this.refreshData = this.refreshData.bind(this);
         this.reviewOrder = this.reviewOrder.bind(this);
         this.calculateDifference = this.calculateDifference.bind(this)
+        this.portfolioValue = this.portfolioValue.bind(this);
     }
 
     tradeOptions(){
@@ -40,7 +44,7 @@ class Stock extends Component {
     }
 
     ownStock(){
-        console.log(this.props.currentStock)
+        // console.log(this.props.currentStock)
         if (this.props.currentStock.number != null){
             return (
             <div>
@@ -54,7 +58,7 @@ class Stock extends Component {
     }
 
     createBuy(){
-        console.log(this.props.currentStock.NYSE_abv)
+        // console.log(this.props.currentStock.NYSE_abv)
         let stock = {
             NYSE_abv: this.props.currentStock.NYSE_abv,
             current_price: this.props.currentStock.current_price,
@@ -193,61 +197,87 @@ class Stock extends Component {
 
     }
 
+    portfolioValue(){
+        if (this.props.currentStock.number != null) {
+            let cost = (this.props.currentStock.purchase_price * this.props.currentStock.number).toFixed(2);
+            let currentValue = this.props.currentStock.current_price * this.props.currentStock.number.toFixed(2);
+            return(
+                <StockPortfolioValue
+                    cost={cost}
+                    avgCost={this.props.currentStock.purchase_price}
+                    numShares={this.props.currentStock.number}
+                    prevClose={this.props.currentStock.previous_close}
+                    currentPrice={this.props.currentStock.current_price}
+                    currentValue={currentValue}
+                />
+            )
+        }
+
+
+    }
+
     render () {
         if (this.state.redirect && this.state.redirect != `/${this.props.currentStock.NYSE_abv}`) {
             return <Redirect to={this.state.redirect}/>
         } else {
             return(
-                <div className='page'>
-                    <div className="topnav">
-                        <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
-                        <div className='search-bar'>
-                            <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } onKeyUp = { this.handleKeyPress } placeholder="Search For A Stock" autoComplete='off'></input>
-                            { this.renderTickers() }
+                <div className='setting'>
+                        <div className="topnav">
+                            <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
+                            <div className='search-bar'>
+                                <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } onKeyUp = { this.handleKeyPress } placeholder="Search For A Stock" autoComplete='off'></input>
+                                { this.renderTickers() }
+                            </div>
+                            <ul className='nav-dash-links'>
+                                <btn className='dash-links'>Free Stocks</btn>
+                                <btn className='dash-links'>Portfolio</btn>
+                                <btn className='dash-links'>Cash</btn>
+                                <btn className='dash-links'>Messages</btn>
+                                <btn className='dash-links'>Account</btn>
+                            </ul>
                         </div>
-                        <ul className='nav-dash-links'>
-                            <btn className='dash-links'>Free Stocks</btn>
-                            <btn className='dash-links'>Portfolio</btn>
-                            <btn className='dash-links'>Cash</btn>
-                            <btn className='dash-links'>Messages</btn>
-                            <btn className='dash-links'>Account</btn>
-                        </ul>
-                    </div>
-                    <div className='spacer'>
-                    </div>
-                    <div id='stock-name'>{this.props.currentStock.company_name}</div>
-                    <div id='stock-price'>${this.props.currentStock.current_price}</div>
-                    {this.calculateDifference()}
-                    <div className='trade-section'>
-                        {this.tradeOptions()}
-                        <div className='trade-segments'>
-                            <p id='trade-text'>Invest in</p>
-                            <select className='trade-select'>
-                                <option value="Dollars">Dollars</option>
-                                <option value="Shares">Shares</option>  
-                            </select>
+                    <div className='page'>
+                        <div className='spacer'>
                         </div>
-                        <div className='trade-segments'>
-                            <p id='trade-text'>Amount</p>
-                            <input id='trade-amount'></input>
-                        </div>
-                        <div className='trade-segments'>
-                            <p id='trade-text-quantity'>Est. Quantity</p>
-                        </div>
+                        <div id='stock-name'>{this.props.currentStock.company_name}</div>
+                        <div id='stock-price'>${this.props.currentStock.current_price}</div>
+                        {this.calculateDifference()}
+                        <div className='trade-section'>
+                            {this.tradeOptions()}
+                            <div className='trade-segments'>
+                                <p id='trade-text'>Invest in</p>
+                                <select className='trade-select'>
+                                    <option value="Dollars">Dollars</option>
+                                    <option value="Shares">Shares</option>  
+                                </select>
+                            </div>
+                            <div className='trade-segments'>
+                                <p id='trade-text'>Amount</p>
+                                <input id='trade-amount'></input>
+                            </div>
+                            <div className='trade-segments'>
+                                <p id='trade-text-quantity'>Est. Quantity</p>
+                            </div>
 
-                        <button className='review-order' onClick={this.reviewOrder}>Review Order</button>
-                        <div id='bp-container'>
-                            <div id='buying-power'>
-                                ${this.props.currentPortfolio.funds.toFixed(2)} Buying Power Available
+                            <button className='review-order' onClick={this.reviewOrder}>Review Order</button>
+                            <div id='bp-container'>
+                                <div id='buying-power'>
+                                    ${this.props.currentPortfolio.funds.toFixed(2)} Buying Power Available
+                                </div>
                             </div>
                         </div>
+                        {/* <StockChartContainer
+                            stock = {this.props.currentStock}
+                        /> */}
+                        {this.portfolioValue()}
+                        <About
+                            abv={this.props.currentStock.NYSE_abv}
+                            description={this.props.currentStock.comp_description}
+                        />
+                        <NewsContainer
+                            abv={this.props.currentStock.NYSE_abv}
+                        />
                     </div>
-                    {/* <div>
-                        {this.props.currentStock.comp_description}
-                    </div> */}
-                    <NewsContainer
-                        abv={this.props.currentStock.NYSE_abv}
-                    />
                 </div>
             )
         }
