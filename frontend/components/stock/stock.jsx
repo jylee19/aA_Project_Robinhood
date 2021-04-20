@@ -14,8 +14,13 @@ class Stock extends Component {
             abv: null,
             current_price: this.props.currentStock.current_price,
             redirect: null,
-            tickers: []
+            tickers: [],
+            option: 'buy',
+            method: 'Dollars',
+            shareAmount: 0,
+            dollarAmount: 0
         }
+        this.sendToDB = this.sendToDB.bind(this);
         this.tradeOptions = this.tradeOptions.bind(this);
         this.createBuy = this.createBuy.bind(this);
         this.createSell = this.createSell.bind(this);
@@ -30,12 +35,140 @@ class Stock extends Component {
         this.reviewOrder = this.reviewOrder.bind(this);
         this.calculateDifference = this.calculateDifference.bind(this)
         this.portfolioValue = this.portfolioValue.bind(this);
+        this.tradeSegment = this.tradeSegment.bind(this);
+        this.buyBtn = this.buyBtn.bind(this);
+        this.sellBtn = this.sellBtn.bind(this);
+        this.bottomText = this.bottomText.bind(this);
+        this.tradeType = this.tradeType.bind(this);
+        this.amountTraded = this.amountTraded.bind(this);
+        this.updateAmount = this.updateAmount.bind(this);
+        this.estimate = this.estimate.bind(this);
+        this.setMethod = this.setMethod.bind(this);
+        // this.buyShare = this.buyShare.bind(this);
+        // this.sellShare = this.sellShare.bind(this);
     }
+
+    tradeSegment(){
+        return(
+            <div className='trade-section'>
+                {this.tradeOptions()}
+                <div className='trade-segments'>
+                    <p id='trade-text'>Invest in</p>
+                    <select className='trade-select' onChange={this.setMethod}>
+                        <option value="Dollars">Dollars</option>
+                        <option value="Shares">Shares</option>  
+                    </select>
+                </div>
+                {this.tradeType()}
+                {this.marketPrice()}
+                {this.amountTraded()}
+                <button className='review-order' onClick={this.reviewOrder}>Review Order</button>
+                <div id='bp-container'>
+                    {this.bottomText()}
+                </div>
+            </div>
+        )
+
+    }
+
+    setMethod(e){
+        let method = e.target.value;
+        console.log(method);
+        this.setState({method: method})
+    }
+    
+    marketPrice(){
+        if(this.state.method == 'Shares'){
+            return(
+                <div className='trade-segments'>
+                    <p id='market-price'>Market Price</p>
+                    <p id='market-price-dollar'>${this.props.currentStock.current_price.toFixed(2)}</p>
+                </div>
+            )
+        }
+    }
+
+    amountTraded(){
+        if(this.state.method == 'Dollars'){
+            return(
+                <div className='estimate-segment'>
+                    <p id='trade-text-quantity'>Est. Quantity</p>
+                    <p id='trade-text-quantity'>{this.estimate()}</p>
+                </div>    
+            )
+        } else {
+            return(
+                <div className='estimate-segment'>
+                    <p id='trade-text-quantity'>Estimated Cost</p>
+                    <p id='trade-text-quantity'>${this.estimate()}</p>
+                </div>    
+            )
+        }
+
+    }
+
+    estimate(){
+        let estimation = 0;
+        if ((this.state.method == 'Dollars') && (this.state.dollarAmount != 0)){
+            estimation = (this.state.dollarAmount / this.props.currentStock.current_price).toFixed(6)
+        } else if ((this.state.method == 'Shares') && (this.state.shareAmount != 0)){
+            estimation = (this.state.shareAmount * this.props.currentStock.current_price).toFixed(2)
+        }
+        return estimation
+    }
+
+    updateAmount(e){
+        let amount = parseFloat(e.target.value);
+        if (this.state.method == 'Dollars'){
+            this.setState({dollarAmount: amount})
+        } else {
+            this.setState({shareAmount: amount})
+        }
+
+    }
+
+    tradeType(){
+        if (this.state.method == 'Dollars'){
+            return(
+                <div className='trade-segments'>
+                    <p id='trade-text'>Amount</p>
+                    <input id='trade-amount' placeholder='$0.00' onChange={this.updateAmount} autocomplete='off'></input>
+                </div>
+            )
+        } else {
+            return(
+                <div className='trade-segments'>
+                    <p id='trade-text'>Shares</p>
+                    <input id='trade-amount' placeholder='0' onChange={this.updateAmount} autocomplete='off'></input>
+                </div>
+            )
+        }
+
+    }
+
+    bottomText(){
+        if (this.state.option == 'buy'){
+            return(
+                <div id='buying-power'>
+                    ${this.props.currentPortfolio.funds.toFixed(2)} Buying Power Available
+                </div>
+            )
+        } else {
+            let currentValue = this.props.currentStock.current_price * this.props.currentStock.number.toFixed(2);
+            return(
+                <div id='sell-available'>
+                    ${currentValue} Available
+                </div>
+            )
+        }
+
+    }
+
 
     tradeOptions(){
         return(
             <div className='buy-sell-div'>
-                <button className='trade-option' onClick={this.createBuy}>
+                <button className='trade-option' onClick={this.buyBtn}>
                     Buy {this.props.currentStock.NYSE_abv}
                 </button>
                 {this.ownStock()}
@@ -48,7 +181,7 @@ class Stock extends Component {
         if (this.props.currentStock.number != null){
             return (
             <div>
-                <button className='trade-option' onClick={this.createSell}>
+                <button className='trade-option' onClick={this.sellBtn}>
                     Sell {this.props.currentStock.NYSE_abv}
                 </button>
             </div>
@@ -57,35 +190,76 @@ class Stock extends Component {
         
     }
 
+    buyBtn(){
+        if(this.state.option != 'buy'){
+            this.setState({option: 'buy'})
+        }
+    }
+
+    sellBtn(){
+        if(this.state.option != 'sell'){
+            this.setState({option: 'sell'})
+        }
+    }
+
     createBuy(){
-        // console.log(this.props.currentStock.NYSE_abv)
-        let stock = {
-            NYSE_abv: this.props.currentStock.NYSE_abv,
-            current_price: this.props.currentStock.current_price,
-            portfolio_id: this.props.currentStock.portfolio_id,
-            comp_description: this.props.currentStock.comp_description,
-            number: 1,
-            purchase_price: this.props.currentStock.purchase_price
+        let stock;
+        if (this.state.method == 'Dollars'){
+            stock = {
+                NYSE_abv: this.props.currentStock.NYSE_abv,
+                current_price: this.props.currentStock.current_price,
+                portfolio_id: this.props.currentStock.portfolio_id,
+                comp_description: this.props.currentStock.comp_description,
+                number: (this.state.dollarAmount / this.props.currentStock.current_price).toFixed(6),
+                purchase_price: this.props.currentStock.purchase_price
+            }
+        } else {
+            stock = {
+                NYSE_abv: this.props.currentStock.NYSE_abv,
+                current_price: this.props.currentStock.current_price,
+                portfolio_id: this.props.currentStock.portfolio_id,
+                comp_description: this.props.currentStock.comp_description,
+                number: this.state.shareAmount,
+                purchase_price: this.props.currentStock.purchase_price   
+            }         
         }
 
         this.props.buyStock(stock)
+        // window.location.reload();
     }
 
     createSell(){
-        let stock = {
-            // id: this.props.currentStock.id,
-            NYSE_abv: this.props.currentStock.NYSE_abv,
-            current_price: this.props.currentStock.current_price,
-            portfolio_id: this.props.currentStock.portfolio_id,
-            comp_description: this.props.currentStock.comp_description,
-            number: 1,
-            purchase_price: this.props.currentStock.purchase_price
+        let stock;
+        if (this.state.method == 'Dollars'){
+            stock = {
+                NYSE_abv: this.props.currentStock.NYSE_abv,
+                current_price: this.props.currentStock.current_price,
+                portfolio_id: this.props.currentStock.portfolio_id,
+                comp_description: this.props.currentStock.comp_description,
+                number: (this.state.dollarAmount / this.props.currentStock.current_price).toFixed(6),
+                purchase_price: this.props.currentStock.purchase_price
+            }
+        } else {
+            stock = {
+                NYSE_abv: this.props.currentStock.NYSE_abv,
+                current_price: this.props.currentStock.current_price,
+                portfolio_id: this.props.currentStock.portfolio_id,
+                comp_description: this.props.currentStock.comp_description,
+                number: this.state.shareAmount,
+                purchase_price: this.props.currentStock.purchase_price   
+            }         
         }
         
         this.props.sellStock(stock)
+        // window.location.reload();
     }
 
     reviewOrder(){
+        if (this.state.option =='buy'){
+            this.createBuy()
+        } else {
+            this.createSell()
+        }
 
     }
 
@@ -216,6 +390,10 @@ class Stock extends Component {
 
     }
 
+    sendToDB(){
+        this.setState({redirect: `/users/${this.props.userID}`})
+    }
+
     render () {
         if (this.state.redirect && this.state.redirect != `/${this.props.currentStock.NYSE_abv}`) {
             return <Redirect to={this.state.redirect}/>
@@ -229,10 +407,7 @@ class Stock extends Component {
                                 { this.renderTickers() }
                             </div>
                             <ul className='nav-dash-links'>
-                                <btn className='dash-links'>Free Stocks</btn>
-                                <btn className='dash-links'>Portfolio</btn>
-                                <btn className='dash-links'>Cash</btn>
-                                <btn className='dash-links'>Messages</btn>
+                                <btn className='dash-links' onClick={this.sendToDB}>Portfolio</btn>
                                 <btn className='dash-links'>Account</btn>
                             </ul>
                         </div>
@@ -242,30 +417,7 @@ class Stock extends Component {
                         <div id='stock-name'>{this.props.currentStock.company_name}</div>
                         <div id='stock-price'>${this.props.currentStock.current_price}</div>
                         {this.calculateDifference()}
-                        <div className='trade-section'>
-                            {this.tradeOptions()}
-                            <div className='trade-segments'>
-                                <p id='trade-text'>Invest in</p>
-                                <select className='trade-select'>
-                                    <option value="Dollars">Dollars</option>
-                                    <option value="Shares">Shares</option>  
-                                </select>
-                            </div>
-                            <div className='trade-segments'>
-                                <p id='trade-text'>Amount</p>
-                                <input id='trade-amount'></input>
-                            </div>
-                            <div className='trade-segments'>
-                                <p id='trade-text-quantity'>Est. Quantity</p>
-                            </div>
-
-                            <button className='review-order' onClick={this.reviewOrder}>Review Order</button>
-                            <div id='bp-container'>
-                                <div id='buying-power'>
-                                    ${this.props.currentPortfolio.funds.toFixed(2)} Buying Power Available
-                                </div>
-                            </div>
-                        </div>
+                        {this.tradeSegment()}
                         {/* <StockChartContainer
                             stock = {this.props.currentStock}
                         /> */}

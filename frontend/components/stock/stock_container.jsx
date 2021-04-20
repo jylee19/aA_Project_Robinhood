@@ -6,7 +6,8 @@ import Stock from './stock'
 const mapStateToProps = (state) => {
     return {
         currentStock: state.entities.stock,
-        currentPortfolio: state.entities.portfolio[state.session.id]
+        currentPortfolio: state.entities.portfolio[state.session.id],
+        userID: state.session.id
     }
 }
 
