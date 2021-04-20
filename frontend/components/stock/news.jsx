@@ -69,7 +69,6 @@ class News extends Component{
         if (this.state.gotNews == false){
             this.getNews();
         }
-        console.log(this.state.news)
         return(
             <div>
                 <div id='stock-news'>

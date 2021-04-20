@@ -1,0 +1,36 @@
+#about-section{
+    width: 710px;
+}
+
+.row-container{
+    font-size: 13px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.data-box{
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 177px;
+}
+
+.data-title{
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+#about-title{
+    font-size: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #2f373a;
+    width: 710px;
+}
+
+#about-description{
+    padding-top: 20px;
+    font-size: 15px;
+    padding-bottom: 60px;
+    line-height: 1.6;
+}

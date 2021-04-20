@@ -10,7 +10,7 @@ class Api::StocksController < ApplicationController
         elsif @stock.nil?
             @stock = Stock.new(stock_params)
             @stock.value = @stock.current_price * @stock.number
-            @stock.opening_price = Stock.get_open(@stock.NYSE_abv)
+            @stock.previous_close = Stock.get_close(@stock.NYSE_abv)
             @stock.company_name = Stock.get_name(@stock.NYSE_abv)
             @stock.comp_description = Stock.get_description(@stock.NYSE_abv)
             @stock.save!

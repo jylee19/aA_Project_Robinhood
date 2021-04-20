@@ -1,12 +1,12 @@
 .article-image{
-    max-height: 250px;
-    max-width: 250px;
+    max-height: 225px;
+    max-width: 225px;
 }
 
 .news-list{
     display: flex;
     flex-direction: column;
-    width: 800px;
+    width: 710px;
     height: 700px;
     justify-content: space-around;
 }
@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: row;    
     justify-content: space-between;
-    width: 800px;
+    width: 710px;
 }
 
 .article:hover{
@@ -41,12 +41,64 @@
 .article-text{
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 450px;
 }
 
 #stock-news{
     font-size: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     border-bottom: 1px solid #2f373a;
-    width: 800px;
+    width: 710px;
+    padding-top: 30px;
+}
+
+.article-image-gen{
+    max-height: 110px;
+    max-width: 110px;
+}
+
+.news-list-gen{
+    display: flex;
+    flex-direction: column;
+    width: 710px;
+    height: 1650px;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+#article-source-gen{
+    font-size: 12px;
+}
+
+.article-gen{
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-between;
+    width: 710px;
+    height: 150px;
+    border-bottom: 1px solid #2f373a;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.article-gen:hover{
+    cursor: pointer;
+    background-color: #1e2225;
+}
+
+#article-headline-gen{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#article-summary-gen{
+    font-size: 12px;
+    color: #495154;
+    text-overflow: ellipsis;
+}
+
+.article-text-gen{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
 }

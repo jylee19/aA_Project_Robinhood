@@ -43,11 +43,15 @@
 
 .buying-power{
     display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #40494e;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 #bp{
     margin-right: 50px;
-    color: blue;
 }
 
 #liquidity{
@@ -173,4 +177,16 @@
 
 .spacer{
     height: 60px;
+}
+
+.db-page{
+    background-color: #000000;
+    // height: 100%;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 150px;
+}
+
+.db-container{
+    width: 710px;
 }
