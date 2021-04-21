@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import NewsContainer from './news_container';
-// import StockChartContainer from './stock_chart_container';
+import LineChartContainer from '../line_chart/line_chart_container';
 import StockPortfolioValue from './stock_portfolio_value';
 import About from './about';
 
@@ -418,9 +418,9 @@ class Stock extends Component {
                         <div id='stock-price'>${this.props.currentStock.current_price}</div>
                         {this.calculateDifference()}
                         {this.tradeSegment()}
-                        {/* <StockChartContainer
+                        <LineChartContainer
                             stock = {this.props.currentStock}
-                        /> */}
+                        />
                         {this.portfolioValue()}
                         <About
                             abv={this.props.currentStock.NYSE_abv}
