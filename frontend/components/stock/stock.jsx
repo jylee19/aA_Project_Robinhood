@@ -132,14 +132,14 @@ class Stock extends Component {
             return(
                 <div className='trade-segments'>
                     <p id='trade-text'>Amount</p>
-                    <input id='trade-amount' placeholder='$0.00' onChange={this.updateAmount} autocomplete='off'></input>
+                    <input id='trade-amount' placeholder='$0.00' onChange={this.updateAmount} autoComplete='off'></input>
                 </div>
             )
         } else {
             return(
                 <div className='trade-segments'>
                     <p id='trade-text'>Shares</p>
-                    <input id='trade-amount' placeholder='0' onChange={this.updateAmount} autocomplete='off'></input>
+                    <input id='trade-amount' placeholder='0' onChange={this.updateAmount} autoComplete='off'></input>
                 </div>
             )
         }
@@ -419,7 +419,9 @@ class Stock extends Component {
                         {this.calculateDifference()}
                         {this.tradeSegment()}
                         <LineChartContainer
-                            stock = {this.props.currentStock}
+                            abv={this.props.currentStock.NYSE_abv}
+                            currentPrice={this.state.current_price}
+                            annot={this.props.currentStock.previous_close}
                         />
                         {this.portfolioValue()}
                         <About
