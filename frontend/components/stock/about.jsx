@@ -67,7 +67,6 @@ class About extends Component{
         let headquarters;
         let marketcap;
         let mc;
-        console.log(data);
         if (n == 1){
             if (data.marketCap >= 1000000000000){
                 marketcap = (data.marketCap / 1000000000000).toFixed(2);
@@ -101,7 +100,6 @@ class About extends Component{
                 gotData2: true
             })
         } else {
-            console.log(data)
             this.setState({
                 divYield: data.DividendYield,
                 gotData3: true
@@ -223,7 +221,6 @@ class About extends Component{
 
     render(){
         this.getInfo();
-        console.log(this.state)
         return(
             <div id='about-section'>
                 <div id='about-title'>

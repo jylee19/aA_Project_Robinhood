@@ -12,7 +12,6 @@ class Stock extends Component {
         super(props);
         this.state = {
             abv: null,
-            current_price: this.props.currentStock.current_price,
             redirect: null,
             tickers: [],
             option: 'buy',
@@ -44,8 +43,13 @@ class Stock extends Component {
         this.updateAmount = this.updateAmount.bind(this);
         this.estimate = this.estimate.bind(this);
         this.setMethod = this.setMethod.bind(this);
+        this.signout = this.signout.bind(this);
         // this.buyShare = this.buyShare.bind(this);
         // this.sellShare = this.sellShare.bind(this);
+    }
+
+    signout(e){
+        this.props.logout();
     }
 
     tradeSegment(){
@@ -409,6 +413,7 @@ class Stock extends Component {
                             <ul className='nav-dash-links'>
                                 <btn className='dash-links' onClick={this.sendToDB}>Portfolio</btn>
                                 <btn className='dash-links'>Account</btn>
+                                <btn className='dash-links' onClick={this.signout}>Log Out</btn>
                             </ul>
                         </div>
                     <div className='page'>
@@ -420,7 +425,7 @@ class Stock extends Component {
                         {this.tradeSegment()}
                         <LineChartContainer
                             abv={this.props.currentStock.NYSE_abv}
-                            currentPrice={this.state.current_price}
+                            current_price={this.props.currentStock.current_price}
                             annot={this.props.currentStock.previous_close}
                         />
                         {this.portfolioValue()}

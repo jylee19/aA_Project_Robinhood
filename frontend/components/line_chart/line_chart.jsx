@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import * as ChartAnnotation from 'chartjs-plugin-annotation'
 
-
+Chart.plugins.register([ChartAnnotation])
 
 
 // import { range } from 'd3';
@@ -14,11 +15,13 @@ class LineChart extends Component{
     
         this.state = {
             data: [],
+            dates: [],
             getData: false
         }
 
         this.getData = this.getData.bind(this)
         this.convertPromise = this.convertPromise.bind(this)
+        this.getCurrentTime = this.getCurrentTime.bind(this)
     }
 
     getData(){
@@ -32,18 +35,38 @@ class LineChart extends Component{
 
     }
 
+    getCurrentTime(){
+        let d = new Date();
+        let hours = d.getHours();
+        let minutes = d.getMinutes();
+        let time = ''
+        if ((hours >= 12) && (hours < 16)){
+            time = `${hours}:${minutes} PM`
+        } else if ((hours >= 16) || ((hours <= 9) && (minutes < 30))) {
+            time = '4:00 PM'
+        } else {
+            time = `${hours}:${minutes} AM`
+        }
+        return time;
+    }
+
     convertPromise(d){
-        console.log(d)
+        // console.log(d)
         let arr = [];
+        let dates = [];
         d.map((time, i) => { 
-            console.log(time.average);
+            // console.log(time.average);
             arr.push(time.average.toFixed(2))
+            dates.push(time.label)
         })
+        console.log(this.props.current_price)
         if(this.props.current_price != null){
             arr.push(this.props.current_price.toFixed(2))
+            dates.push(this.getCurrentTime())
         }
-        console.log(arr);
-        this.setState({ data: arr, getData: true })
+        // console.log(arr);
+        console.log(dates)
+        this.setState({ data: arr, dates: dates, getData: true })
     }
     
     
@@ -52,7 +75,7 @@ class LineChart extends Component{
             this.getData();
 
         }
-
+        // console.log(this.props.annot)
         let options = {
             maintainAspectRatio: false,
             legend: {
@@ -72,17 +95,15 @@ class LineChart extends Component{
             },
             annotation: {
                 annotations: [{
+                    drawTime: 'afterDatasetsDraw',
                     type: 'line',
                     mode: 'horizontal',
                     scaleID: 'y-axis-0',
                     value: this.props.annot,
-                    borderColor: 'rgb(30,35,37)',
-                    borderWidth: 2,
-                    label: {
-                        enable: false,
-                        content: 'Test'
-                    }
-
+                    borderColor: 'rgb(64,73,77)',
+                    borderWidth: 1,
+                    borderDash: [5,5],
+                    borderCapStyle: 'round'
                 }]
             }
         };
@@ -91,7 +112,7 @@ class LineChart extends Component{
             <div id='line-chart'>
                 <Line
                     data={{
-                        labels: ['a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e',],
+                        labels: this.state.dates,
                         datasets: [{
                             data: this.state.data,
                             fill: false,

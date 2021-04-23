@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        showStock: NYSE_abv => dispatch(showStock(stock))
+        showStock: NYSE_abv => dispatch(showStock(stock)),
+        logout: () => dispatch(logout())
     }
 }
 

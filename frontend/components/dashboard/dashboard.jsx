@@ -122,6 +122,7 @@ class Dashboard extends React.Component {
                             <ul className='nav-dash-links'>
                                 <div className='dash-links'>Portfolio</div>
                                 <btn className='dash-links'>Account</btn>
+                                <btn className='dash-links' onClick={this.signout}>Log Out</btn>
                             </ul>
         
                         </div>
@@ -140,8 +141,6 @@ class Dashboard extends React.Component {
 
                             <Link className="btn" to={`/users/${this.state.id}/edit`}>Change User Information</Link>
             
-
-                            <button id='log-out-btn' onClick={this.signout}>Log out</button>
                         </div>
                     </div>
                 </div>
