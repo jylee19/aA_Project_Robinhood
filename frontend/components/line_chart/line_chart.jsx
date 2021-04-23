@@ -1,83 +1,115 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
-import * as d3 from 'd3';
-import { range } from 'd3';
+import { Line } from 'react-chartjs-2';
+
+
+
+
+// import { range } from 'd3';
 
 class LineChart extends Component{
-
+    
     constructor(props){
         super(props)
+    
+        this.state = {
+            data: [],
+            getData: false
+        }
 
-        this.createGraph = this.createGraph.bind(this);
+        this.getData = this.getData.bind(this)
+        this.convertPromise = this.convertPromise.bind(this)
     }
 
-    createGraph(){
-
-        let data = [ {x:1, y:25}, {x:2, y:50}, {x: 3, y: 100}, {x:4, y: 150} ]
-        let margin = {top: 5, right: 15, bottom: 15, left: 30};
-        let height = 200 - margin.left - margin.right;
-        let width = 200 - margin.top - margin.bottom;
-
-        let xValue = [1,2,3,4]
-        let yValue = [25,50,100,150]
-
-        let xScale = d3.scaleLinear()
-            .domain([0,5])
-            range([0, width]);
-        let yScale = d3.scaleLinear()
-            .domain([0,1])
-            .range([0, height])
-        let line = d3.line()
-            .x(function(d, i) { return xScale(i); })
-            .y(function(d) { return yScale(d.y); })
-            .curve(d3.curveMonotoneX)
-
-        let svg = d3.select('#line-chart')
-            .append('svg')
-                .attr('width', width + margin.left + margin.right)
-                .attr('height', height + margin.top + margin.bottom)
-            .append('g')
-                .attr('transform',
-                      'translate(' + margin.left + ',' + margin.top + ')')
-            .append('path')
-                .attr('d', )
-            .selectAll('circle').data(data)
-            .enter().append('circle')
-                .attr('cy', d=> yScale(yValue))
-        
-        
-
-        // d3.select('#line-chart').append('svg')
-        //     .attr('width', width)
-        //     .attr('height', height)
-        //     .style('background', '#dff0d8')
-        //     .selectAll('rect').data(data)
-        //     .enter().append('rect')
-        //         .attr('width', barWidth)
-        //         .attr('height', function(data){
-        //             return data
-        //         })
-        //         .attr('x', function (data, i) {
-        //             return i * (barWidth + barOffset);
-        //         })
-        //         .attr('y', function(data){
-        //             return height - data;
-        //         })
+    getData(){
+            fetch(`https://cors-container.herokuapp.com/https://cloud.iexapis.com/stable/stock/${this.props.abv}/intraday-prices/?token=pk_338de47bba214f5bb31b35bd33a273e8&chartInterval=5`)
+            .then(results => {
+                return results.json();
+            })
+            .then(data => {
+                this.convertPromise(data)       
+            })
 
     }
 
-
-
+    convertPromise(d){
+        console.log(d)
+        let arr = [];
+        d.map((time, i) => { 
+            console.log(time.average);
+            arr.push(time.average.toFixed(2))
+        })
+        if(this.props.current_price != null){
+            arr.push(this.props.current_price.toFixed(2))
+        }
+        console.log(arr);
+        this.setState({ data: arr, getData: true })
+    }
+    
+    
     render(){
+        if(this.state.getData == false){
+            this.getData();
 
+        }
+
+        let options = {
+            maintainAspectRatio: false,
+            legend: {
+                display: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        display: false
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        display: false
+                    }
+                }]
+            },
+            annotation: {
+                annotations: [{
+                    type: 'line',
+                    mode: 'horizontal',
+                    scaleID: 'y-axis-0',
+                    value: this.props.annot,
+                    borderColor: 'rgb(30,35,37)',
+                    borderWidth: 2,
+                    label: {
+                        enable: false,
+                        content: 'Test'
+                    }
+
+                }]
+            }
+        };
+        
         return(
             <div id='line-chart'>
-                {this.createGraph()}
+                <Line
+                    data={{
+                        labels: ['a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e',],
+                        datasets: [{
+                            data: this.state.data,
+                            fill: false,
+                            backgroundColor: 'rgb(13,200,5)',
+                            borderColor: 'rgb(13,200,5)',
+                            borderWidth: 1,
+                            radius: 0
+                        }]
+                    }}
+                    height = {300}
+                    width = {710}
+                    options={options}
+                />
             </div>
         )
     }
-
-
+    
+    
 }
 
 export default LineChart;

@@ -3,9 +3,11 @@ import { showStock } from '../../actions/stock_actions'
 import LineChart from './line_chart';
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        currentStock: state.entities.stock
+        abv: ownProps.abv,
+        current_price: ownProps.current_price,
+        annot: ownProps.annot
     }
 }
 
