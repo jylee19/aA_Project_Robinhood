@@ -22,7 +22,6 @@ class GeneralNews extends Component{
             .then(
                 data => {
                     this.convertPromise(data);
-                    console.log(data);
                 }
             )
     }
@@ -33,8 +32,6 @@ class GeneralNews extends Component{
 
     renderNews(){
         if(this.state.gotNews == true){
-            console.log(this.state.news.articles)
-            console.log(this.state.news.articles[0]);
             return(
                 <div className='news-list-gen'>
                     {this.state.news.articles.map((news, i) => 

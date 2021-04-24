@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import * as ChartAnnotation from 'chartjs-plugin-annotation'
 
-
+Chart.plugins.register([ChartAnnotation])
 
 
 // import { range } from 'd3';
@@ -14,11 +15,62 @@ class LineChart extends Component{
     
         this.state = {
             data: [],
+            dates: [],
             getData: false
         }
 
         this.getData = this.getData.bind(this)
         this.convertPromise = this.convertPromise.bind(this)
+        this.getCurrentTime = this.getCurrentTime.bind(this)
+        this.calculateDifference = this.calculateDifference.bind(this)
+    }
+
+    componentDidMount(){
+        Chart.pluginService.register({
+        afterDraw: function(chart, easing) {
+            if (chart.tooltip._active && chart.tooltip._active.length) {
+                const activePoint = chart.controller.tooltip._active[0];
+                const ctx = chart.ctx;
+                const x = activePoint.tooltipPosition().x;
+                const topY = chart.scales['y-axis-0'].top;
+                const bottomY = chart.scales['y-axis-0'].bottom;
+                ctx.save();
+                ctx.beginPath();
+                ctx.moveTo(x, topY);
+                ctx.lineTo(x, bottomY);
+                ctx.lineWidth = 1;
+                ctx.strokeStyle = '#40494e';
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+        });
+    }
+
+    calculateDifference(){
+        let difference = (this.props.current_price - this.props.previous_close).toFixed(2);
+        let percentageChange = ((difference / this.props.previous_close) * 100).toFixed(2);
+        if (difference >= 0){
+            return(
+                <div className='day-change'>
+                    <div>
+                        +${difference} (+{percentageChange}%)
+                    </div>
+                    <span id='today'>Today</span>
+                </div>
+            )
+        } else {
+            difference = difference * -1;
+            return(
+                <div className='day-change'>
+                    <div>
+                        -${difference} ({percentageChange}%)
+                    </div>
+                    <span id='today'>Today</span>
+                </div>
+            )
+        }
+
     }
 
     getData(){
@@ -32,18 +84,38 @@ class LineChart extends Component{
 
     }
 
+    getCurrentTime(){
+        let d = new Date();
+        let hours = d.getHours();
+        let minutes = d.getMinutes();
+        let time = ''
+        if ((hours >= 12) && (hours < 16)){
+            time = `${hours}:${minutes} PM`
+        } else if ((hours >= 16) || ((hours <= 9) && (minutes < 30))) {
+            time = '4:00 PM'
+        } else {
+            time = `${hours}:${minutes} AM`
+        }
+        return time;
+    }
+
     convertPromise(d){
         console.log(d)
         let arr = [];
+        let dates = [];
         d.map((time, i) => { 
-            console.log(time.average);
+            // console.log(time.average);
             arr.push(time.average.toFixed(2))
+            dates.push(time.label)
         })
+        console.log(this.props.current_price)
         if(this.props.current_price != null){
             arr.push(this.props.current_price.toFixed(2))
+            dates.push(this.getCurrentTime())
         }
-        console.log(arr);
-        this.setState({ data: arr, getData: true })
+        // console.log(arr);
+        console.log(dates)
+        this.setState({ data: arr, dates: dates, getData: true })
     }
     
     
@@ -52,7 +124,7 @@ class LineChart extends Component{
             this.getData();
 
         }
-
+        // console.log(this.props.annot)
         let options = {
             maintainAspectRatio: false,
             legend: {
@@ -72,26 +144,33 @@ class LineChart extends Component{
             },
             annotation: {
                 annotations: [{
+                    drawTime: 'afterDatasetsDraw',
                     type: 'line',
                     mode: 'horizontal',
                     scaleID: 'y-axis-0',
                     value: this.props.annot,
-                    borderColor: 'rgb(30,35,37)',
-                    borderWidth: 2,
-                    label: {
-                        enable: false,
-                        content: 'Test'
-                    }
-
+                    borderColor: 'rgb(64,73,77)',
+                    borderWidth: 1,
+                    borderDash: [5,5],
+                    borderCapStyle: 'round'
                 }]
+            },
+            tooltips:{
+                enabled: true,
+                intersect: false
+            },
+            hover:{
+                intersect: false
             }
         };
         
         return(
             <div id='line-chart'>
+                <div id='stock-price'>${this.props.current_price}</div>
+                {this.calculateDifference()}
                 <Line
                     data={{
-                        labels: ['a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e','a', 'b', 'c', 'd', 'e',],
+                        labels: this.state.dates,
                         datasets: [{
                             data: this.state.data,
                             fill: false,

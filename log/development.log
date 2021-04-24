@@ -55969,3 +55969,1619 @@ Migrating to AddCompanyNameToStock (20210414004839)
   ↳ bin/rails:9
   [1m[36mStock Load (0.7ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks"[0m
   [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" ORDER BY "stocks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mStock Load (10.6ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks"[0m
+  [1m[36mStock Load (9.7ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" ORDER BY "stocks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mStock Load (0.6ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" ORDER BY "stocks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2021-04-23 03:38:17 -0700
+Started GET "/" for ::1 at 2021-04-23 03:38:17 -0700
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jylee/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jylee/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  [1m[36mPortfolio Load (4.0ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (61.4ms)
+  Rendered api/users/_user.json.jbuilder (56.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (122.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (123.1ms)
+Completed 200 OK in 4617ms (Views: 4557.6ms | ActiveRecord: 56.2ms)
+
+
+Completed 200 OK in 4694ms (Views: 4647.7ms | ActiveRecord: 32.3ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 03:38:22 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 53ms (Views: 49.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 03:38:23 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:15
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.3ms)
+Completed 200 OK in 35ms (Views: 33.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stocks/GME?stock%5BNYSE_abv%5D=GME&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 03:38:28 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"GME", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"GME"}
+  [1m[36mStock Load (1.5ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "GME"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.6ms)
+Completed 200 OK in 1469ms (Views: 49.8ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 03:39:20 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.8ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:15
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (2.6ms)
+Completed 200 OK in 52ms (Views: 37.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 03:39:22 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 866ms (Views: 860.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 03:39:24 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.8ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:15
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.8ms)
+Completed 200 OK in 52ms (Views: 49.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 03:39:26 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (4.3ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.6ms)
+Completed 200 OK in 786ms (Views: 44.9ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 03:39:29 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:15
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.4ms)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/stocks/GME?stock%5BNYSE_abv%5D=GME&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 03:39:32 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"GME", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"GME"}
+  [1m[36mStock Load (0.9ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "GME"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.4ms)
+Completed 200 OK in 1460ms (Views: 46.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 03:39:43 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:15
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.5ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stocks/FB?stock%5BNYSE_abv%5D=FB&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 03:39:47 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"FB", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"FB"}
+  [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "FB"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.4ms)
+Completed 200 OK in 1331ms (Views: 41.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 03:40:15 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:15
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.4ms)
+Completed 200 OK in 34ms (Views: 31.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 03:40:19 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (0.8ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.5ms)
+Completed 200 OK in 749ms (Views: 36.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 03:40:44 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:15
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.7ms)
+Completed 200 OK in 33ms (Views: 30.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 03:43:17 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (1.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (2.8ms)
+Completed 200 OK in 893ms (Views: 46.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 03:43:22 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.9ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:15
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.7ms)
+Completed 200 OK in 34ms (Views: 30.9ms | ActiveRecord: 0.9ms)
+
+
+  [1m[36mStock Load (1.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1 LIMIT $2[0m  [["portfolio_id", 6], ["LIMIT", 1]]
+Started GET "/api/stocks/GME?stock%5BNYSE_abv%5D=GME&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 03:45:08 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"GME", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"GME"}
+  [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "GME"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.5ms)
+Completed 200 OK in 1407ms (Views: 43.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/stocks" for ::1 at 2021-04-23 03:45:17 -0700
+Processing by Api::StocksController#create as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"GME", "current_price"=>"155.46", "portfolio_id"=>"6", "comp_description"=>"0", "number"=>"1", "purchase_price"=>""}, "default"=>{"format"=>:json}}
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "GME"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:5
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:6
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/stocks_controller.rb:16
+  [1m[36mStock Create (20.3ms)[0m  [1m[32mINSERT INTO "stocks" ("NYSE_abv", "portfolio_id", "value", "comp_description", "created_at", "updated_at", "number", "current_price", "previous_close", "company_name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["NYSE_abv", "GME"], ["portfolio_id", 6], ["value", 155.46], ["comp_description", "0"], ["created_at", "2021-04-23 10:45:18.649986"], ["updated_at", "2021-04-23 10:45:18.649986"], ["number", 1.0], ["current_price", 155.46], ["previous_close", 133.5], ["company_name", "Gamestop Corporation"]]
+  ↳ app/controllers/api/stocks_controller.rb:16
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/stocks_controller.rb:16
+  [1m[36mPortfolio Load (0.8ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/stocks_controller.rb:18
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:18
+  [1m[36mPortfolio Update (7.9ms)[0m  [1m[33mUPDATE "portfolios" SET "funds" = $1, "updated_at" = $2 WHERE "portfolios"."id" = $3[0m  [["funds", 6917.258000000002], ["updated_at", "2021-04-23 10:45:18.698758"], ["id", 6]]
+  ↳ app/controllers/api/stocks_controller.rb:18
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/stocks_controller.rb:18
+  [1m[36mPortfolio Load (0.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/stocks_controller.rb:20
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:20
+  [1m[36mPortfolio Update (0.5ms)[0m  [1m[33mUPDATE "portfolios" SET "num_stocks" = $1, "updated_at" = $2 WHERE "portfolios"."id" = $3[0m  [["num_stocks", 21], ["updated_at", "2021-04-23 10:45:18.714108"], ["id", 6]]
+  ↳ app/controllers/api/stocks_controller.rb:20
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/stocks_controller.rb:20
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.5ms)
+Completed 200 OK in 1242ms (Views: 30.5ms | ActiveRecord: 37.8ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 03:45:19 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (1.1ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:15
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.4ms)
+Completed 200 OK in 34ms (Views: 31.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/stocks/GME?stock%5BNYSE_abv%5D=GME&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 03:45:22 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"GME", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"GME"}
+  [1m[36mStock Load (10.8ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "GME"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.5ms)
+Completed 200 OK in 822ms (Views: 31.1ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 03:45:25 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 69ms (Views: 65.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 03:45:26 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 43ms (Views: 40.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 03:45:27 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 128ms (Views: 124.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 03:45:29 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:15
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.4ms)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stocks/GME?stock%5BNYSE_abv%5D=GME&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 03:45:48 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"GME", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"GME"}
+  [1m[36mStock Load (2.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "GME"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.5ms)
+Completed 200 OK in 839ms (Views: 42.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 03:46:14 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.9ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 91ms (Views: 84.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 03:46:16 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (4.0ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (6.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 83ms (Views: 75.1ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 03:46:18 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:15
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.9ms)
+Completed 200 OK in 36ms (Views: 33.6ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1 LIMIT $2[0m  [["portfolio_id", 6], ["LIMIT", 1]]
+  [1m[36mStock Load (4.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1 LIMIT $2[0m  [["portfolio_id", 6], ["LIMIT", 1]]
+  [1m[36mStock Load (0.6ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks"[0m
+  [1m[36mStock Load (1.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" IN ($1, $2)[0m  [["id", nil], ["id", nil]]
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" IN ($1, $2)[0m  [["id", nil], ["id", nil]]
+  [1m[36mStock Load (0.8ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" IN ($1, $2)[0m  [["id", nil], ["id", nil]]
+  [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+Started GET "/" for ::1 at 2021-04-23 09:10:10 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (1.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (29.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (109.8ms)
+Completed 200 OK in 191ms (Views: 132.4ms | ActiveRecord: 47.9ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 09:10:11 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (22.6ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 48.5ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column stocks.porfolio_id does not exist
+LINE 1: SELECT "stocks".* FROM "stocks" WHERE "stocks"."porfolio_id"...
+                                              ^
+HINT:  Perhaps you meant to reference the column "stocks.portfolio_id".
+: SELECT "stocks".* FROM "stocks" WHERE "stocks"."porfolio_id" = $1:
+  app/controllers/api/portfolios_controller.rb:20:in `show'
+
+Started GET "/" for ::1 at 2021-04-23 09:10:48 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (15.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (39.5ms)
+Completed 200 OK in 102ms (Views: 88.6ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 09:10:48 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (4.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (5.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:20
+  [1m[35m (3.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:25
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:25
+  [1m[36mPortfolio Update (41.4ms)[0m  [1m[33mUPDATE "portfolios" SET "value" = $1, "updated_at" = $2 WHERE "portfolios"."id" = $3[0m  [["value", 1259.82], ["updated_at", "2021-04-23 16:10:48.713017"], ["id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:25
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:25
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.6ms)
+Completed 200 OK in 159ms (Views: 45.2ms | ActiveRecord: 72.3ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 09:11:04 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (18.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (43.3ms)
+Completed 200 OK in 104ms (Views: 91.2ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 09:11:05 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (3.9ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:20
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 15.8ms)
+
+
+
+NoMethodError - undefined method `funds' for nil:NilClass:
+  app/controllers/api/portfolios_controller.rb:24:in `show'
+
+Started GET "/" for ::1 at 2021-04-23 09:11:11 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 62ms (Views: 57.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 09:11:11 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (1.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (1.1ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:20
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 2.6ms)
+
+
+
+NoMethodError - undefined method `funds' for nil:NilClass:
+  app/controllers/api/portfolios_controller.rb:24:in `show'
+
+  [1m[36mPortfolio Load (2.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" ORDER BY "portfolios"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2021-04-23 09:11:57 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (17.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (44.6ms)
+Completed 200 OK in 120ms (Views: 103.9ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 09:11:58 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:25
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:25
+  [1m[36mPortfolio Update (32.4ms)[0m  [1m[33mUPDATE "portfolios" SET "value" = $1, "updated_at" = $2 WHERE "portfolios"."id" = $3[0m  [["value", 8177.078000000001], ["updated_at", "2021-04-23 16:11:58.301702"], ["id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:25
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:25
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.7ms)
+Completed 200 OK in 106ms (Views: 31.7ms | ActiveRecord: 51.6ms)
+
+
+  [1m[36mStock Load (0.6ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 09:14:03 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (0.7ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (2.3ms)
+Completed 200 OK in 1563ms (Views: 45.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 09:14:20 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.8ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:25
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:25
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.5ms)
+Completed 200 OK in 44ms (Views: 30.1ms | ActiveRecord: 2.0ms)
+
+
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7769418701815174425)[0m
+  ↳ bin/rails:9
+  [1m[35m (7.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddPrevValueToPortfolios (20210423162950)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (30.2ms)[0m  [1m[35mALTER TABLE "portfolios" ADD "prev_close" float[0m
+  ↳ db/migrate/20210423162950_add_prev_value_to_portfolios.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210423162950"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7769418701815174425)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-04-23 09:36:18 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jylee/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (1.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (47.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (100.1ms)
+Completed 200 OK in 217ms (Views: 192.8ms | ActiveRecord: 17.2ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 09:36:19 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (5.0ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (1.1ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mPortfolio Update (0.6ms)[0m  [1m[33mUPDATE "portfolios" SET "prev_close" = $1, "updated_at" = $2 WHERE "portfolios"."id" = $3[0m  [["prev_close", 8126.198000000002], ["updated_at", "2021-04-23 16:36:19.359009"], ["id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (8.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (1.2ms)
+Completed 200 OK in 112ms (Views: 38.1ms | ActiveRecord: 25.4ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 09:51:39 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (5.6ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (3.4ms)
+Completed 200 OK in 1024ms (Views: 47.8ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 09:51:57 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (1.1ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (6.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 276ms (Views: 269.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 09:51:59 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 73ms (Views: 68.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 09:52:01 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (1.0ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.6ms)
+Completed 200 OK in 42ms (Views: 32.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 09:57:38 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (6.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 795ms (Views: 786.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 09:57:39 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (3.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (21.8ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.6ms)
+Completed 200 OK in 71ms (Views: 33.8ms | ActiveRecord: 26.1ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 09:58:12 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 687ms (Views: 682.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 09:58:13 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (1.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.6ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.4ms)
+Completed 200 OK in 47ms (Views: 39.4ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 09:58:40 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 610ms (Views: 605.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 09:58:41 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.6ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.7ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.5ms)
+Completed 200 OK in 45ms (Views: 37.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 10:37:39 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (5.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (18.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (48.1ms)
+Completed 200 OK in 1444ms (Views: 1420.0ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 10:37:41 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (22.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (2.0ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (3.2ms)
+Completed 200 OK in 97ms (Views: 52.4ms | ActiveRecord: 26.0ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 10:37:45 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (1.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.6ms)
+Completed 200 OK in 858ms (Views: 42.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 10:37:55 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (1.0ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.8ms)
+Completed 200 OK in 44ms (Views: 34.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 10:37:56 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (5.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 630ms (Views: 624.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 10:37:57 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (3.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (3.0ms)
+Completed 200 OK in 47ms (Views: 38.3ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 10:37:59 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (0.7ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (4.8ms)
+Completed 200 OK in 882ms (Views: 48.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 10:38:10 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.9ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.4ms)
+Completed 200 OK in 38ms (Views: 31.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 11:44:06 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 697ms (Views: 691.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 11:44:07 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (23.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.8ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.7ms)
+Completed 200 OK in 71ms (Views: 34.1ms | ActiveRecord: 25.3ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 11:44:13 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (1.4ms)
+Completed 200 OK in 1914ms (Views: 43.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 11:44:52 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 734ms (Views: 730.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 11:44:52 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 66ms (Views: 62.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 11:44:54 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 47ms (Views: 43.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 11:44:54 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.5ms)
+Completed 200 OK in 40ms (Views: 31.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 11:44:58 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (5.5ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (2.7ms)
+Completed 200 OK in 955ms (Views: 44.1ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 16:44:02 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+Started GET "/" for ::1 at 2021-04-23 16:44:02 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mPortfolio Load (220.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (15.9ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  [1m[36mUser Load (19.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  ↳ app/controllers/application_controller.rb:10
+  [1m[35m (12.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mPortfolio Load (7.1ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendered api/users/_user.json.jbuilder (37.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (223.9ms)
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (2.4ms)
+Completed 200 OK in 524ms (Views: 65.1ms | ActiveRecord: 259.1ms)
+
+
+Completed 200 OK in 1767ms (Views: 1643.7ms | ActiveRecord: 71.8ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 16:44:05 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (1.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (1.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.6ms)
+Completed 200 OK in 61ms (Views: 41.8ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 16:44:15 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (0.6ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (1.1ms)
+Completed 200 OK in 869ms (Views: 47.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 16:46:29 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.5ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (2.4ms)
+Completed 200 OK in 55ms (Views: 36.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 16:46:29 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 122ms (Views: 118.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 16:46:30 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (2.0ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (2.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.9ms)
+Completed 200 OK in 56ms (Views: 41.3ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 16:46:33 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (4.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.8ms)
+Completed 200 OK in 870ms (Views: 43.9ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 16:59:44 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (2.4ms)
+Completed 200 OK in 65ms (Views: 36.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 16:59:45 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 751ms (Views: 746.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 16:59:46 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (6.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (1.0ms)
+Completed 200 OK in 53ms (Views: 36.4ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 16:59:49 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (0.8ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.9ms)
+Completed 200 OK in 1055ms (Views: 43.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:02:15 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.9ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (2.5ms)
+Completed 200 OK in 69ms (Views: 38.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 17:02:16 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (4.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 798ms (Views: 789.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:02:17 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (4.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (2.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.4ms)
+Completed 200 OK in 51ms (Views: 36.2ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 17:02:19 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (3.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.8ms)
+Completed 200 OK in 880ms (Views: 43.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:13:15 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.6ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.7ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (2.1ms)
+Completed 200 OK in 73ms (Views: 39.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 17:13:16 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 717ms (Views: 708.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:13:17 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (1.8ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (3.1ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (1.0ms)
+Completed 200 OK in 53ms (Views: 40.0ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 17:13:20 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (6.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (1.8ms)
+Completed 200 OK in 841ms (Views: 42.5ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:14:08 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.6ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (1.1ms)
+Completed 200 OK in 41ms (Views: 31.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 17:14:09 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 759ms (Views: 754.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:14:10 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (3.8ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (1.0ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.6ms)
+Completed 200 OK in 49ms (Views: 36.2ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 17:14:13 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (6.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (1.0ms)
+Completed 200 OK in 807ms (Views: 44.9ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:15:48 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.9ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (3.4ms)
+Completed 200 OK in 58ms (Views: 36.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 17:15:49 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 822ms (Views: 817.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:15:51 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (1.1ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.7ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (58.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.4ms)
+Completed 200 OK in 95ms (Views: 30.3ms | ActiveRecord: 60.3ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 17:15:53 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (0.8ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (1.1ms)
+Completed 200 OK in 798ms (Views: 40.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:17:46 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.7ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.9ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (1.7ms)
+Completed 200 OK in 40ms (Views: 32.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 17:17:47 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (2.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 645ms (Views: 641.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:17:48 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.6ms)
+Completed 200 OK in 51ms (Views: 43.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 17:17:50 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (5.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.5ms)
+Completed 200 OK in 808ms (Views: 40.5ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:25:45 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.8ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (2.3ms)
+Completed 200 OK in 60ms (Views: 38.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 17:25:46 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.2ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 860ms (Views: 855.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 17:25:52 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 48ms (Views: 44.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 17:25:53 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (3.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 631ms (Views: 627.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:25:54 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (1.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (2.1ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.6ms)
+Completed 200 OK in 45ms (Views: 33.6ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 17:25:57 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (1.0ms)
+Completed 200 OK in 786ms (Views: 44.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:27:24 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.9ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.8ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.5ms)
+Completed 200 OK in 41ms (Views: 31.8ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 17:27:26 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 710ms (Views: 705.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:27:27 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (8.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (1.9ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (4.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (1.4ms)
+Completed 200 OK in 62ms (Views: 41.7ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 17:27:29 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (4.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.6ms)
+Completed 200 OK in 780ms (Views: 42.9ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:27:54 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (0.4ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.5ms)
+Completed 200 OK in 39ms (Views: 30.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2021-04-23 17:27:56 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UCc+RPZPJKGHVw6wAA++n8dxRMWUyJixqaRZwv7f41MFgaDXH4nrRMwy2oZxF9LVbKA34zcMRJDroHsxamojVw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPortfolio Load (0.3ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:6
+  Rendered api/users/_user.json.jbuilder (1.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 57ms (Views: 53.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/portfolios/6" for ::1 at 2021-04-23 17:27:56 -0700
+Processing by Api::PortfoliosController#show as */*
+  Parameters: {"default"=>{"format"=>:json}, "id"=>"6"}
+  [1m[36mPortfolio Load (4.0ms)[0m  [1m[34mSELECT  "portfolios".* FROM "portfolios" WHERE "portfolios"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:17
+  [1m[36mStock Load (1.7ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."portfolio_id" = $1[0m  [["portfolio_id", 6]]
+  ↳ app/controllers/api/portfolios_controller.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/portfolios_controller.rb:29
+  Rendering api/portfolios/show.json.jbuilder
+  Rendered api/portfolios/show.json.jbuilder (0.6ms)
+Completed 200 OK in 58ms (Views: 42.3ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/api/stocks/AAPL?stock%5BNYSE_abv%5D=AAPL&stock%5Bportfolio_id%5D=6" for ::1 at 2021-04-23 17:27:58 -0700
+Processing by Api::StocksController#show as */*
+  Parameters: {"stock"=>{"NYSE_abv"=>"AAPL", "portfolio_id"=>"6"}, "default"=>{"format"=>:json}, "id"=>"AAPL"}
+  [1m[36mStock Load (3.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."NYSE_abv" = $1 AND "stocks"."portfolio_id" = $2 LIMIT $3[0m  [["NYSE_abv", "AAPL"], ["portfolio_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/stocks_controller.rb:65
+  Rendering api/stocks/show.json.jbuilder
+  Rendered api/stocks/show.json.jbuilder (0.7ms)
+Completed 200 OK in 813ms (Views: 43.2ms | ActiveRecord: 3.0ms)
+
+

@@ -10,8 +10,8 @@ class Stock < ApplicationRecord
         publishable_token: 'Tpk_8ecd293d171f48c793e2a1435a284f9c',
         endpoint: 'https://sandbox.iexapis.com/stable'
         )
-
         quote = client.quote(symbol)
+        puts quote
         quote.latest_price;
     end
 

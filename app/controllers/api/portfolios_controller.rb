@@ -1,3 +1,5 @@
+require_relative "stocks_controller"
+
 class Api::PortfoliosController < ApplicationController
 
     def create
@@ -13,6 +15,18 @@ class Api::PortfoliosController < ApplicationController
 
     def show
         @portfolio = Portfolio.find(params[:id])
+        stocks = Stock.where(portfolio_id: 6);
+        value = 0
+        prev_close = 0
+        stocks.each do |stock|
+            value = value + stock.value
+            prev_close = prev_close + (stock.previous_close * stock.number)
+        end
+        value = value.round(2)
+        prev_close = prev_close.round(2)
+        @portfolio.value = value + @portfolio.funds
+        @portfolio.prev_close = prev_close + @portfolio.funds
+        @portfolio.save!
         render :show
     end
 

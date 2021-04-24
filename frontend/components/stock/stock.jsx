@@ -12,7 +12,6 @@ class Stock extends Component {
         super(props);
         this.state = {
             abv: null,
-            current_price: this.props.currentStock.current_price,
             redirect: null,
             tickers: [],
             option: 'buy',
@@ -26,7 +25,6 @@ class Stock extends Component {
         this.createSell = this.createSell.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
         this.convertPromise = this.convertPromise.bind(this);
         this.renderTickers = this.renderTickers.bind(this);
         this.redirectStock = this.redirectStock.bind(this);
@@ -44,8 +42,13 @@ class Stock extends Component {
         this.updateAmount = this.updateAmount.bind(this);
         this.estimate = this.estimate.bind(this);
         this.setMethod = this.setMethod.bind(this);
+        this.signout = this.signout.bind(this);
         // this.buyShare = this.buyShare.bind(this);
         // this.sellShare = this.sellShare.bind(this);
+    }
+
+    signout(e){
+        this.props.logout();
     }
 
     tradeSegment(){
@@ -339,12 +342,6 @@ class Stock extends Component {
         }
     }
 
-    handleKeyPress(e) {
-        if ((e.key === 'Enter') && (this.state.abv != null)) {
-            this.handleSubmit();
-        }
-    }
-
     calculateDifference(){
         let difference = (this.props.currentStock.current_price - this.props.currentStock.previous_close).toFixed(2);
         let percentageChange = ((difference / this.props.currentStock.previous_close) * 100).toFixed(2);
@@ -403,24 +400,24 @@ class Stock extends Component {
                         <div className="topnav">
                             <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
                             <div className='search-bar'>
-                                <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } onKeyUp = { this.handleKeyPress } placeholder="Search For A Stock" autoComplete='off'></input>
+                                <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } placeholder="Search For A Stock" autoComplete='off'></input>
                                 { this.renderTickers() }
                             </div>
                             <ul className='nav-dash-links'>
                                 <btn className='dash-links' onClick={this.sendToDB}>Portfolio</btn>
                                 <btn className='dash-links'>Account</btn>
+                                <btn className='dash-links' onClick={this.signout}>Log Out</btn>
                             </ul>
                         </div>
                     <div className='page'>
                         <div className='spacer'>
                         </div>
                         <div id='stock-name'>{this.props.currentStock.company_name}</div>
-                        <div id='stock-price'>${this.props.currentStock.current_price}</div>
-                        {this.calculateDifference()}
                         {this.tradeSegment()}
                         <LineChartContainer
                             abv={this.props.currentStock.NYSE_abv}
-                            currentPrice={this.state.current_price}
+                            current_price={this.props.currentStock.current_price}
+                            prev_close={this.props.currentStock.previous_close}
                             annot={this.props.currentStock.previous_close}
                         />
                         {this.portfolioValue()}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect, withRouter } from 'react-router';
-import SearchBar from './search_bar';
 import GeneralNews from './general_news';
+import PortfolioChartContainer from './portfolio_chart_container'
 
 
 class Dashboard extends React.Component {
@@ -24,7 +24,6 @@ class Dashboard extends React.Component {
         this.signout = this.signout.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
         this.convertPromise = this.convertPromise.bind(this);
         this.renderTickers = this.renderTickers.bind(this);
         this.redirectStock = this.redirectStock.bind(this);
@@ -76,13 +75,6 @@ class Dashboard extends React.Component {
         }
     }
 
-    handleKeyPress(e) {
-        if ((e.key === 'Enter') && (this.state.abv != null)) {
-            this.handleSubmit();
-        }
-    }
-
-
     renderTickers(){
         if (this.state.tickers.length != 0 && this.state.abv != null){
             return(
@@ -115,13 +107,14 @@ class Dashboard extends React.Component {
                             <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
                             {/* <SearchBar /> */}
                             <div className='search-bar'>
-                                <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } onKeyUp = { this.handleKeyPress } placeholder="Search For A Stock" autoComplete='off'></input>
+                                <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } placeholder="Search For A Stock" autoComplete='off'></input>
                                 { this.renderTickers() }
                             </div>
                             {/* <Select options={this.state.tickers} onChange={this.handleSearch} placeholder="Search" openMenuOnClick={false} /> */}
                             <ul className='nav-dash-links'>
                                 <div className='dash-links'>Portfolio</div>
                                 <btn className='dash-links'>Account</btn>
+                                <btn className='dash-links' onClick={this.signout}>Log Out</btn>
                             </ul>
         
                         </div>
@@ -130,7 +123,11 @@ class Dashboard extends React.Component {
                         </div>
 
                         <div className='db-container'>
-                            <h2 id='portfolio-value'>${(this.props.currentPortfolio.value).toFixed(2)}</h2>
+                            <PortfolioChartContainer
+                                prev_close={this.props.currentPortfolio.prev_close}
+                                value={this.props.currentPortfolio.value}
+                                portfolio_id={this.props.currentPortfolio.id}
+                            />
                             <div className='buying-power'>
                                 <div id='bp'>Buying Power</div>
                                 <div id='liquidity' >${(this.props.currentPortfolio.funds).toFixed(2)}</div>
@@ -140,8 +137,6 @@ class Dashboard extends React.Component {
 
                             <Link className="btn" to={`/users/${this.state.id}/edit`}>Change User Information</Link>
             
-
-                            <button id='log-out-btn' onClick={this.signout}>Log out</button>
                         </div>
                     </div>
                 </div>
