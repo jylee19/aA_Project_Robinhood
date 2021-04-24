@@ -22,6 +22,55 @@ class LineChart extends Component{
         this.getData = this.getData.bind(this)
         this.convertPromise = this.convertPromise.bind(this)
         this.getCurrentTime = this.getCurrentTime.bind(this)
+        this.calculateDifference = this.calculateDifference.bind(this)
+    }
+
+    componentDidMount(){
+        Chart.pluginService.register({
+        afterDraw: function(chart, easing) {
+            if (chart.tooltip._active && chart.tooltip._active.length) {
+                const activePoint = chart.controller.tooltip._active[0];
+                const ctx = chart.ctx;
+                const x = activePoint.tooltipPosition().x;
+                const topY = chart.scales['y-axis-0'].top;
+                const bottomY = chart.scales['y-axis-0'].bottom;
+                ctx.save();
+                ctx.beginPath();
+                ctx.moveTo(x, topY);
+                ctx.lineTo(x, bottomY);
+                ctx.lineWidth = 1;
+                ctx.strokeStyle = '#40494e';
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+        });
+    }
+
+    calculateDifference(){
+        let difference = (this.props.current_price - this.props.previous_close).toFixed(2);
+        let percentageChange = ((difference / this.props.previous_close) * 100).toFixed(2);
+        if (difference >= 0){
+            return(
+                <div className='day-change'>
+                    <div>
+                        +${difference} (+{percentageChange}%)
+                    </div>
+                    <span id='today'>Today</span>
+                </div>
+            )
+        } else {
+            difference = difference * -1;
+            return(
+                <div className='day-change'>
+                    <div>
+                        -${difference} ({percentageChange}%)
+                    </div>
+                    <span id='today'>Today</span>
+                </div>
+            )
+        }
+
     }
 
     getData(){
@@ -51,7 +100,7 @@ class LineChart extends Component{
     }
 
     convertPromise(d){
-        // console.log(d)
+        console.log(d)
         let arr = [];
         let dates = [];
         d.map((time, i) => { 
@@ -105,11 +154,20 @@ class LineChart extends Component{
                     borderDash: [5,5],
                     borderCapStyle: 'round'
                 }]
+            },
+            tooltips:{
+                enabled: true,
+                intersect: false
+            },
+            hover:{
+                intersect: false
             }
         };
         
         return(
             <div id='line-chart'>
+                <div id='stock-price'>${this.props.current_price}</div>
+                {this.calculateDifference()}
                 <Line
                     data={{
                         labels: this.state.dates,

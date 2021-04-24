@@ -13,10 +13,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        showStock: NYSE_abv => dispatch(showStock(stock)),
+        showStock: (stock) => dispatch(showStock(stock)),
         buyStock: (stock) => dispatch(buyStock(stock)),
         sellStock: (stock) => dispatch(sellStock(stock))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Stock);
+export default connect(mapStateToProps, mapDispatchToProps)(Stock);``

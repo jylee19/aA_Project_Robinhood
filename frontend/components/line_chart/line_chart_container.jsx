@@ -7,7 +7,8 @@ const mapStateToProps = (state, ownProps) => {
     return {
         abv: ownProps.abv,
         current_price: ownProps.current_price,
-        annot: ownProps.annot
+        annot: ownProps.annot,
+        previous_close: ownProps.prev_close
     }
 }
 
