@@ -27,7 +27,7 @@ class LineChart extends Component{
 
     componentDidMount(){
         Chart.pluginService.register({
-        afterDraw: function(chart, easing) {
+        beforeDraw: function(chart, easing) {
             if (chart.tooltip._active && chart.tooltip._active.length) {
                 const activePoint = chart.controller.tooltip._active[0];
                 const ctx = chart.ctx;
@@ -157,10 +157,23 @@ class LineChart extends Component{
             },
             tooltips:{
                 enabled: true,
-                intersect: false
+                intersect: false,
+                position: 'nearest',
+                axis: 'x',
+                caretPadding: 20,
+                displayColors: false,
+                titleColor: 'rgb(64,73,77)',
+                bodyColor: 'rgb(64,73,77)'
             },
+            // interaction: {
+            //     mode: 'nearest',
+            //     axis: 'xy'
+            // }
             hover:{
-                intersect: false
+                intersect: false,
+                mode: 'nearest',
+                axis: 'x',
+                animationDuration: 0
             }
         };
         
