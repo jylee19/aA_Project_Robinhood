@@ -10,6 +10,7 @@ class LoginForm extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.beginDemo = this.beginDemo.bind(this);
     }
 
     handleChange(e) {
@@ -26,6 +27,16 @@ class LoginForm extends React.Component {
         // const user = Object.assign({}, this.state);
         this.props.processForm(this.state);
     }
+
+    beginDemo(){
+        this.setState({ username: 'demoUser', password: 'demoUser1' })
+    }
+
+
+        //     let demo = {
+        //     username: 'demoUser',
+        //     password: 'demoUser1'
+        // }
 
     render() {
         let errors;
@@ -55,6 +66,7 @@ class LoginForm extends React.Component {
                         </label>
                         <br/>
                         <button id="login-button">Sign in</button>
+                        <button id='demo-button' onClick={ this.beginDemo }>Try a Demo</button>
                         </form>
                     </div>
                 </div>

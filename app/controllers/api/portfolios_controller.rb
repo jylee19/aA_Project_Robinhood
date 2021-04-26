@@ -15,9 +15,11 @@ class Api::PortfoliosController < ApplicationController
 
     def show
         @portfolio = Portfolio.find(params[:id])
-        stocks = Stock.where(portfolio_id: 6);
+        stocks = Stock.where(portfolio_id: params[:id]);
+        puts stocks
         value = 0
         prev_close = 0
+        graph_data = [];
         stocks.each do |stock|
             value = value + stock.value
             prev_close = prev_close + (stock.previous_close * stock.number)
@@ -26,6 +28,18 @@ class Api::PortfoliosController < ApplicationController
         prev_close = prev_close.round(2)
         @portfolio.value = value + @portfolio.funds
         @portfolio.prev_close = prev_close + @portfolio.funds
+        data = nil;
+        stocks.each do |stock|
+            graph_data = Portfolio.get_price(stock.NYSE_abv, stock.number)
+            if data.nil? 
+                data = graph_data
+            else
+                graph_data.each_with_index do |point, index|
+                    data[index][1] = (data[index][1] + point[1]).round(2)
+                end
+            end
+        end
+        @portfolio.graph_data = data;
         @portfolio.save!
         render :show
     end

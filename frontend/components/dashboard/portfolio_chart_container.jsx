@@ -6,7 +6,9 @@ const mSTP = (state, ownProps) => {
     return{
         prev_close: ownProps.prev_close,
         value: ownProps.value,
-        portfolio_id: ownProps.portfolio_id
+        portfolio_id: ownProps.portfolio_id,
+        graph_data: ownProps.graph_data,
+        funds: ownProps.funds
     }
 
 }

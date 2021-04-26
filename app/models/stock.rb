@@ -11,7 +11,6 @@ class Stock < ApplicationRecord
         endpoint: 'https://sandbox.iexapis.com/stable'
         )
         quote = client.quote(symbol)
-        puts quote
         quote.latest_price;
     end
 

@@ -191,22 +191,24 @@ class LineChart extends Component{
             <div id='line-chart'>
                 <div id='stock-price'>${this.props.current_price}</div>
                 {this.calculateDifference()}
-                <Line
-                    data={{
-                        labels: this.state.dates,
-                        datasets: [{
-                            data: this.state.data,
-                            fill: false,
-                            backgroundColor: 'rgb(13,200,5)',
-                            borderColor: 'rgb(13,200,5)',
-                            borderWidth: 1,
-                            radius: 0
-                        }]
-                    }}
-                    height = {300}
-                    width = {710}
-                    options={options}
-                />
+                <div>
+                    <Line
+                        data={{
+                            labels: this.state.dates,
+                            datasets: [{
+                                data: this.state.data,
+                                fill: false,
+                                backgroundColor: 'rgb(13,200,5)',
+                                borderColor: 'rgb(13,200,5)',
+                                borderWidth: 1,
+                                radius: 0
+                            }]
+                        }}
+                        height = {300}
+                        width = {710}
+                        options={options}
+                    />
+                </div>
             </div>
         )
     }
