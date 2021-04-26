@@ -16,6 +16,8 @@ class LineChart extends Component{
         this.state = {
             data: [],
             dates: [],
+            time: undefined,
+            price: this.props.current_price,
             getData: false
         }
 
@@ -36,8 +38,9 @@ class LineChart extends Component{
                 const bottomY = chart.scales['y-axis-0'].bottom;
                 ctx.save();
                 ctx.beginPath();
-                ctx.moveTo(x, topY);
+                ctx.moveTo(x, topY + 20);
                 ctx.lineTo(x, bottomY);
+                ctx.fillText('Test', x - 15 , 10);
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = '#40494e';
                 ctx.stroke();
@@ -48,8 +51,14 @@ class LineChart extends Component{
     }
 
     calculateDifference(){
-        let difference = (this.props.current_price - this.props.previous_close).toFixed(2);
-        let percentageChange = ((difference / this.props.previous_close) * 100).toFixed(2);
+        let difference = 0;
+        let percentageChange = 0;
+        if(this.state.price){
+            difference = (this.state.price - this.props.previous_close).toFixed(2);
+        }else{
+            difference = (this.props.current_price - this.props.previous_close).toFixed(2);
+        }
+        percentageChange = ((difference / this.props.previous_close) * 100).toFixed(2);
         if (difference >= 0){
             return(
                 <div className='day-change'>
@@ -175,6 +184,7 @@ class LineChart extends Component{
                 axis: 'x',
                 animationDuration: 0
             }
+
         };
         
         return(
