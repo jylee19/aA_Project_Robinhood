@@ -27,7 +27,7 @@ class SignupForm extends React.Component {
     handleSubmit(e) {
         // e.preventDefault(); //Chain on creating a portfolio after
         if (this.props.formType === 'Update User'){
-            this.props.action(this.state).then(() => this.setState({ redirect: `/users/${this.state.id}` }));
+            this.props.action(this.state).then(() => this.setState({ redirect: `/users` }));
         } else{
             this.props.action(this.state);
         }

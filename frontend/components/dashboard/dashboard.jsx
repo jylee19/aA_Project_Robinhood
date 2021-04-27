@@ -12,7 +12,6 @@ class Dashboard extends React.Component {
             id: this.props.currentUser.id,
             portfolio_id: this.props.currentUser.id,
             abv: null,
-            redirect: null,
             tickers: []
         }
         // if (this.props.currentUser.portfolio_id === null){
@@ -31,7 +30,8 @@ class Dashboard extends React.Component {
     }
 
     signout(e){
-        this.props.logout();
+        this.props.logout()
+        this.props.history.push('/');
     }
 
     handleSubmit(e){
@@ -95,11 +95,7 @@ class Dashboard extends React.Component {
     }
 
     createChart(){
-        if(this.props.currentPortfolio.graph_data == null){
-            return(
-                <div id='placeholder-chart'>Welcome to Robingoods! Please buy any stock to visualize your portfolio</div>
-            )
-        } else {
+        if(this.props.currentPortfolio.graph_data){
             return(
                     <PortfolioChartContainer
                         prev_close={this.props.currentPortfolio.prev_close}
@@ -110,13 +106,16 @@ class Dashboard extends React.Component {
                     />
                 
             )
+        } else {
+            return(
+                <div id='placeholder-chart'>Welcome to Robingoods! Please buy any stock to visualize your portfolio</div>
+            )
         }
     }
 
     render(){
-        if(!this.props.currentPortfolio){
-            return null
-        } else if(this.state.redirect) {
+        console.log(this.state.redirect)
+        if(this.state.redirect) {
             return <Redirect to={this.state.redirect}/> 
         } else {
             return(
