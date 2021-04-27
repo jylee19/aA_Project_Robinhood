@@ -11,38 +11,15 @@ class Home extends Component {
         this.state= {
             redirect: null
         }
-        this.handleClick = this.handleClick.bind(this);
         this.demo = this.demo.bind(this);
-        this.begin = this.begin.bind(this);
-        // this.setPortfolio = this.setPortfolio.bind(this);
     }
 
-    componentDidMount(){
-        
-    }
-
-    handleClick(e) {
-        this.props.logout();
-    }
-
-    // setPortfolio(){
-    //     console.log("Do I get here")
-    //     this.props.showPortfolio(this.props.currentUser.id).then(() => this.setState({redirect: `/users/${this.props.currentUser.id}`});
-    // }
 
     demo(e){
         e.preventDefault();
-        let demo = {
-            username: 'demoUser',
-            password: 'demoUser1'
-        }
-        this.props.startDemo(demo).then(() => this.setState({ redirect: `/demo` }));
+        this.setState({ redirect: `/login` });
     }
 
-    begin(e){
-        // e.preventDefault();
-        this.props.startDemo(this.state);
-    }
 
     componentDidUpdate(){
         if(this.props.currentUser === undefined && this.state.username === 'demoUser'){
@@ -55,29 +32,6 @@ class Home extends Component {
         if (this.state.redirect) {
             return <Redirect to={this.state.redirect}/>
         }
-        // let display;
-        // if (this.state.username === 'demoUser') {
-        //     return(
-        //         <div>
-        //             <p>Welcome to the Robingoods demo!</p>
-        //             <p>We hope that you'll learn a thing or two</p>
-        //             <Link className="btn" to="/demo"><button>Click here to begin!</button></Link>
-        //         </div>               
-        //     )
-        //  }
-        // else if (this.props.currentUser) {
-        // //     return this.setPortfolio();
-        // } else {
-        //     display = (
-        //         <div>
-        //             <Link className="btn" to="/signup">Signup</Link>
-        //             <br/>
-        //             <Link className="btn" to="/login">Login</Link>
-        //             <br/>
-        //             <button onClick={this.demo}>Want a test run?</button>
-        //         </div>
-        //     )
-        // }
 
         return(
             <div>
@@ -100,7 +54,6 @@ class Home extends Component {
                         <p id="intro-body">Commission-free investing, plus the tools you need to put your money in motion. Sign up and get your first stock for free. Certain limitations apply</p>
                         <button id="demo-button" onClick={this.demo}>Give us a try!</button>
                     </div>
-                    {/* <button onClick={this.handleClick}>Logout</button> */}
                     <img className="home-image" src={window.homeImage}/>
                 </div>
 

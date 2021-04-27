@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 
 class LoginForm extends React.Component {
@@ -6,10 +7,12 @@ class LoginForm extends React.Component {
         super(props);
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            redirect: null
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.beginDemo = this.beginDemo.bind(this);
     }
 
     handleChange(e) {
@@ -20,15 +23,35 @@ class LoginForm extends React.Component {
         }
     }
 
+
     handleSubmit(e) {
         // debugger;
         e.preventDefault();
-        // const user = Object.assign({}, this.state);
-        this.props.processForm(this.state);
+        let user = {
+            username: this.state.username,
+            password: this.state.password
+        }
+        this.props.processForm(user).then(d => {
+            this.setState({redirect: '/users'})
+        });
     }
+
+    beginDemo(){
+        this.setState({ username: 'demoUser', password: 'demoUser1' })
+    }
+
+
+        //     let demo = {
+        //     username: 'demoUser',
+        //     password: 'demoUser1'
+        // }
 
     render() {
         let errors;
+        if (this.state.redirect) {
+            console.log(this.state.redirect)
+            return <Redirect to={this.state.redirect}/>
+        }
         if (this.props.errors) errors = this.props.errors.map(err => (<h2>{err}</h2>));
         return(
             <React.Fragment>
@@ -55,6 +78,7 @@ class LoginForm extends React.Component {
                         </label>
                         <br/>
                         <button id="login-button">Sign in</button>
+                        <button id='demo-try' onClick={ this.beginDemo }>Try a Demo</button>
                         </form>
                     </div>
                 </div>

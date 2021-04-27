@@ -16,6 +16,8 @@ class LineChart extends Component{
         this.state = {
             data: [],
             dates: [],
+            time: undefined,
+            price: this.props.current_price,
             getData: false
         }
 
@@ -27,7 +29,7 @@ class LineChart extends Component{
 
     componentDidMount(){
         Chart.pluginService.register({
-        afterDraw: function(chart, easing) {
+        beforeDraw: function(chart, easing) {
             if (chart.tooltip._active && chart.tooltip._active.length) {
                 const activePoint = chart.controller.tooltip._active[0];
                 const ctx = chart.ctx;
@@ -36,8 +38,9 @@ class LineChart extends Component{
                 const bottomY = chart.scales['y-axis-0'].bottom;
                 ctx.save();
                 ctx.beginPath();
-                ctx.moveTo(x, topY);
+                ctx.moveTo(x, topY + 20);
                 ctx.lineTo(x, bottomY);
+                ctx.fillText('Test', x - 15 , 10);
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = '#40494e';
                 ctx.stroke();
@@ -48,8 +51,14 @@ class LineChart extends Component{
     }
 
     calculateDifference(){
-        let difference = (this.props.current_price - this.props.previous_close).toFixed(2);
-        let percentageChange = ((difference / this.props.previous_close) * 100).toFixed(2);
+        let difference = 0;
+        let percentageChange = 0;
+        if(this.state.price){
+            difference = (this.state.price - this.props.previous_close).toFixed(2);
+        }else{
+            difference = (this.props.current_price - this.props.previous_close).toFixed(2);
+        }
+        percentageChange = ((difference / this.props.previous_close) * 100).toFixed(2);
         if (difference >= 0){
             return(
                 <div className='day-change'>
@@ -157,33 +166,49 @@ class LineChart extends Component{
             },
             tooltips:{
                 enabled: true,
-                intersect: false
+                intersect: false,
+                position: 'nearest',
+                axis: 'x',
+                caretPadding: 20,
+                displayColors: false,
+                titleColor: 'rgb(64,73,77)',
+                bodyColor: 'rgb(64,73,77)'
             },
+            // interaction: {
+            //     mode: 'nearest',
+            //     axis: 'xy'
+            // }
             hover:{
-                intersect: false
+                intersect: false,
+                mode: 'nearest',
+                axis: 'x',
+                animationDuration: 0
             }
+
         };
         
         return(
             <div id='line-chart'>
                 <div id='stock-price'>${this.props.current_price}</div>
                 {this.calculateDifference()}
-                <Line
-                    data={{
-                        labels: this.state.dates,
-                        datasets: [{
-                            data: this.state.data,
-                            fill: false,
-                            backgroundColor: 'rgb(13,200,5)',
-                            borderColor: 'rgb(13,200,5)',
-                            borderWidth: 1,
-                            radius: 0
-                        }]
-                    }}
-                    height = {300}
-                    width = {710}
-                    options={options}
-                />
+                <div>
+                    <Line
+                        data={{
+                            labels: this.state.dates,
+                            datasets: [{
+                                data: this.state.data,
+                                fill: false,
+                                backgroundColor: 'rgb(13,200,5)',
+                                borderColor: 'rgb(13,200,5)',
+                                borderWidth: 1,
+                                radius: 0
+                            }]
+                        }}
+                        height = {300}
+                        width = {710}
+                        options={options}
+                    />
+                </div>
             </div>
         )
     }

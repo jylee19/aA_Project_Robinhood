@@ -1,6 +1,6 @@
 import React from "react";
-import { Route } from 'react-router-dom';
-import { AuthRoute } from "../util/route_util";
+import { Route, Switch } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import { PersistGate } from 'redux-persist/integration/react';
 // import { persistor } from '../store/store';
 import HomeContainer from './home/home_container';
@@ -13,14 +13,16 @@ import stockContainer from './stock/stock_container';
 
 const App = () => (
   <div>
-    {/* <PersistGate loading={null} persistor={persistor}> */}
-      <Route exact path="/" component={HomeContainer} />
+    <Switch>
+      <AuthRoute exact path="/" component={HomeContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route exact path ="/demo" component={demoContainer} />
-      <Route exact path="/users/:userId/edit" component={editUserContainer} />
-      <Route exact path="/users/:userId" component={dashboardContainer} />
-      <Route exact path="/stocks/:stock" component={stockContainer} />
+      <ProtectedRoute exact path ="/demo" component={demoContainer} />
+      <ProtectedRoute exact path="/users/:userId/edit" component={editUserContainer} />
+      <ProtectedRoute exact path="/users" component={dashboardContainer} />
+      <ProtectedRoute exact path="/stocks/:stock" component={stockContainer} />
+    </Switch>
+    {/* <PersistGate loading={null} persistor={persistor}> */}
     {/* </PersistGate> */}
   </div>
 );

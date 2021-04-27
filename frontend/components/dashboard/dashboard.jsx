@@ -12,7 +12,6 @@ class Dashboard extends React.Component {
             id: this.props.currentUser.id,
             portfolio_id: this.props.currentUser.id,
             abv: null,
-            redirect: null,
             tickers: []
         }
         // if (this.props.currentUser.portfolio_id === null){
@@ -27,10 +26,12 @@ class Dashboard extends React.Component {
         this.convertPromise = this.convertPromise.bind(this);
         this.renderTickers = this.renderTickers.bind(this);
         this.redirectStock = this.redirectStock.bind(this);
+        this.createChart = this.createChart.bind(this);
     }
 
     signout(e){
-        this.props.logout();
+        this.props.logout()
+        this.props.history.push('/');
     }
 
     handleSubmit(e){
@@ -93,12 +94,28 @@ class Dashboard extends React.Component {
         this.props.showPortfolio(this.state.portfolio_id)
     }
 
+    createChart(){
+        if(this.props.currentPortfolio.graph_data){
+            return(
+                    <PortfolioChartContainer
+                        prev_close={this.props.currentPortfolio.prev_close}
+                        value={this.props.currentPortfolio.value}
+                        portfolio_id={this.props.currentPortfolio.id}
+                        graph_data={this.props.currentPortfolio.graph_data}
+                        funds={this.props.currentPortfolio.funds}
+                    />
+                
+            )
+        } else {
+            return(
+                <div id='placeholder-chart'>Welcome to Robingoods! Please buy any stock to visualize your portfolio</div>
+            )
+        }
+    }
+
     render(){
-        // console.log(this.state.abv)
-        // console.log(this.state.tickers)
-        if(!this.props.currentPortfolio){
-            return null
-        } else if(this.state.redirect) {
+        console.log(this.state.redirect)
+        if(this.state.redirect) {
             return <Redirect to={this.state.redirect}/> 
         } else {
             return(
@@ -123,11 +140,7 @@ class Dashboard extends React.Component {
                         </div>
 
                         <div className='db-container'>
-                            <PortfolioChartContainer
-                                prev_close={this.props.currentPortfolio.prev_close}
-                                value={this.props.currentPortfolio.value}
-                                portfolio_id={this.props.currentPortfolio.id}
-                            />
+                            {this.createChart()}
                             <div className='buying-power'>
                                 <div id='bp'>Buying Power</div>
                                 <div id='liquidity' >${(this.props.currentPortfolio.funds).toFixed(2)}</div>
