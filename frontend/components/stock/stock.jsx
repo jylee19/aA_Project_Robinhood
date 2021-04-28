@@ -5,6 +5,7 @@ import NewsContainer from './news_container';
 import LineChartContainer from '../line_chart/line_chart_container';
 import StockPortfolioValue from './stock_portfolio_value';
 import About from './about';
+import { id } from 'chartjs-plugin-annotation';
 
 class Stock extends Component {
 
@@ -17,7 +18,8 @@ class Stock extends Component {
             option: 'buy',
             method: 'Dollars',
             shareAmount: 0,
-            dollarAmount: 0
+            dollarAmount: 0,
+            refresh: false
         }
         this.sendToDB = this.sendToDB.bind(this);
         this.tradeOptions = this.tradeOptions.bind(this);
@@ -228,7 +230,7 @@ class Stock extends Component {
         }
 
         this.props.buyStock(stock)
-        // window.location.reload();
+        window.location.reload();
     }
 
     createSell(){
@@ -267,7 +269,13 @@ class Stock extends Component {
     }
 
     componentDidMount(){
-        // console.log(this.props.currentStock.NYSE_abv)
+        
+        const stock = {
+            NYSE_abv: this.props.currentStock.NYSE_abv,
+            portfolio_id: this.props.userID
+        }
+        this.props.showStock(stock)
+        this.props.showPortfolio(this.props.userID)
         // setInterval(() => this.refreshData(), 10000)
     }
 
@@ -369,7 +377,7 @@ class Stock extends Component {
     }
 
     portfolioValue(){
-        if (this.props.currentStock.number != null) {
+        if (this.props.currentStock.number) {
             let cost = (this.props.currentStock.purchase_price * this.props.currentStock.number).toFixed(2);
             let currentValue = this.props.currentStock.current_price * this.props.currentStock.number.toFixed(2);
             return(
@@ -388,49 +396,58 @@ class Stock extends Component {
     }
 
     sendToDB(){
-        this.setState({redirect: `/users/${this.props.userID}`})
+        this.setState({redirect: `/users`})
     }
 
     render () {
-        if (this.state.redirect && this.state.redirect != `/${this.props.currentStock.NYSE_abv}`) {
-            return <Redirect to={this.state.redirect}/>
-        } else {
-            return(
-                <div className='setting'>
-                        <div className="topnav">
-                            <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
-                            <div className='search-bar'>
-                                <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } placeholder="Search For A Stock" autoComplete='off'></input>
-                                { this.renderTickers() }
-                            </div>
-                            <ul className='nav-dash-links'>
-                                <btn className='dash-links' onClick={this.sendToDB}>Portfolio</btn>
-                                <btn className='dash-links'>Account</btn>
-                                <btn className='dash-links' onClick={this.signout}>Log Out</btn>
-                            </ul>
-                        </div>
-                    <div className='page'>
-                        <div className='spacer'>
-                        </div>
-                        <div id='stock-name'>{this.props.currentStock.company_name}</div>
-                        {this.tradeSegment()}
-                        <LineChartContainer
-                            abv={this.props.currentStock.NYSE_abv}
-                            current_price={this.props.currentStock.current_price}
-                            prev_close={this.props.currentStock.previous_close}
-                            annot={this.props.currentStock.previous_close}
-                        />
-                        {this.portfolioValue()}
-                        <About
-                            abv={this.props.currentStock.NYSE_abv}
-                            description={this.props.currentStock.comp_description}
-                        />
-                        <NewsContainer
-                            abv={this.props.currentStock.NYSE_abv}
-                        />
-                    </div>
-                </div>
+        const stock = this.props.currentStock
+        console.log(stock)
+        const portfolio = this.props.currentPortfolio
+        if (!stock || !portfolio){
+            return (
+                <div>Loading Stock...</div>
             )
+        } else {
+            if (this.state.redirect && this.state.redirect != `/${this.props.currentStock.NYSE_abv}`) {
+                return <Redirect to={this.state.redirect}/>
+            } else {
+                return(
+                    <div className='setting'>
+                            <div className="topnav">
+                                <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
+                                <div className='search-bar'>
+                                    <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } placeholder="Search For A Stock" autoComplete='off'></input>
+                                    { this.renderTickers() }
+                                </div>
+                                <ul className='nav-dash-links'>
+                                    <btn className='dash-links' onClick={this.sendToDB}>Portfolio</btn>
+                                    <btn className='dash-links'>Account</btn>
+                                    <btn className='dash-links' onClick={this.signout}>Log Out</btn>
+                                </ul>
+                            </div>
+                        <div className='page'>
+                            <div className='spacer'>
+                            </div>
+                            <div id='stock-name'>{this.props.currentStock.company_name}</div>
+                            {this.tradeSegment()}
+                            <LineChartContainer
+                                abv={this.props.currentStock.NYSE_abv}
+                                current_price={this.props.currentStock.current_price}
+                                prev_close={this.props.currentStock.previous_close}
+                                annot={this.props.currentStock.previous_close}
+                            />
+                            {this.portfolioValue()}
+                            <About
+                                abv={this.props.currentStock.NYSE_abv}
+                                description={this.props.currentStock.comp_description}
+                            />
+                            <NewsContainer
+                                abv={this.props.currentStock.NYSE_abv}
+                            />
+                        </div>
+                    </div>
+                )
+            }
         }
     }
 
