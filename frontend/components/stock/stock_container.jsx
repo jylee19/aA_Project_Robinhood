@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { showStock, buyStock, sellStock } from '../../actions/stock_actions'
+import { showPortfolio } from '../../actions/portfolio_actions';
 import Stock from './stock'
 
 
@@ -15,7 +16,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         showStock: (stock) => dispatch(showStock(stock)),
         buyStock: (stock) => dispatch(buyStock(stock)),
-        sellStock: (stock) => dispatch(sellStock(stock))
+        sellStock: (stock) => dispatch(sellStock(stock)),
+        showPortfolio: portfolioId => dispatch(showPortfolio(portfolioId))
     }
 }
 

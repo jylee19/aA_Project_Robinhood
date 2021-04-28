@@ -13,6 +13,7 @@ class Api::StocksController < ApplicationController
             @stock.previous_close = Stock.get_close(@stock.NYSE_abv)
             @stock.company_name = Stock.get_name(@stock.NYSE_abv)
             @stock.comp_description = Stock.get_description(@stock.NYSE_abv)
+            @stock.purchase_price = @stock.current_price
             @stock.save!
             @portfolio.funds = @portfolio.funds - (@stock.current_price * @stock.number)
             Portfolio.update(@portfolio.id, funds: @portfolio.funds)
@@ -23,7 +24,8 @@ class Api::StocksController < ApplicationController
             new_value = @stock.value + (holder.current_price * holder.number)
             new_number = @stock.number + holder.number
             avg_cost = (new_value) / (new_number)
-            Stock.update(@stock.id, purchase_price: avg_cost, value: new_value, number: new_number)
+            current_price = holder.current_price
+            Stock.update(@stock.id, purchase_price: avg_cost, value: new_value, number: new_number, current_price: current_price)
             @portfolio.funds = @portfolio.funds - (holder.current_price * holder.number)
             num_stocks = @portfolio.num_stocks + holder.number
             Portfolio.update(@portfolio.id, funds: @portfolio.funds, num_stocks: num_stocks)
@@ -63,13 +65,14 @@ class Api::StocksController < ApplicationController
     # Stock page
     def show
         @stock = Stock.find_by(NYSE_abv: params[:stock][:NYSE_abv], portfolio_id: params[:stock][:portfolio_id])
-        # puts @stock.nil?
         if @stock.nil?
             @stock = Stock.new(stock_params)
             @stock.current_price = Stock.stock_price(@stock.NYSE_abv)
-            @stock.comp_description = Stock.get_description(@stock.NYSE_abv)
+            description = Stock.get_description(@stock.NYSE_abv)
+            puts description
+            @stock.comp_description = description.description
             @stock.previous_close = Stock.get_close(@stock.NYSE_abv)
-            @stock.company_name = Stock.get_name(@stock.NYSE_abv)
+            @stock.company_name = description.company_name
             render :show
         else
             @stock.current_price = Stock.stock_price(@stock.NYSE_abv)

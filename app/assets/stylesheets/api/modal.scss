@@ -1,0 +1,97 @@
+ .modal-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+ }
+
+ .modal-child {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    min-height: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    align-items: center;
+    justify-items: center;
+    display: flex;
+ }
+
+ .modal-form {
+    background: #1e1e1e;
+    padding: 24px 36px;
+    height: 430px;
+    width: 400px;
+    margin: 0;
+    border-radius: 15px;
+    color: #d2d2d2;
+ }
+
+ .modal-form form {
+    margin: 0;
+ }
+
+ .modal-form #squad-name {
+    margin-left: 0px;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    padding: 20px 0 20px 0;
+ }
+
+ #modal-text {
+    text-indent: none;
+    min-height: 280px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 19px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color:#272727;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    resize: none;
+ }
+
+ #modal-text:focus {
+    border: 2px solid rgb(174, 37, 37);
+    background: rgb(58,58,58);
+ }
+ 
+ #modal-title{
+    font-size: 18px;
+    margin: 0 auto 10px auto;
+ }
+
+ #modal-text:active,
+ #modal-text:focus{
+   outline: none;
+ }
+
+#modal-btn{
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 6px 8px;
+    border-radius: 10px;
+    margin: 6px 0;
+    background: #3a3a3a;
+    color: #d2d2d2;
+    text-align: center;
+    width: 100%;
+    min-width: 90px;
+    outline: none;
+    border-style: none;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#modal-btn:hover{
+    background: #303030;
+    cursor: pointer;
+}

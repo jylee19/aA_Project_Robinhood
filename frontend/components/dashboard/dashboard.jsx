@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect, withRouter } from 'react-router';
 import GeneralNews from './general_news';
-import PortfolioChartContainer from './portfolio_chart_container'
+import PortfolioChartContainer from './portfolio_chart_container';
+import TrackerContainer from './tracker_container';
 
 
 class Dashboard extends React.Component {
@@ -91,7 +92,7 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount(){
-        this.props.showPortfolio(this.state.portfolio_id)
+        this.props.showPortfolio(this.props.currentUser.id)
     }
 
     createChart(){
@@ -114,46 +115,61 @@ class Dashboard extends React.Component {
     }
 
     render(){
-        console.log(this.state.redirect)
-        if(this.state.redirect) {
-            return <Redirect to={this.state.redirect}/> 
-        } else {
+        const portfolio = this.props.currentPortfolio
+        if(!portfolio){
             return(
-                <div className='setting'>
-                        <div className="topnav">
-                            <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
-                            {/* <SearchBar /> */}
-                            <div className='search-bar'>
-                                <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } placeholder="Search For A Stock" autoComplete='off'></input>
-                                { this.renderTickers() }
-                            </div>
-                            {/* <Select options={this.state.tickers} onChange={this.handleSearch} placeholder="Search" openMenuOnClick={false} /> */}
-                            <ul className='nav-dash-links'>
-                                <div className='dash-links'>Portfolio</div>
-                                <btn className='dash-links'>Account</btn>
-                                <btn className='dash-links' onClick={this.signout}>Log Out</btn>
-                            </ul>
-        
-                        </div>
-                    <div className='db-page'>
-                        <div className='spacer'>
-                        </div>
-
-                        <div className='db-container'>
-                            {this.createChart()}
-                            <div className='buying-power'>
-                                <div id='bp'>Buying Power</div>
-                                <div id='liquidity' >${(this.props.currentPortfolio.funds).toFixed(2)}</div>
-                            </div>
-                            <GeneralNews/>
-
-
-                            <Link className="btn" to={`/users/${this.state.id}/edit`}>Change User Information</Link>
+                <div>Loading Portfolio...</div>
+            )
+        } else {
+            if(this.state.redirect) {
+                return <Redirect to={this.state.redirect}/> 
+            } else {
+                return(
+                    <div className='setting'>
+                            <div className="topnav">
+                                <img className="logo-dashboard" src={window.logo} alt="cannot display"/>
+                                {/* <SearchBar /> */}
+                                <div className='search-bar'>
+                                    <input id='dashboard-search-nav' type="text" onChange={ this.handleSearch } placeholder="Search For A Stock" autoComplete='off'></input>
+                                    { this.renderTickers() }
+                                </div>
+                                {/* <Select options={this.state.tickers} onChange={this.handleSearch} placeholder="Search" openMenuOnClick={false} /> */}
+                                <ul className='nav-dash-links'>
+                                    <div className='dash-links'>Portfolio</div>
+                                    <btn className='dash-links'>Account</btn>
+                                    <btn className='dash-links' onClick={this.signout}>Log Out</btn>
+                                </ul>
             
+                            </div>
+                        <div className='db-page'>
+                            <div className='spacer'>
+                            </div>
+                            <div className='tracker'>
+                                <div className='tracker-title'>Stocks</div>
+                                {this.props.currentPortfolio.assets_owned.map((stock, i) => 
+                                    <TrackerContainer 
+                                        asset={stock}
+                                        portfolio_id={this.props.currentPortfolio.id}
+                                    />                                
+                                )}
+
+                            </div>
+                            <div className='db-container'>
+                                {this.createChart()}
+                                <div className='buying-power'>
+                                    <div id='bp'>Buying Power</div>
+                                    <div id='liquidity' >${(this.props.currentPortfolio.funds).toFixed(2)}</div>
+                                </div>
+                                <GeneralNews/>
+    
+    
+                                <Link className="btn" to={`/users/${this.state.id}/edit`}>Change User Information</Link>
+                
+                            </div>
                         </div>
                     </div>
-                </div>
-            )
+                )
+            }
         }
 
     }

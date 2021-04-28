@@ -17,17 +17,5 @@ const Protected = ({ loggedin, id, path, component: Component }) => (
     <Route path={path} render={props => ((!loggedin) ? <Redirect to={`/login`} /> : <Component {...props} />)} />
 )
 
-// const Protected = ({ component: Component, loggedIn, ...rest }) => (
-//   <Route
-//     {...rest}
-//     render={props =>
-//       loggedIn ? (
-//         <Component {...props} />
-//       ) : (
-//         <Redirect to="/login" />
-//       )
-//     }
-//   />
-// );
 
 export const ProtectedRoute = withRouter(connect(mSTP)(Protected));

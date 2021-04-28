@@ -16,7 +16,6 @@ class Api::PortfoliosController < ApplicationController
     def show
         @portfolio = Portfolio.find(params[:id])
         stocks = Stock.where(portfolio_id: params[:id]);
-        puts stocks
         value = 0
         prev_close = 0
         graph_data = [];
@@ -28,7 +27,7 @@ class Api::PortfoliosController < ApplicationController
         prev_close = prev_close.round(2)
         @portfolio.value = value + @portfolio.funds
         @portfolio.prev_close = prev_close + @portfolio.funds
-        data = nil;
+        data = nil
         stocks.each do |stock|
             graph_data = Portfolio.get_price(stock.NYSE_abv, stock.number)
             if data.nil? 
@@ -39,7 +38,14 @@ class Api::PortfoliosController < ApplicationController
                 end
             end
         end
-        @portfolio.graph_data = data;
+        assets = []
+        holder = []
+        stocks.each do |stock|
+            holder = [stock.NYSE_abv, stock.current_price, stock.previous_close, stock.number]
+            assets.push(holder)
+        end
+        @portfolio.assets_owned = assets
+        @portfolio.graph_data = data
         @portfolio.save!
         render :show
     end

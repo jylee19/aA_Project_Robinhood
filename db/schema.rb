@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_26_202722) do
+ActiveRecord::Schema.define(version: 2021_04_28_045736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2021_04_26_202722) do
     t.float "funds"
     t.float "prev_close"
     t.string "graph_data", default: [], array: true
+    t.string "assets_owned", default: [], array: true
     t.index ["user_id"], name: "index_portfolios_on_user_id", unique: true
   end
 

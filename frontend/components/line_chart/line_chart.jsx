@@ -109,21 +109,22 @@ class LineChart extends Component{
     }
 
     convertPromise(d){
-        console.log(d)
         let arr = [];
         let dates = [];
+        let holder;
         d.map((time, i) => { 
-            // console.log(time.average);
-            arr.push(time.average.toFixed(2))
+            if(time.average){
+                arr.push(time.average.toFixed(2))
+            } else {
+                holder = arr[arr.length - 1]
+                arr.push(holder)
+            }
             dates.push(time.label)
         })
-        console.log(this.props.current_price)
         if(this.props.current_price != null){
             arr.push(this.props.current_price.toFixed(2))
             dates.push(this.getCurrentTime())
         }
-        // console.log(arr);
-        console.log(dates)
         this.setState({ data: arr, dates: dates, getData: true })
     }
     
@@ -133,7 +134,6 @@ class LineChart extends Component{
             this.getData();
 
         }
-        // console.log(this.props.annot)
         let options = {
             maintainAspectRatio: false,
             legend: {

@@ -10,8 +10,8 @@ class Stock < ApplicationRecord
         publishable_token: 'Tpk_8ecd293d171f48c793e2a1435a284f9c',
         endpoint: 'https://sandbox.iexapis.com/stable'
         )
-        quote = client.quote(symbol)
-        quote.latest_price;
+        quote = client.price(symbol)
+        quote
     end
 
     def self.get_description(symbol)
@@ -21,7 +21,7 @@ class Stock < ApplicationRecord
         )
 
         description = client.company(symbol);
-        description.description;
+        description
 
     end
 
@@ -38,7 +38,7 @@ class Stock < ApplicationRecord
 
     def self.get_close(symbol)
         client = Avantage::Client.new('JLIBEKIH4Z1YQDP1')
-        stock = client.get(:global_quote, symbol: 'AAPL')
+        stock = client.get(:global_quote, symbol: symbol)
         stock["Global Quote"]["08. previous close"]
     end
         
