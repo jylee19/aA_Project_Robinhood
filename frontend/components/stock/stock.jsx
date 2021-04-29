@@ -230,6 +230,12 @@ class Stock extends Component {
         }
 
         this.props.buyStock(stock)
+        const refresh = {
+            NYSE_abv: this.props.currentStock.NYSE_abv,
+            portfolio_id: this.props.userID
+        }
+        let number = this.state.number + stock.number
+        // this.props.showStock(refresh).then(this.setState({number: number}))
         window.location.reload();
     }
 
@@ -271,9 +277,10 @@ class Stock extends Component {
     componentDidMount(){
         
         const stock = {
-            NYSE_abv: this.props.currentStock.NYSE_abv,
+            NYSE_abv: this.props.match.params.stock,
             portfolio_id: this.props.userID
         }
+        
         this.props.showStock(stock)
         this.props.showPortfolio(this.props.userID)
         // setInterval(() => this.refreshData(), 10000)
@@ -400,6 +407,7 @@ class Stock extends Component {
     }
 
     render () {
+        console.log(this.props.match.params)
         const stock = this.props.currentStock
         console.log(stock)
         const portfolio = this.props.currentPortfolio

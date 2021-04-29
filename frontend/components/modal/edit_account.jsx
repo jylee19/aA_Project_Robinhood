@@ -29,7 +29,7 @@ class EditAccount extends React.Component {
             this.props.action(this.state)
         }
         
-        this.props.closeModal();
+        this.props.closeModal().then(this.props.showPortfolio(this.state.id))
     }
 
     update(field){
