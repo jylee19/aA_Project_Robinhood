@@ -124,10 +124,7 @@ class PortfolioChart extends Component{
                 intersect: false,
                 position: 'nearest',
                 axis: 'x',
-                caretPadding: 20,
-                displayColors: false,
-                titleColor: 'rgb(64,73,77)',
-                bodyColor: 'rgb(64,73,77)'
+                displayColors: false
             },
             // interaction: {
             //     mode: 'nearest',

@@ -5,8 +5,6 @@ export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const SET_PORTFOLIO_ID = 'SET_PORTFOLIO_ID';
 
 const receiveCurrentUser = (payload) => {
-    // console.log(user)
-    // Below is an action
     return {
         type: RECEIVE_CURRENT_USER,
         payload
