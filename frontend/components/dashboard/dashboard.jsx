@@ -28,6 +28,7 @@ class Dashboard extends React.Component {
         this.renderTickers = this.renderTickers.bind(this);
         this.redirectStock = this.redirectStock.bind(this);
         this.createChart = this.createChart.bind(this);
+        this.tracker = this.tracker.bind(this)
     }
 
     signout(e){
@@ -114,6 +115,36 @@ class Dashboard extends React.Component {
         }
     }
 
+    tracker(){
+        if(this.props.currentPortfolio.assets_owned){
+            if(this.props.currentPortfolio.assets_owned.length != 0){
+                return(
+                    <div id='subtracker'>
+                        {this.props.currentPortfolio.assets_owned.map((stock, i) => 
+                            <TrackerContainer 
+                                asset={stock}
+                                portfolio_id={this.props.currentPortfolio.id}
+                            />                                
+                        )}
+                    </div>
+                )
+            } else {
+                return(
+                    <div id='tracker-holder'>
+                        Purchase stocks to keep track of them
+                    </div>
+                )
+            }
+        } else {
+            return(
+                    <div id='tracker-holder'>
+                        Purchase stocks to keep track of them
+                    </div>
+            )  
+        }
+
+    }
+
     render(){
         const portfolio = this.props.currentPortfolio
         if(!portfolio){
@@ -135,8 +166,7 @@ class Dashboard extends React.Component {
                                 </div>
                                 {/* <Select options={this.state.tickers} onChange={this.handleSearch} placeholder="Search" openMenuOnClick={false} /> */}
                                 <ul className='nav-dash-links'>
-                                    <div className='dash-links'>Portfolio</div>
-                                    <btn className='dash-links'>Account</btn>
+                                    {this.props.otherForm}
                                     <btn className='dash-links' onClick={this.signout}>Log Out</btn>
                                 </ul>
             
@@ -146,13 +176,7 @@ class Dashboard extends React.Component {
                             </div>
                             <div className='tracker'>
                                 <div className='tracker-title'>Stocks</div>
-                                {this.props.currentPortfolio.assets_owned.map((stock, i) => 
-                                    <TrackerContainer 
-                                        asset={stock}
-                                        portfolio_id={this.props.currentPortfolio.id}
-                                    />                                
-                                )}
-
+                                {this.tracker()}
                             </div>
                             <div className='db-container'>
                                 {this.createChart()}
@@ -161,10 +185,6 @@ class Dashboard extends React.Component {
                                     <div id='liquidity' >${(this.props.currentPortfolio.funds).toFixed(2)}</div>
                                 </div>
                                 <GeneralNews/>
-    
-    
-                                <Link className="btn" to={`/users/${this.state.id}/edit`}>Change User Information</Link>
-                
                             </div>
                         </div>
                     </div>

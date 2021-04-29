@@ -421,7 +421,6 @@ class Stock extends Component {
                                 </div>
                                 <ul className='nav-dash-links'>
                                     <btn className='dash-links' onClick={this.sendToDB}>Portfolio</btn>
-                                    <btn className='dash-links'>Account</btn>
                                     <btn className='dash-links' onClick={this.signout}>Log Out</btn>
                                 </ul>
                             </div>

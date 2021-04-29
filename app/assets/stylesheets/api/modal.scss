@@ -21,26 +21,21 @@
  }
 
  .modal-form {
-    background: #1e1e1e;
-    padding: 24px 36px;
-    height: 430px;
-    width: 400px;
-    margin: 0;
-    border-radius: 15px;
-    color: #d2d2d2;
+   background: #1e1e1e;
+   padding: 24px 36px;
+   height: 380px;
+   width: 400px;
+   margin: 0;
+   border-radius: 15px;
+   color: #d2d2d2;
+   display: flex;
+   flex-direction: column;
  }
 
  .modal-form form {
     margin: 0;
  }
 
- .modal-form #squad-name {
-    margin-left: 0px;
-    font-size: 20px;
-    font-weight: normal;
-    text-align: center;
-    padding: 20px 0 20px 0;
- }
 
  #modal-text {
     text-indent: none;
@@ -94,4 +89,31 @@
 #modal-btn:hover{
     background: #303030;
     cursor: pointer;
+}
+
+#modal-deny{
+   line-height: 200px;
+}
+
+.modal-form-deny{
+   background: #1e1e1e;
+   padding: 24px 36px;
+   height: 200px;
+   width: 400px;
+   margin: 0;
+   border-radius: 15px;
+   color: #d2d2d2;
+   text-align: center;
+   font-weight: bold;
+}
+
+.modal-box{
+   display: flex;
+   flex-direction: column;
+}
+
+#modal-edit-title{
+   font-size: 20px;
+   font-weight: bold;
+   margin-bottom: 30px;
 }
