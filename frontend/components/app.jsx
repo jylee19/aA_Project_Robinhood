@@ -10,9 +10,11 @@ import demoContainer from './demo/demo_container';
 import editUserContainer from './session/edit_form_container';
 import dashboardContainer from './dashboard/dashboard_container';
 import stockContainer from './stock/stock_container';
+import Modal from './modal/modal';
 
 const App = () => (
   <div>
+    <Modal />
     <Switch>
       <AuthRoute exact path="/" component={HomeContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />

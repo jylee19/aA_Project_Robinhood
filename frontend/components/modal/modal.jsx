@@ -1,16 +1,16 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import './modal.css'
+import EditAccountContainer from './edit_account_container'
 
 function Modal({modal, closeModal}) {
   if (!modal) {
     return null;
   }
   let component;
-  switch (modal.word) {
+  switch (modal.modal) {
     case 'edit':
-      component = <RequestMessageContainer />;
+      component = <EditAccountContainer />;
       break;
     default:
       return null;
