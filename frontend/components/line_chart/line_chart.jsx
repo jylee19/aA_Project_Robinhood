@@ -36,11 +36,14 @@ class LineChart extends Component{
                 const x = activePoint.tooltipPosition().x;
                 const topY = chart.scales['y-axis-0'].top;
                 const bottomY = chart.scales['y-axis-0'].bottom;
+                let idx = chart.tooltip._active[0]._index
+                let time = chart.tooltip._data.labels[idx]
+                // let price = chart.tooltip._data.datasets[0].data[idx]
                 ctx.save();
                 ctx.beginPath();
                 ctx.moveTo(x, topY + 20);
                 ctx.lineTo(x, bottomY);
-                ctx.fillText('Test', x - 15 , 10);
+                ctx.fillText(time, x - 15 , 10);
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = '#40494e';
                 ctx.stroke();
@@ -48,7 +51,9 @@ class LineChart extends Component{
             }
         }
         });
+
     }
+
 
     calculateDifference(){
         let difference = 0;
@@ -94,11 +99,14 @@ class LineChart extends Component{
     }
 
     getCurrentTime(){
-        let d = new Date();
-        let hours = d.getHours();
-        let minutes = d.getMinutes();
+        let est = new Date().toLocaleString("en-US", {timeZone: "America/New_York", hour12: false})
+        let hours_s = est[11] + est[12]
+        let minutes_s = est[14]+ est[15]
+        let hours = parseInt(hours_s)
+        let minutes = parseInt(minutes_s)
         let time = ''
         if ((hours >= 12) && (hours < 16)){
+            hours = hours - 12;
             time = `${hours}:${minutes} PM`
         } else if ((hours >= 16) || ((hours <= 9) && (minutes < 30))) {
             time = '4:00 PM'
@@ -172,7 +180,8 @@ class LineChart extends Component{
                 caretPadding: 20,
                 displayColors: false,
                 titleColor: 'rgb(64,73,77)',
-                bodyColor: 'rgb(64,73,77)'
+                bodyColor: 'rgb(64,73,77)',
+                useHTML: true
             },
             // interaction: {
             //     mode: 'nearest',
@@ -191,7 +200,7 @@ class LineChart extends Component{
             <div id='line-chart'>
                 <div id='stock-price'>${this.props.current_price}</div>
                 {this.calculateDifference()}
-                <div>
+                <div id='line-container'>
                     <Line
                         data={{
                             labels: this.state.dates,

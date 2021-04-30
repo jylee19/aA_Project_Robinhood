@@ -5,7 +5,8 @@ import NewsContainer from './news_container';
 import LineChartContainer from '../line_chart/line_chart_container';
 import StockPortfolioValue from './stock_portfolio_value';
 import About from './about';
-import { id } from 'chartjs-plugin-annotation';
+import { css } from "@emotion/react";
+import FadeLoader from "react-spinners/FadeLoader";
 
 class Stock extends Component {
 
@@ -78,7 +79,6 @@ class Stock extends Component {
 
     setMethod(e){
         let method = e.target.value;
-        console.log(method);
         this.setState({method: method})
     }
     
@@ -159,7 +159,7 @@ class Stock extends Component {
                 </div>
             )
         } else {
-            let currentValue = this.props.currentStock.current_price * this.props.currentStock.number.toFixed(2);
+            let currentValue = (this.props.currentStock.current_price * this.props.currentStock.number).toFixed(2);
             return(
                 <div id='sell-available'>
                     ${currentValue} Available
@@ -182,7 +182,6 @@ class Stock extends Component {
     }
 
     ownStock(){
-        // console.log(this.props.currentStock)
         if (this.props.currentStock.number != null){
             return (
             <div>
@@ -230,12 +229,6 @@ class Stock extends Component {
         }
 
         this.props.buyStock(stock)
-        const refresh = {
-            NYSE_abv: this.props.currentStock.NYSE_abv,
-            portfolio_id: this.props.userID
-        }
-        let number = this.state.number + stock.number
-        // this.props.showStock(refresh).then(this.setState({number: number}))
         window.location.reload();
     }
 
@@ -262,7 +255,7 @@ class Stock extends Component {
         }
         
         this.props.sellStock(stock)
-        // window.location.reload();
+        window.location.reload();
     }
 
     reviewOrder(){
@@ -280,7 +273,6 @@ class Stock extends Component {
             NYSE_abv: this.props.match.params.stock,
             portfolio_id: this.props.userID
         }
-        
         this.props.showStock(stock)
         this.props.showPortfolio(this.props.userID)
         // setInterval(() => this.refreshData(), 10000)
@@ -289,9 +281,6 @@ class Stock extends Component {
     refreshData(){
         // debugger
         if (this.props.currentStock.NYSE_abv !== undefined){
-            console.log(this.props.currentStock)
-            console.log(this.props.currentStock.NYSE_abv);
-            console.log(this.props.currentPortfolio.id)
             let stock = {
                 NYSE_abv: this.props.currentStock.NYSE_abv,
                 portfolio_id: this.props.currentPortfolio.id
@@ -301,7 +290,6 @@ class Stock extends Component {
     }
 
     renderTickers(){
-        // console.log(this.state.tickers)
         if (this.state.tickers.length != 0 && this.state.abv != null){
             return(
                 <div className = 'search-bar-tickers'>
@@ -322,6 +310,7 @@ class Stock extends Component {
         }
         this.props.showStock(stock);
         this.setState({ redirect: `/stocks/${this.state.abv}` })
+        // this.props.history.push(`/stocks/${this.state.abv}`)
     }
 
     redirectStock(e){
@@ -330,7 +319,8 @@ class Stock extends Component {
             portfolio_id: this.props.currentPortfolio.id
         }
         this.props.showStock(stock)
-        this.setState({redirect: `/stocks/${stock.NYSE_abv}`})
+        this.props.history.push(`/stocks/${e.target.getAttribute('data-arg1')}`)
+        // this.setState({redirect: `/stocks/${stock.NYSE_abv}`})
     }
 
     convertPromise(p){
@@ -343,17 +333,13 @@ class Stock extends Component {
             this.setState({ abv: null })
         } else {
             this.setState({ abv: e.target.value })
-            // console.log(e.target.value)
             fetch(`https://cors-container.herokuapp.com/https://ticker-2e1ica8b9.now.sh//keyword/${e.target.value}`)
                 .then(results => {
-                    // console.log("here")
                     return results.json();
-                    // this.convertPromise(results.json());
                 })
                 .then(data =>{
                     this.convertPromise(data);
                 })
-            // console.log(this.state.tickers);
         }
     }
 
@@ -407,16 +393,37 @@ class Stock extends Component {
     }
 
     render () {
-        console.log(this.props.match.params)
         const stock = this.props.currentStock
-        console.log(stock)
         const portfolio = this.props.currentPortfolio
-        if (!stock || !portfolio){
+        if (!stock){
             return (
-                <div>Loading Stock...</div>
+                <div className='setting-loader'>
+                    <FadeLoader
+                        color={"#00c805"}
+                        loading={true}
+                        height={15}
+                        width={5}
+                        radius={2}
+                        margin={2}
+                    />
+                </div>
+            )
+        } else if(!portfolio){
+            return(
+                <div className='setting-loader'>
+                    <FadeLoader
+                        color={"#00c805"}
+                        loading={true}
+                        height={15}
+                        width={5}
+                        radius={2}
+                        margin={2}
+                    />
+                </div>   
             )
         } else {
             if (this.state.redirect && this.state.redirect != `/${this.props.currentStock.NYSE_abv}`) {
+
                 return <Redirect to={this.state.redirect}/>
             } else {
                 return(

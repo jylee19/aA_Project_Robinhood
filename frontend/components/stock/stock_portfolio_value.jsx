@@ -9,7 +9,7 @@ class StockPortfolioValue extends Component{
     }
 
     checkReturn(){
-        let difference = (this.props.currentPrice - this.props.prevClose).toFixed(2) * this.props.numShares;
+        let difference = ((this.props.currentPrice - this.props.prevClose) * this.props.numShares).toFixed(2);
         let percentageChange = ((difference / (this.props.prevClose * this.props.numShares)) * 100).toFixed(2);
         if (difference >= 0){
             return(
@@ -60,7 +60,7 @@ class StockPortfolioValue extends Component{
                 <div className='spv-box'>
                     <div id='help-center-spv'>
                             <p id='spv-box-title'>Your Market Value</p>
-                            <div id='spv-money'>${this.props.currentValue}</div>
+                            <div id='spv-money'>${(this.props.currentValue).toFixed(2)}</div>
                         <div id='spv-container'> 
                             <p>Cost</p>
                             <div>${this.props.cost}</div>

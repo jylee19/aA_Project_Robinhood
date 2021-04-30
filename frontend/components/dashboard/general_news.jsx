@@ -57,7 +57,7 @@ class GeneralNews extends Component{
             this.getNews();
         }
         return(
-            <div>
+            <div className='setting-news'>
                 <div id='stock-news'>
                     News
                 </div>

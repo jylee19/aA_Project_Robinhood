@@ -20,7 +20,7 @@ class Tracker extends React.Component{
 
     redirectStock(e){
         let stock = {
-            NYSE_abv: e.target.getAttribute('data-arg1'),
+            NYSE_abv: this.state.asset,
             portfolio_id: this.props.portfolio_id
         }
         this.props.showStock(stock)
@@ -66,7 +66,7 @@ class Tracker extends React.Component{
         let holder = this.state.current_price
         let polished = parseFloat(holder).toFixed(2)
         return(
-            <button className='container-assets' onClick={this.redirectStock} data-arg1={this.state.asset}>
+            <button className='container-assets' onClick={this.redirectStock}>
                 <div className='left-side-tracker'>
                     <p id='container-asset-name'>{this.state.asset}</p>
                     {this.properGrammer()}

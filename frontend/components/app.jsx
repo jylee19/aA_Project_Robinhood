@@ -6,7 +6,6 @@ import { PersistGate } from 'redux-persist/integration/react';
 import HomeContainer from './home/home_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
-import demoContainer from './demo/demo_container';
 import editUserContainer from './session/edit_form_container';
 import dashboardContainer from './dashboard/dashboard_container';
 import stockContainer from './stock/stock_container';
@@ -19,7 +18,6 @@ const App = () => (
       <AuthRoute exact path="/" component={HomeContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <ProtectedRoute exact path ="/demo" component={demoContainer} />
       <ProtectedRoute exact path="/users/:userId/edit" component={editUserContainer} />
       <ProtectedRoute exact path="/users" component={dashboardContainer} />
       <ProtectedRoute exact path="/stocks/:stock" component={stockContainer} />
