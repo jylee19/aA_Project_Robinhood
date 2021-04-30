@@ -5,7 +5,6 @@ import NewsContainer from './news_container';
 import LineChartContainer from '../line_chart/line_chart_container';
 import StockPortfolioValue from './stock_portfolio_value';
 import About from './about';
-import { css } from "@emotion/react";
 import FadeLoader from "react-spinners/FadeLoader";
 
 class Stock extends Component {

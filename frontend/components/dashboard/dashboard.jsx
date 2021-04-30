@@ -4,7 +4,6 @@ import { Redirect, withRouter } from 'react-router';
 import GeneralNews from './general_news';
 import PortfolioChartContainer from './portfolio_chart_container';
 import TrackerContainer from './tracker_container';
-import { css } from "@emotion/react";
 import FadeLoader from "react-spinners/FadeLoader";
 
 
