@@ -1,7 +1,12 @@
 #line-chart{
     width: 710px;
+    overflow: visible !important;
 }
 
 .day-change{
     margin-bottom: 10px;
+}
+
+#line-container{
+    overflow: visible !important;
 }

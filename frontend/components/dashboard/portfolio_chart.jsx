@@ -72,11 +72,14 @@ class PortfolioChart extends Component{
     }
 
     getCurrentTime(){
-        let d = new Date();
-        let hours = d.getHours();
-        let minutes = d.getMinutes();
+        let est = new Date().toLocaleString("en-US", {timeZone: "America/New_York", hour12: false})
+        let hours_s = est[11] + est[12]
+        let minutes_s = est[14]+ est[15]
+        let hours = parseInt(hours_s)
+        let minutes = parseInt(minutes_s)
         let time = ''
         if ((hours >= 12) && (hours < 16)){
+            hours = hours - 12;
             time = `${hours}:${minutes} PM`
         } else if ((hours >= 16) || ((hours <= 9) && (minutes < 30))) {
             time = '4:00 PM'
@@ -124,7 +127,8 @@ class PortfolioChart extends Component{
                 intersect: false,
                 position: 'nearest',
                 axis: 'x',
-                displayColors: false
+                displayColors: false,
+                useHTML: true
             },
             // interaction: {
             //     mode: 'nearest',
@@ -156,7 +160,7 @@ class PortfolioChart extends Component{
             <div id='line-chart'>
                 <div id='stock-price'>${this.props.value.toFixed(2)}</div>
                 {this.calculateDifference()}
-                <div>
+                <div id='line-container'>
                     <Line
                         data={{
                             labels: dates,

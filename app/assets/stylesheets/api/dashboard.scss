@@ -132,6 +132,10 @@
     cursor: pointer;
 }
 
+.search-btn:active{
+    outline: none;
+}
+
 #dashboard-search-nav:active,
 #dashboard-search-nav:focus{
     outline: none;
@@ -181,10 +185,9 @@
 
 .db-page{
     background-color: #000000;
-    // height: 100%;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-left: 150px;
+    padding-left: 150px;
 }
 
 .db-container{

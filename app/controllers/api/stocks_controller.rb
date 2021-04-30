@@ -11,8 +11,9 @@ class Api::StocksController < ApplicationController
             @stock = Stock.new(stock_params)
             @stock.value = @stock.current_price * @stock.number
             @stock.previous_close = Stock.get_close(@stock.NYSE_abv)
-            @stock.company_name = Stock.get_name(@stock.NYSE_abv)
-            @stock.comp_description = Stock.get_description(@stock.NYSE_abv)
+            desc = Stock.get_description(@stock.NYSE_abv)
+            @stock.company_name = desc.company_name
+            @stock.comp_description = desc.description
             @stock.purchase_price = @stock.current_price
             @stock.save!
             @portfolio.funds = @portfolio.funds - (@stock.current_price * @stock.number)
@@ -68,11 +69,10 @@ class Api::StocksController < ApplicationController
         if @stock.nil?
             @stock = Stock.new(stock_params)
             @stock.current_price = Stock.stock_price(@stock.NYSE_abv)
-            description = Stock.get_description(@stock.NYSE_abv)
-            puts description
-            @stock.comp_description = description.description
+            desc = Stock.get_description(@stock.NYSE_abv)
+            @stock.comp_description = desc.description
             @stock.previous_close = Stock.get_close(@stock.NYSE_abv)
-            @stock.company_name = description.company_name
+            @stock.company_name = desc.company_name
             render :show
         else
             @stock.current_price = Stock.stock_price(@stock.NYSE_abv)

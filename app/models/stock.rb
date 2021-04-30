@@ -7,8 +7,8 @@ class Stock < ApplicationRecord
 
     def self.stock_price(symbol)
         client = IEX::Api::Client.new(
-        publishable_token: 'Tpk_8ecd293d171f48c793e2a1435a284f9c',
-        endpoint: 'https://sandbox.iexapis.com/stable'
+        publishable_token: 'pk_338de47bba214f5bb31b35bd33a273e8',
+        endpoint: 'https://cloud.iexapis.com/stable'
         )
         quote = client.price(symbol)
         quote
@@ -16,23 +16,12 @@ class Stock < ApplicationRecord
 
     def self.get_description(symbol)
         client = IEX::Api::Client.new(
-        publishable_token: 'Tpk_8ecd293d171f48c793e2a1435a284f9c',
-        endpoint: 'https://sandbox.iexapis.com/stable'
+        publishable_token: 'pk_338de47bba214f5bb31b35bd33a273e8',
+        endpoint: 'https://cloud.iexapis.com/stable'
         )
 
         description = client.company(symbol);
         description
-
-    end
-
-    def self.get_name(symbol)
-        client = IEX::Api::Client.new(
-        publishable_token: 'Tpk_8ecd293d171f48c793e2a1435a284f9c',
-        endpoint: 'https://sandbox.iexapis.com/stable'
-        )
-
-        name = client.company(symbol);
-        name.company_name;
 
     end
 

@@ -64,7 +64,6 @@ class About extends Component{
     
 
     convertPromise(data, n){
-        console.log(data)
         let headquarters;
         let marketcap;
         let mc;

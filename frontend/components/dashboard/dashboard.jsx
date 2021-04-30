@@ -4,6 +4,8 @@ import { Redirect, withRouter } from 'react-router';
 import GeneralNews from './general_news';
 import PortfolioChartContainer from './portfolio_chart_container';
 import TrackerContainer from './tracker_container';
+import { css } from "@emotion/react";
+import FadeLoader from "react-spinners/FadeLoader";
 
 
 class Dashboard extends React.Component {
@@ -15,12 +17,7 @@ class Dashboard extends React.Component {
             abv: null,
             tickers: []
         }
-        // if (this.props.currentUser.portfolio_id === null){
-        //     this.props.makePortfolio(this.state)
-        //     this.props.updatePortfolioId(this.state);
-        // } else {
-        //     this.props.showPortfolio(this.state.id);
-        // }
+
         this.signout = this.signout.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -64,17 +61,13 @@ class Dashboard extends React.Component {
             this.setState({ abv: null })
         } else {
             this.setState({ abv: e.target.value })
-            // console.log(e.target.value)
             fetch(`https://cors-container.herokuapp.com/https://ticker-2e1ica8b9.now.sh//keyword/${e.target.value}`)
                 .then(results => {
-                    // console.log("here")
                     return results.json();
-                    // this.convertPromise(results.json());
                 })
                 .then(data =>{
                     this.convertPromise(data);
                 })
-            // console.log(this.state.tickers);
         }
     }
 
@@ -149,7 +142,16 @@ class Dashboard extends React.Component {
         const portfolio = this.props.currentPortfolio
         if(!portfolio){
             return(
-                <div>Loading Portfolio...</div>
+                <div className='setting-loader'>
+                    <FadeLoader
+                        color={"#00c805"}
+                        loading={true}
+                        height={15}
+                        width={5}
+                        radius={2}
+                        margin={2}
+                    />
+                </div>
             )
         } else {
             if(this.state.redirect) {
