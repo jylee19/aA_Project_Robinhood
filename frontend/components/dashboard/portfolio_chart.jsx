@@ -25,11 +25,13 @@ class PortfolioChart extends Component{
                 const x = activePoint.tooltipPosition().x;
                 const topY = chart.scales['y-axis-0'].top;
                 const bottomY = chart.scales['y-axis-0'].bottom;
+                let idx = chart.tooltip._active[0]._index
+                let time = chart.tooltip._data.labels[idx]
                 ctx.save();
                 ctx.beginPath();
                 ctx.moveTo(x, topY + 20);
                 ctx.lineTo(x, bottomY);
-                ctx.fillText('Test', x - 15 , 10);
+                ctx.fillText(time, x - 15 , 10);
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = '#40494e';
                 ctx.stroke();
