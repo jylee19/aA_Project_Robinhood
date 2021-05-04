@@ -61,6 +61,8 @@ class SignupForm extends React.Component {
                         <ul>
                             {errors}
                         </ul>
+                        <Link id='session-swap' to='/login'>Already have an account? Click here to login!</Link>
+                        <br/>
                         <button id="signup-button">{this.props.formType}</button>
                         </form>
                     </div>
