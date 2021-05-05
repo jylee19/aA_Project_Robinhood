@@ -29,7 +29,7 @@ class SignupForm extends React.Component {
         if (this.props.formType === 'Update User'){
             this.props.action(this.state).then(() => this.setState({ redirect: `/users` }));
         } else{
-            this.props.action(this.state);
+            this.props.action(this.state).then(() => this.setState({ redirect: `/users` }));
         }
 
     }

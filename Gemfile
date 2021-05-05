@@ -52,6 +52,7 @@ gem 'http-accept'
 gem 'http-cookie'
 gem 'alphavantagerb'
 gem 'avantage'
+gem 'rack-cors'
 
 
 group :development, :test do
