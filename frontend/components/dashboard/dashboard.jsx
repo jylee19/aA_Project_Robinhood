@@ -60,7 +60,7 @@ class Dashboard extends React.Component {
             this.setState({ abv: null })
         } else {
             this.setState({ abv: e.target.value })
-            fetch(`https://cors-container.herokuapp.com/https://ticker-2e1ica8b9.now.sh//keyword/${e.target.value}`)
+            fetch(`http://localhost:8080/https://ticker-2e1ica8b9.now.sh//keyword/${e.target.value}`)
                 .then(results => {
                     return results.json();
                 })

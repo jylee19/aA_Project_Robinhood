@@ -14,7 +14,7 @@ class News extends Component{
     }
 
     getNews(){
-        fetch(`https://cors-container.herokuapp.com/https://cloud.iexapis.com/stable/stock/${this.props.currentStockAbv}/news/last?token=pk_338de47bba214f5bb31b35bd33a273e8`)
+        fetch(`http://localhost:8080/https://cloud.iexapis.com/stable/stock/${this.props.currentStockAbv}/news/last?token=pk_338de47bba214f5bb31b35bd33a273e8`)
                 .then(results => {
                     // console.log("here")
                     return results.json();

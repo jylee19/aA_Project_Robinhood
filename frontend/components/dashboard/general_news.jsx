@@ -15,7 +15,7 @@ class GeneralNews extends Component{
     }
 
     getNews(){
-        fetch(`https://cors-container.herokuapp.com/https://newsapi.org/v2/top-headlines?country=us&category=business&pageSize=10&apiKey=1db662cde6224aecb13f139643e6a136`)
+        fetch(`http://localhost:8080/https://newsapi.org/v2/top-headlines?country=us&category=business&pageSize=10&apiKey=1db662cde6224aecb13f139643e6a136`)
             .then(results => {
                 return results.json();
             })

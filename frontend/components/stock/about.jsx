@@ -34,7 +34,7 @@ class About extends Component{
 
     getInfo(){
         if(this.state.gotData1 == false){
-            fetch(`https://cors-container.herokuapp.com/https://cloud.iexapis.com/stable/stock/${this.props.abv}/quote?token=pk_338de47bba214f5bb31b35bd33a273e8`)
+            fetch(`http://localhost:8080/https://cloud.iexapis.com/stable/stock/${this.props.abv}/quote?token=pk_338de47bba214f5bb31b35bd33a273e8`)
                 .then(results => {
                     return results.json();
                 })
@@ -42,7 +42,7 @@ class About extends Component{
                     this.convertPromise(data, 1)
             })
         }else if(this.state.gotData2 == false){
-            fetch(`https://cors-container.herokuapp.com/https://cloud.iexapis.com/stable/stock/${this.props.abv}/company?token=pk_338de47bba214f5bb31b35bd33a273e8`)
+            fetch(`http://localhost:8080/https://cloud.iexapis.com/stable/stock/${this.props.abv}/company?token=pk_338de47bba214f5bb31b35bd33a273e8`)
                 .then(results => {
                     return results.json();
                 })
@@ -51,7 +51,7 @@ class About extends Component{
                 })
 
         } else if(this.state.gotData3 == false){
-                fetch(`https://cors-container.herokuapp.com/https://www.alphavantage.co/query?function=OVERVIEW&symbol=${this.props.abv}&apikey=JLIBEKIH4Z1YQDP1`)
+                fetch(`http://localhost:8080/https://www.alphavantage.co/query?function=OVERVIEW&symbol=${this.props.abv}&apikey=JLIBEKIH4Z1YQDP1`)
                 .then(results => {
                     return results.json();
                 })

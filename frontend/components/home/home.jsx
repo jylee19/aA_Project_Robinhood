@@ -21,13 +21,6 @@ class Home extends Component {
     }
 
 
-    componentDidUpdate(){
-        if(this.props.currentUser === undefined && this.state.username === 'demoUser'){
-            this.props.startDemo(this.state);
-        }
-    }
-
-
     render() {
         if (this.state.redirect) {
             return <Redirect to={this.state.redirect}/>

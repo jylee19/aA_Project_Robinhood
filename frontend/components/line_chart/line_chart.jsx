@@ -88,7 +88,7 @@ class LineChart extends Component{
     }
 
     getData(){
-            fetch(`https://cors-container.herokuapp.com/https://cloud.iexapis.com/stable/stock/${this.props.abv}/intraday-prices/?token=pk_338de47bba214f5bb31b35bd33a273e8&chartInterval=5`)
+            fetch(`http://localhost:8080/https://cloud.iexapis.com/stable/stock/${this.props.abv}/intraday-prices/?token=pk_338de47bba214f5bb31b35bd33a273e8&chartInterval=5`)
             .then(results => {
                 return results.json();
             })

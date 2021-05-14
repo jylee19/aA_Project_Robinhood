@@ -8,6 +8,7 @@
     "babel-loader": "^8.2.2",
     "chart.js": "^2.9.4",
     "chartjs-plugin-annotation": "^0.5.7",
+    "cors-anywhere": "^0.4.4",
     "file-loader": "^6.2.0",
     "image-webpack-loader": "^7.0.1",
     "react": "^17.0.1",
