@@ -6,6 +6,7 @@ class Api::PortfoliosController < ApplicationController
         @portfolio = Portfolio.new(portfolio_params)
         @portfolio.value = 0
         @portfolio.num_stocks = 0
+        @portfolio.prev_close = 10000
         if @portfolio.save!
             render :show
         else
