@@ -6,6 +6,7 @@ import LineChartContainer from '../line_chart/line_chart_container';
 import StockPortfolioValue from './stock_portfolio_value';
 import About from './about';
 import FadeLoader from "react-spinners/FadeLoader";
+import { id } from 'chartjs-plugin-annotation';
 
 class Stock extends Component {
 
@@ -274,7 +275,20 @@ class Stock extends Component {
         }
         this.props.showStock(stock)
         this.props.showPortfolio(this.props.userID)
-        // setInterval(() => this.refreshData(), 10000)
+        // setInterval(() => this.refreshData(), 30000)
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        let current_stock;
+        if(prevProps.match.params.stock !== this.props.match.params.stock){
+            current_stock = {
+                NYSE_abv: this.props.match.params.stock,
+                portfolio_id: this.props.userID
+            }
+            this.props.showStock(current_stock)
+
+        }
+
     }
 
     refreshData(){
